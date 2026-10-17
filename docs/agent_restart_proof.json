@@ -1,0 +1,22 @@
+{
+  "verified": true,
+  "investigation_id": "ef5d74d7-2a19-5f28-a9dd-fce3c22847db",
+  "before_steps": 2,
+  "after_steps": 6,
+  "status": "completed",
+  "automatic_startup_recovery": true,
+  "first_two_runs_unchanged": true,
+  "all_run_attempts": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "shared_memories": 6,
+  "handoffs": 6,
+  "task_count": 7,
+  "real_graph_still_has_potential_path": true,
+  "backend_and_database_process_restart": true
+}

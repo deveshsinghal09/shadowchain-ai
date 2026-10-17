@@ -1,0 +1,52 @@
+{
+  "synthetic": true,
+  "verified": true,
+  "workflow_version": "agents-2026.1",
+  "provider_mode": "mock",
+  "investigation_id": "95d5fd31-aadb-5254-9478-9f254d6de1ba",
+  "event_id": "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4",
+  "status": "completed",
+  "completed_steps": 6,
+  "agent_order": [
+    "cloud_sentinel",
+    "identity_guardian",
+    "risk_oracle",
+    "memory_keeper",
+    "coordinator",
+    "response_architect"
+  ],
+  "run_ids": [
+    "2aa02d4b-ccc7-59c0-8eb5-c2bde0546ad2",
+    "8a55e885-734f-5613-bca0-16074612232c",
+    "c73a35e1-3f5c-541e-8d71-305a4d7638b8",
+    "cf1ff4f6-76cc-58bf-b082-3cdbf035459a",
+    "ee861726-4140-56dc-99eb-7250eb39e453",
+    "dc345fa2-fdd2-5e8f-a772-e14bfb25b4db"
+  ],
+  "completed_step_tasks": 6,
+  "awaiting_review_tasks": 1,
+  "shared_memories": 6,
+  "handoffs": 6,
+  "potential_finding_ids": [
+    "b43ed57a-1330-5703-89e2-19530806bd3b"
+  ],
+  "cross_agent_memory_retrieved": true,
+  "remediation_proposal": {
+    "relationship_id": "9d7f9c9e-70db-56e2-a193-c4396b3ba2a9",
+    "finding_ids": [
+      "b43ed57a-1330-5703-89e2-19530806bd3b"
+    ],
+    "before_paths": 1,
+    "after_paths": 0,
+    "removed_path_ids": [
+      "38ce82be-da67-5169-b878-a791f3518b59"
+    ],
+    "action": "propose_relationship_removal",
+    "simulation_only": true,
+    "execution_allowed": false
+  },
+  "privileged_actions": [],
+  "langgraph_checkpointer": null,
+  "duplicate_trigger_unchanged": true,
+  "reconnect_preserved_state": true
+}

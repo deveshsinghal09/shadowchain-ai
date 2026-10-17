@@ -1,0 +1,65 @@
+{
+  "synthetic": true,
+  "verified_at": "2026-10-16T17:11:23.016807+00:00",
+  "database_restarted": true,
+  "backend_process_started_fresh": true,
+  "recovery_trigger": "startup worker, no resume request",
+  "graph_name": "shadowchain_phase7_verified",
+  "investigation_id": "7c1d2644-f8a6-5154-a388-2a63e0dbfc1c",
+  "workflow_id": "4950e909-6870-5555-9473-cd76b630033a",
+  "handoff_id": "84cb59a7-fb9f-5dc8-9ee1-40c7686faf50",
+  "before": {
+    "case_status": "INVESTIGATING",
+    "workflow_completed_steps": 5,
+    "completed_case_checks": 2,
+    "pending_case_checks": 2
+  },
+  "after": {
+    "case_status": "AWAITING_REVIEW",
+    "workflow_status": "completed",
+    "workflow_completed_steps": 6,
+    "completed_case_checks": 4,
+    "pending_case_checks": 0
+  },
+  "agent_a_task_ids": [
+    "00f6a8cb-9be9-57dd-a48f-79f92d05b8d7",
+    "99d7c7f3-8e84-5e2d-96a7-4b330403872b"
+  ],
+  "agent_b_task_ids": [
+    "35c06dba-589e-5d31-9b0f-97bb5115239c",
+    "3af8e6b2-0b6a-516e-97e7-276bc09751ef"
+  ],
+  "agent_a_tasks_byte_equivalent_as_decoded_json": true,
+  "prior_audit_records_preserved": 12,
+  "all_agent_run_attempts": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "handoff_checkpoint_preserved": true,
+  "source_evidence_preserved": true,
+  "previous_incident_ids": [
+    "40d0778c-72c8-5b89-9455-78a5f9f6fc92"
+  ],
+  "validated_procedural_memory_ids": [
+    "b8ccab85-93ca-5127-9510-5370de8aebdd"
+  ],
+  "health": {
+    "status": "ok",
+    "service": "shadowchain-ai",
+    "version": "0.1.0",
+    "demo_mode": true,
+    "timestamp": "2026-10-16T17:11:22.322577Z"
+  },
+  "ready": {
+    "status": "ready",
+    "dependencies": {
+      "falkordb": "ok"
+    },
+    "timestamp": "2026-10-16T17:11:22.351558Z"
+  },
+  "aws_changes_executed": false
+}

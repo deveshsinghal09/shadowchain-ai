@@ -1,0 +1,53 @@
+{
+  "synthetic": true,
+  "verified": true,
+  "investigation_id": "7c1d2644-f8a6-5154-a388-2a63e0dbfc1c",
+  "workflow_id": "4950e909-6870-5555-9473-cd76b630033a",
+  "status": "CLOSED",
+  "resolution": "accepted_risk",
+  "severity": "medium",
+  "completed_tasks": 11,
+  "pending_tasks": 0,
+  "agent_a_id": "1122bdb5-fcdb-5c96-9b5b-615238bcfe59",
+  "agent_b_id": "5c8f4890-3e24-598e-bb0e-853e5981d2ab",
+  "agent_a_completed_task_ids": [
+    "99d7c7f3-8e84-5e2d-96a7-4b330403872b",
+    "00f6a8cb-9be9-57dd-a48f-79f92d05b8d7"
+  ],
+  "agent_b_completed_task_ids": [
+    "3af8e6b2-0b6a-516e-97e7-276bc09751ef",
+    "35c06dba-589e-5d31-9b0f-97bb5115239c"
+  ],
+  "handoff_id": "84cb59a7-fb9f-5dc8-9ee1-40c7686faf50",
+  "verified_evidence_count": 76,
+  "contradictory_evidence_ids": [
+    "81130854-8d6a-53a1-9674-db22e8797cad"
+  ],
+  "previous_incident_ids": [
+    "40d0778c-72c8-5b89-9455-78a5f9f6fc92"
+  ],
+  "historical_procedure_memory_ids": [
+    "b8ccab85-93ca-5127-9510-5370de8aebdd"
+  ],
+  "memory_references": 10,
+  "audit_entries": 22,
+  "timeline_entries": 66,
+  "reconnect_preserved_case": true,
+  "recommended_response": [
+    {
+      "relationship_id": "9d7f9c9e-70db-56e2-a193-c4396b3ba2a9",
+      "finding_ids": [
+        "6c5e31f8-0f19-5766-a648-0b01a3ee2cf5"
+      ],
+      "before_paths": 1,
+      "after_paths": 0,
+      "removed_path_ids": [
+        "38ce82be-da67-5169-b878-a791f3518b59"
+      ],
+      "action": "propose_relationship_removal",
+      "simulation_only": true,
+      "execution_allowed": false
+    }
+  ],
+  "aws_changes_executed": false
+}
