@@ -1,0 +1,2161 @@
+{
+  "version": "evaluation-2026.1",
+  "measured_at": "2026-10-17T05:42:20.331506+00:00",
+  "synthetic": true,
+  "verified": true,
+  "graph": "shadowchain_eval_b5966a5ec8d446f19c0f79c6554c7756",
+  "dataset_version": "synthetic-2026.1",
+  "manifest_sha256": "add52bd64aee09fb8c12daa7cc1e45d43a1f9fe90ce213f2a877559d60d462c7",
+  "configuration": {
+    "aws_enabled": false,
+    "cloudtrail_enabled": false,
+    "agent_provider": "mock"
+  },
+  "metrics": {
+    "path_detection_correctness": {
+      "passed": 4,
+      "total": 4
+    },
+    "historical_reconstruction_correctness": {
+      "passed": 4,
+      "total": 4
+    },
+    "successful_memory_retrieval": {
+      "passed": 2,
+      "total": 2
+    },
+    "cross_agent_handoff_completion": {
+      "passed": 5,
+      "total": 5
+    },
+    "restart_recovery": {
+      "passed": 1,
+      "total": 1
+    },
+    "duplicate_task_prevention": {
+      "passed": 2,
+      "total": 2
+    }
+  },
+  "demo1": {
+    "timeline": [
+      {
+        "active_edges": 123,
+        "analysis_id": "4b40d88b-8b64-549b-8b9e-eed509c1bb1a",
+        "at": "2026-10-16T09:00:00+00:00",
+        "maximum_score": 0,
+        "path_count": 0,
+        "replayed_event_ids": [],
+        "semantic_sha256": "7f6772f852658e04de4a770f4dc2a6fce4c7cad2496ce634806cc721aeb5a0e7"
+      },
+      {
+        "active_edges": 126,
+        "analysis_id": "eaeeae19-c97e-53da-a8cd-2a7b5b91eb9a",
+        "at": "2026-10-16T10:00:00+00:00",
+        "maximum_score": 0,
+        "path_count": 0,
+        "replayed_event_ids": [
+          "31d48baf-837f-562a-9f36-add7840b25c8"
+        ],
+        "semantic_sha256": "64f1e4b0b510daa525d21cd2268d1da45004d6637c6e429782892f4a80155d7c"
+      },
+      {
+        "active_edges": 129,
+        "analysis_id": "9b5bb527-b767-5807-9851-e1960cf44d20",
+        "at": "2026-10-16T11:00:00+00:00",
+        "maximum_score": 0,
+        "path_count": 0,
+        "replayed_event_ids": [
+          "15b9ab74-729a-51f7-b4bf-0c13e6b27708"
+        ],
+        "semantic_sha256": "238cb4296c345e3f8aa925907dd187bebeb197027f36efefc83acbb9e0754f9a"
+      },
+      {
+        "active_edges": 130,
+        "analysis_id": "c33e7ecf-aa3a-5336-8380-d1f43323d3f3",
+        "at": "2026-10-16T12:00:00+00:00",
+        "maximum_score": 51,
+        "path_count": 1,
+        "replayed_event_ids": [
+          "199de1aa-8744-5dc5-9f05-110e2cf7f378"
+        ],
+        "semantic_sha256": "3fd74d7a20420b07b0115bf0cc76e815e15c2887fbc975e08ff8ce36e0ea9600"
+      }
+    ],
+    "finding": {
+      "action": "s3:GetObject",
+      "assumptions": [
+        "Unmodeled AWS constraints may prevent access"
+      ],
+      "classification": "POTENTIAL ATTACK PATH",
+      "contributing_events": [
+        {
+          "closed_relationship_ids": [],
+          "event_type": "SyntheticBaselineImported",
+          "id": "652743da-ae41-5b7a-a7f2-73ce1d07282f",
+          "occurred_at": "2026-10-16T09:00:00Z",
+          "relationship_ids": [
+            "0e0827b2-31de-5ee7-a955-1a6dd43ddd61",
+            "721aeb18-aeb6-5b2c-9483-8fe3fe4c05a3",
+            "8d6f5dfa-8bcc-587a-9d1f-fb20345ced28",
+            "8e6d1b29-a954-51ef-b3a1-28c3150171ec",
+            "9a0f18e8-3172-538a-984a-c0f05521de4f",
+            "9d362d7f-9939-5cb6-9ecb-4ac16013e7fa",
+            "a36ae882-df0b-52da-9cfe-5601754e82ff",
+            "a967b49f-50a0-5be9-9f48-aee5f302d983",
+            "bae677c8-a637-5712-a340-de86cf79332c",
+            "e4023007-8248-596f-ac80-5f8901afa295"
+          ],
+          "source_id": "baseline/event"
+        },
+        {
+          "closed_relationship_ids": [],
+          "event_type": "SyntheticTemporaryRoleAccessGranted",
+          "id": "a3615b96-eb89-5f05-a564-ba165508348a",
+          "occurred_at": "2026-10-16T10:00:00Z",
+          "relationship_ids": [
+            "18a0a89c-0fda-5932-a507-0e74e78bb12c",
+            "433f01b2-c0ea-5493-8219-a7f4b11ef072",
+            "ee435e9f-62a7-54b4-9fe1-fd24f44d3e5e"
+          ],
+          "source_id": "event/31d48baf-837f-562a-9f36-add7840b25c8"
+        },
+        {
+          "closed_relationship_ids": [],
+          "event_type": "SyntheticBackupRoleTrustChanged",
+          "id": "0b67db57-e101-5418-8a94-7b7c49f09529",
+          "occurred_at": "2026-10-16T11:00:00Z",
+          "relationship_ids": [
+            "bf59c084-be32-51f3-acee-8a96636e1536",
+            "cc6873cc-eb6d-5b0e-b6b7-a9e1973e174c",
+            "e4f4f565-566b-5dce-a589-48de6d57bfd1"
+          ],
+          "source_id": "event/15b9ab74-729a-51f7-b4bf-0c13e6b27708"
+        },
+        {
+          "closed_relationship_ids": [],
+          "event_type": "SyntheticSensitiveReadPolicyAttached",
+          "id": "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4",
+          "occurred_at": "2026-10-16T12:00:00Z",
+          "relationship_ids": [
+            "9d7f9c9e-70db-56e2-a193-c4396b3ba2a9"
+          ],
+          "source_id": "event/199de1aa-8744-5dc5-9f05-110e2cf7f378"
+        }
+      ],
+      "explanation": "SYNTHETIC alice can potentially reach SYNTHETIC S3 hr-data for s3:GetObject through 2 modeled role assumption(s). Caller grants, role trust and modeled constraints were checked; this is not proof of exploitable AWS access.",
+      "finding_id": "9554470d-0a5b-5933-9ef2-851467b4a726",
+      "identity": {
+        "account_id": "000000000001",
+        "arn": "arn:aws:iam::000000000001:user/shadowchain-synthetic-alice",
+        "collector": "synthetic-event-engine",
+        "created_at": 1792215720756467,
+        "dataset_version": "synthetic-2026.1",
+        "display_name": "SYNTHETIC alice",
+        "entity_key": "identity/alice",
+        "fingerprint": "2ce7b1394ab028e0dd00618ae790d3e853685472cf730b9d176d49a5bac4d67d",
+        "id": "4e0d4c7d-6003-57bb-8491-3dc47988a5bf",
+        "identity_type": "IAMUser",
+        "kind": "Identity",
+        "logical_key": "identity/alice",
+        "observed_at": 1792141200000000,
+        "scenario_id": "baseline",
+        "source": "shadowchain.synthetic.synthetic-2026.1",
+        "source_id": "identity/alice",
+        "source_time": 1792141200000000,
+        "source_uri": "urn:shadowchain:identity/alice",
+        "synthetic": true,
+        "tenant_id": "shadowchain-synthetic-demo",
+        "updated_at": 1792215720756467,
+        "valid_from": 1792141200000000
+      },
+      "path_id": "38ce82be-da67-5169-b878-a791f3518b59",
+      "permission_id": "11dad8fe-b4fc-5607-8ce3-905af12f51cb",
+      "relationship_ids": [
+        "18a0a89c-0fda-5932-a507-0e74e78bb12c",
+        "bf59c084-be32-51f3-acee-8a96636e1536",
+        "9d7f9c9e-70db-56e2-a193-c4396b3ba2a9",
+        "721aeb18-aeb6-5b2c-9483-8fe3fe4c05a3",
+        "e4023007-8248-596f-ac80-5f8901afa295"
+      ],
+      "resource": {
+        "account_id": "000000000002",
+        "arn": "arn:aws:s3:::shadowchain-synthetic-hr-data",
+        "collector": "synthetic-event-engine",
+        "created_at": 1792215720756467,
+        "dataset_version": "synthetic-2026.1",
+        "display_name": "SYNTHETIC S3 hr-data",
+        "entity_key": "resource/hr-data",
+        "fingerprint": "0e8baadbc0ec0bfe5e2a8f6047a709297954abaeb61caf12a62b22f12b65c2bf",
+        "id": "cfc7ce35-25fb-5fa0-91eb-08fa3184a300",
+        "kind": "Resource",
+        "logical_key": "resource/hr-data",
+        "object_arn": "arn:aws:s3:::shadowchain-synthetic-hr-data/*",
+        "observed_at": 1792141200000000,
+        "region": "us-east-1",
+        "resource_type": "s3:bucket",
+        "scenario_id": "baseline",
+        "sensitive": true,
+        "source": "shadowchain.synthetic.synthetic-2026.1",
+        "source_id": "resource/hr-data",
+        "source_time": 1792141200000000,
+        "source_uri": "urn:shadowchain:resource/hr-data",
+        "synthetic": true,
+        "tenant_id": "shadowchain-synthetic-demo",
+        "updated_at": 1792215720756467,
+        "valid_from": 1792141200000000
+      },
+      "roles": [
+        {
+          "account_id": "000000000001",
+          "arn": "arn:aws:iam::000000000001:role/shadowchain-synthetic-temp-analyst",
+          "collector": "synthetic-event-engine",
+          "created_at": 1792215720756467,
+          "dataset_version": "synthetic-2026.1",
+          "description": "Synthetic IAM role; never deployed to AWS",
+          "display_name": "SYNTHETIC temp-analyst",
+          "entity_key": "role/temp-analyst",
+          "fingerprint": "91b18bdf5ef784057d4408eb3f04c6025146929d34ba085a2721ff548d5728f3",
+          "id": "99487a74-9354-54a4-ba1f-965da817971e",
+          "kind": "Role",
+          "logical_key": "role/temp-analyst",
+          "observed_at": 1792141200000000,
+          "scenario_id": "baseline",
+          "source": "shadowchain.synthetic.synthetic-2026.1",
+          "source_id": "role/temp-analyst",
+          "source_time": 1792141200000000,
+          "source_uri": "urn:shadowchain:role/temp-analyst",
+          "synthetic": true,
+          "tenant_id": "shadowchain-synthetic-demo",
+          "updated_at": 1792215720756467,
+          "valid_from": 1792141200000000
+        },
+        {
+          "account_id": "000000000002",
+          "arn": "arn:aws:iam::000000000002:role/shadowchain-synthetic-ec2-backup",
+          "collector": "synthetic-event-engine",
+          "created_at": 1792215720756467,
+          "dataset_version": "synthetic-2026.1",
+          "description": "Synthetic IAM role; never deployed to AWS",
+          "display_name": "SYNTHETIC ec2-backup",
+          "entity_key": "role/ec2-backup",
+          "fingerprint": "2f4433761c8f443f438f0c15edb7dbff743793197ea72148af992b5f3ce8d48a",
+          "id": "02f6f4e2-ddb2-52b7-a256-8b3e0d6f624b",
+          "instance_profile": "shadowchain-synthetic-ec2-backup-profile",
+          "kind": "Role",
+          "logical_key": "role/ec2-backup",
+          "observed_at": 1792141200000000,
+          "scenario_id": "baseline",
+          "service_principal": "ec2.amazonaws.com",
+          "source": "shadowchain.synthetic.synthetic-2026.1",
+          "source_id": "role/ec2-backup",
+          "source_time": 1792141200000000,
+          "source_uri": "urn:shadowchain:role/ec2-backup",
+          "synthetic": true,
+          "tenant_id": "shadowchain-synthetic-demo",
+          "updated_at": 1792215720756467,
+          "valid_from": 1792141200000000
+        }
+      ],
+      "score": {
+        "factors": [
+          {
+            "explanation": "Sensitive resource; restricted classification adds 10",
+            "name": "resource_sensitivity",
+            "points": 30,
+            "record_ids": [
+              "cfc7ce35-25fb-5fa0-91eb-08fa3184a300"
+            ]
+          },
+          {
+            "explanation": "Modeled data-read or other scoped action",
+            "name": "privilege",
+            "points": 10,
+            "record_ids": [
+              "11dad8fe-b4fc-5607-8ce3-905af12f51cb"
+            ]
+          },
+          {
+            "explanation": "3 per assumption hop (cap 12), 5 per cross-account hop (cap 10)",
+            "name": "trust_relationships",
+            "points": 11,
+            "record_ids": [
+              "18a0a89c-0fda-5932-a507-0e74e78bb12c",
+              "bf59c084-be32-51f3-acee-8a96636e1536"
+            ]
+          },
+          {
+            "explanation": "No verified structured internet-exposure evidence; no exposure assumed",
+            "name": "internet_exposure",
+            "points": 0,
+            "record_ids": []
+          },
+          {
+            "explanation": "No evidenced temporary-access violation on this path",
+            "name": "temporary_access_violation",
+            "points": 0,
+            "record_ids": []
+          },
+          {
+            "explanation": "Monitoring -5, private endpoint -10, required matched MFA -10; reduction capped at 20. Controls do not themselves authorize access.",
+            "name": "compensating_controls",
+            "points": 0,
+            "record_ids": []
+          }
+        ],
+        "model": "deterministic-heuristic-v1",
+        "severity": "medium",
+        "value": 51
+      },
+      "supporting_relationship_ids": [
+        "0e0827b2-31de-5ee7-a955-1a6dd43ddd61",
+        "18a0a89c-0fda-5932-a507-0e74e78bb12c",
+        "433f01b2-c0ea-5493-8219-a7f4b11ef072",
+        "721aeb18-aeb6-5b2c-9483-8fe3fe4c05a3",
+        "8d6f5dfa-8bcc-587a-9d1f-fb20345ced28",
+        "8e6d1b29-a954-51ef-b3a1-28c3150171ec",
+        "9a0f18e8-3172-538a-984a-c0f05521de4f",
+        "9d362d7f-9939-5cb6-9ecb-4ac16013e7fa",
+        "9d7f9c9e-70db-56e2-a193-c4396b3ba2a9",
+        "a36ae882-df0b-52da-9cfe-5601754e82ff",
+        "a967b49f-50a0-5be9-9f48-aee5f302d983",
+        "bae677c8-a637-5712-a340-de86cf79332c",
+        "bf59c084-be32-51f3-acee-8a96636e1536",
+        "cc6873cc-eb6d-5b0e-b6b7-a9e1973e174c",
+        "e4023007-8248-596f-ac80-5f8901afa295",
+        "e4f4f565-566b-5dce-a589-48de6d57bfd1",
+        "ee435e9f-62a7-54b4-9fe1-fd24f44d3e5e"
+      ]
+    },
+    "introduction": {
+      "attribution": "modeled-change-provenance",
+      "contributing_events": [
+        {
+          "closed_relationship_ids": [],
+          "event_type": "SyntheticBaselineImported",
+          "id": "652743da-ae41-5b7a-a7f2-73ce1d07282f",
+          "occurred_at": "2026-10-16T09:00:00Z",
+          "relationship_ids": [
+            "0e0827b2-31de-5ee7-a955-1a6dd43ddd61",
+            "721aeb18-aeb6-5b2c-9483-8fe3fe4c05a3",
+            "8d6f5dfa-8bcc-587a-9d1f-fb20345ced28",
+            "8e6d1b29-a954-51ef-b3a1-28c3150171ec",
+            "9a0f18e8-3172-538a-984a-c0f05521de4f",
+            "9d362d7f-9939-5cb6-9ecb-4ac16013e7fa",
+            "a36ae882-df0b-52da-9cfe-5601754e82ff",
+            "a967b49f-50a0-5be9-9f48-aee5f302d983",
+            "bae677c8-a637-5712-a340-de86cf79332c",
+            "e4023007-8248-596f-ac80-5f8901afa295"
+          ],
+          "source_id": "baseline/event"
+        },
+        {
+          "closed_relationship_ids": [],
+          "event_type": "SyntheticTemporaryRoleAccessGranted",
+          "id": "a3615b96-eb89-5f05-a564-ba165508348a",
+          "occurred_at": "2026-10-16T10:00:00Z",
+          "relationship_ids": [
+            "18a0a89c-0fda-5932-a507-0e74e78bb12c",
+            "433f01b2-c0ea-5493-8219-a7f4b11ef072",
+            "ee435e9f-62a7-54b4-9fe1-fd24f44d3e5e"
+          ],
+          "source_id": "event/31d48baf-837f-562a-9f36-add7840b25c8"
+        },
+        {
+          "closed_relationship_ids": [],
+          "event_type": "SyntheticBackupRoleTrustChanged",
+          "id": "0b67db57-e101-5418-8a94-7b7c49f09529",
+          "occurred_at": "2026-10-16T11:00:00Z",
+          "relationship_ids": [
+            "bf59c084-be32-51f3-acee-8a96636e1536",
+            "cc6873cc-eb6d-5b0e-b6b7-a9e1973e174c",
+            "e4f4f565-566b-5dce-a589-48de6d57bfd1"
+          ],
+          "source_id": "event/15b9ab74-729a-51f7-b4bf-0c13e6b27708"
+        },
+        {
+          "closed_relationship_ids": [],
+          "event_type": "SyntheticSensitiveReadPolicyAttached",
+          "id": "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4",
+          "occurred_at": "2026-10-16T12:00:00Z",
+          "relationship_ids": [
+            "9d7f9c9e-70db-56e2-a193-c4396b3ba2a9"
+          ],
+          "source_id": "event/199de1aa-8744-5dc5-9f05-110e2cf7f378"
+        }
+      ],
+      "explanation": "The graph model is first observed potentially reachable at this sampled source time. Event provenance identifies modeled changes; temporal correlation does not prove real-world causality or exploitable AWS authorization. Simultaneous events are grouped.",
+      "first_reachable_at": "2026-10-16T12:00:00Z",
+      "path_id": "38ce82be-da67-5169-b878-a791f3518b59",
+      "sampling": "event-boundaries-and-endpoints",
+      "transition_events": [
+        {
+          "closed_relationship_ids": [],
+          "event_type": "SyntheticSensitiveReadPolicyAttached",
+          "id": "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4",
+          "occurred_at": "2026-10-16T12:00:00Z",
+          "relationship_ids": [
+            "9d7f9c9e-70db-56e2-a193-c4396b3ba2a9"
+          ],
+          "source_id": "event/199de1aa-8744-5dc5-9f05-110e2cf7f378"
+        }
+      ]
+    }
+  },
+  "demo2_and_3": {
+    "workflow": {
+      "id": "b4caf4cb-e366-5c33-bd9d-75ccca5af69b",
+      "status": "completed",
+      "next_stage": null,
+      "completed_steps": 6,
+      "provider_mode": "mock",
+      "event_id": "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4",
+      "runs": [
+        {
+          "id": "91006db3-06c9-5c58-8726-fdf3f5119208",
+          "investigation_id": "b4caf4cb-e366-5c33-bd9d-75ccca5af69b",
+          "agent_id": "e8f3365e-201f-5506-b0e5-585d5db604bb",
+          "stage": "cloud_sentinel",
+          "status": "completed",
+          "attempt_count": 1,
+          "input_evidence_ids": [
+            "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+          ],
+          "retrieved_memory_ids": [],
+          "output": {
+            "stage": "cloud_sentinel",
+            "summary": "Processed event event/199de1aa-8744-5dc5-9f05-110e2cf7f378: 1 provenance-linked configuration relationship changes.",
+            "evidence_ids": [
+              "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+            ],
+            "finding_ids": [],
+            "identity_ids": [
+              "02f6f4e2-ddb2-52b7-a256-8b3e0d6f624b"
+            ],
+            "resource_ids": [],
+            "memory_ids": [],
+            "conflict_ids": [],
+            "analysis_id": null,
+            "relationship_ids": [
+              "9d7f9c9e-70db-56e2-a193-c4396b3ba2a9"
+            ],
+            "proposals": [],
+            "limitations": [],
+            "model_note": {
+              "summary": "cloud_sentinel: 1 modeled changes, 0 potential findings, 0 related memories.",
+              "evidence_ids": [
+                "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+              ],
+              "confidence": 0.5
+            },
+            "privileged_actions": []
+          },
+          "pending_task_ids": [
+            "caf1633f-7dbd-587b-a7d4-242c6637319f",
+            "3feb7f43-2511-5771-8a20-75d92da3e219",
+            "187abc89-5873-5838-8b59-1dc188b1bf6c",
+            "70371a08-3c8c-5e0a-9f8b-9fd27744c7e8",
+            "75d182c6-a753-50de-80ba-0f0a3d5dfaaf"
+          ],
+          "handoff_target": "acea1488-4927-55cc-9360-1c3f0368db6f",
+          "handoff_id": "3d1f75cb-82fc-5832-8176-fde8e1cec9b0",
+          "memory_id": "adc43640-cf96-5e60-9f8d-b431075bab39",
+          "operation_id": "19a2f0b0-1796-577c-8389-7a01a2eb5a66",
+          "error_code": "",
+          "created_at": "2026-10-17T05:42:03.294171Z",
+          "updated_at": "2026-10-17T05:42:03.629355Z"
+        },
+        {
+          "id": "c1423e3d-e89f-519b-84ca-dc1277b1f190",
+          "investigation_id": "b4caf4cb-e366-5c33-bd9d-75ccca5af69b",
+          "agent_id": "acea1488-4927-55cc-9360-1c3f0368db6f",
+          "stage": "identity_guardian",
+          "status": "completed",
+          "attempt_count": 1,
+          "input_evidence_ids": [
+            "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+          ],
+          "retrieved_memory_ids": [
+            "adc43640-cf96-5e60-9f8d-b431075bab39"
+          ],
+          "output": {
+            "stage": "identity_guardian",
+            "summary": "Evaluated 1 affected IAM principals and 4 historical assumption/policy edges; 0 open-ended grants have expired justifications.",
+            "evidence_ids": [
+              "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+            ],
+            "finding_ids": [],
+            "identity_ids": [
+              "02f6f4e2-ddb2-52b7-a256-8b3e0d6f624b"
+            ],
+            "resource_ids": [],
+            "memory_ids": [],
+            "conflict_ids": [],
+            "analysis_id": null,
+            "relationship_ids": [
+              "9d7f9c9e-70db-56e2-a193-c4396b3ba2a9",
+              "245f933a-7f84-5c2f-a7d1-fd4241d49325",
+              "81c11b15-6c5e-573a-9c02-de62fd657c37",
+              "e4f4f565-566b-5dce-a589-48de6d57bfd1"
+            ],
+            "proposals": [],
+            "limitations": [
+              "Configuration history is modeled; session/use telemetry is absent. Unusual access behavior cannot be established from configuration alone."
+            ],
+            "model_note": {
+              "summary": "identity_guardian: 4 modeled changes, 0 potential findings, 1 related memories.",
+              "evidence_ids": [
+                "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+              ],
+              "confidence": 0.5
+            },
+            "privileged_actions": []
+          },
+          "pending_task_ids": [
+            "3feb7f43-2511-5771-8a20-75d92da3e219",
+            "187abc89-5873-5838-8b59-1dc188b1bf6c",
+            "70371a08-3c8c-5e0a-9f8b-9fd27744c7e8",
+            "75d182c6-a753-50de-80ba-0f0a3d5dfaaf"
+          ],
+          "handoff_target": "c279e5b4-1e20-50b6-92da-2b503049fba8",
+          "handoff_id": "d5bb5dc3-e6b0-58ca-bd79-8fb175d73d43",
+          "memory_id": "364c0286-2ad5-51de-be3b-fbfa2fbf7cbc",
+          "operation_id": "3576cb74-2d25-58ed-bef1-f1eeec4fedfa",
+          "error_code": "",
+          "created_at": "2026-10-17T05:42:03.294171Z",
+          "updated_at": "2026-10-17T05:42:03.934079Z"
+        },
+        {
+          "id": "621ae591-ac06-5231-b7ba-9ce1a7e82273",
+          "investigation_id": "b4caf4cb-e366-5c33-bd9d-75ccca5af69b",
+          "agent_id": "c279e5b4-1e20-50b6-92da-2b503049fba8",
+          "stage": "risk_oracle",
+          "status": "completed",
+          "attempt_count": 1,
+          "input_evidence_ids": [
+            "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+          ],
+          "retrieved_memory_ids": [
+            "adc43640-cf96-5e60-9f8d-b431075bab39",
+            "364c0286-2ad5-51de-be3b-fbfa2fbf7cbc"
+          ],
+          "output": {
+            "stage": "risk_oracle",
+            "summary": "Graph traversal identified 1 POTENTIAL ATTACK PATHS; connected paths do not prove effective AWS authorization.",
+            "evidence_ids": [
+              "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+            ],
+            "finding_ids": [
+              "9554470d-0a5b-5933-9ef2-851467b4a726"
+            ],
+            "identity_ids": [
+              "4e0d4c7d-6003-57bb-8491-3dc47988a5bf"
+            ],
+            "resource_ids": [
+              "cfc7ce35-25fb-5fa0-91eb-08fa3184a300"
+            ],
+            "memory_ids": [],
+            "conflict_ids": [],
+            "analysis_id": "c33e7ecf-aa3a-5336-8380-d1f43323d3f3",
+            "relationship_ids": [],
+            "proposals": [],
+            "limitations": [
+              "POTENTIAL ATTACK PATHS are modeled possibilities, not proven exploitable AWS access.",
+              "Only normalized identity/trust/resource policies, boundary/session policies and attached SCP/RCP constraints are evaluated. Missing unmodeled AWS constraints remain unknown.",
+              "Candidates require an identity-policy grant. Resource-policy-only grants, session-principal exceptions, IAM groups, NotAction/NotResource, ABAC, service-specific semantics, KMS and S3 ownership/public-access-block evaluation are not implemented.",
+              "Unknown applicable conditions or required constraints exclude a candidate as unresolved; zero findings does not certify safety. User-supplied context is a hypothetical assumption.",
+              "Traversal is bounded to the requested role hops (maximum four); IAM evaluation is per hop. STS sessions, transitive session tags and session-policy propagation are not simulated.",
+              "Scores are explainable prioritization heuristics, not exploitation probabilities.",
+              "Account/organization controls are resolved through at most two membership hops; deeper modeled hierarchy is detected and rejected as unresolved."
+            ],
+            "model_note": {
+              "summary": "risk_oracle: 0 modeled changes, 1 potential findings, 2 related memories.",
+              "evidence_ids": [
+                "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+              ],
+              "confidence": 0.5
+            },
+            "privileged_actions": []
+          },
+          "pending_task_ids": [
+            "187abc89-5873-5838-8b59-1dc188b1bf6c",
+            "70371a08-3c8c-5e0a-9f8b-9fd27744c7e8",
+            "75d182c6-a753-50de-80ba-0f0a3d5dfaaf"
+          ],
+          "handoff_target": "1122bdb5-fcdb-5c96-9b5b-615238bcfe59",
+          "handoff_id": "79ce4f19-b8f0-5e5f-a1a7-763a39fe79b9",
+          "memory_id": "078bab6d-5045-56ea-aeeb-8e48b26d843b",
+          "operation_id": "4d47af7c-0f49-5ae1-b2c0-72b42ed6e50d",
+          "error_code": "",
+          "created_at": "2026-10-17T05:42:03.294171Z",
+          "updated_at": "2026-10-17T05:42:05.012949Z"
+        },
+        {
+          "id": "0cda32d8-65a5-5de0-9e9f-21196560dee8",
+          "investigation_id": "b4caf4cb-e366-5c33-bd9d-75ccca5af69b",
+          "agent_id": "1122bdb5-fcdb-5c96-9b5b-615238bcfe59",
+          "stage": "memory_keeper",
+          "status": "completed",
+          "attempt_count": 1,
+          "input_evidence_ids": [
+            "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+          ],
+          "retrieved_memory_ids": [
+            "adc43640-cf96-5e60-9f8d-b431075bab39",
+            "364c0286-2ad5-51de-be3b-fbfa2fbf7cbc",
+            "078bab6d-5045-56ea-aeeb-8e48b26d843b"
+          ],
+          "output": {
+            "stage": "memory_keeper",
+            "summary": "Retrieved 3 graph-grounded shared observations and 0 visible claim conflicts; retained source provenance.",
+            "evidence_ids": [
+              "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+            ],
+            "finding_ids": [],
+            "identity_ids": [],
+            "resource_ids": [],
+            "memory_ids": [
+              "adc43640-cf96-5e60-9f8d-b431075bab39",
+              "364c0286-2ad5-51de-be3b-fbfa2fbf7cbc",
+              "078bab6d-5045-56ea-aeeb-8e48b26d843b"
+            ],
+            "conflict_ids": [],
+            "analysis_id": null,
+            "relationship_ids": [],
+            "proposals": [],
+            "limitations": [],
+            "model_note": {
+              "summary": "memory_keeper: 0 modeled changes, 0 potential findings, 3 related memories.",
+              "evidence_ids": [
+                "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+              ],
+              "confidence": 0.5
+            },
+            "privileged_actions": []
+          },
+          "pending_task_ids": [
+            "70371a08-3c8c-5e0a-9f8b-9fd27744c7e8",
+            "75d182c6-a753-50de-80ba-0f0a3d5dfaaf"
+          ],
+          "handoff_target": "f7962e30-7f3e-54f9-a6c8-1e8826d7f0fe",
+          "handoff_id": "30dc8bc4-5622-5eed-a910-e11fa2b8fb34",
+          "memory_id": "acaf8aee-402b-59a5-b2b2-27c02cd1538c",
+          "operation_id": "7e7b86fc-4e5d-5e83-ad10-c457c4ae11b7",
+          "error_code": "",
+          "created_at": "2026-10-17T05:42:03.294171Z",
+          "updated_at": "2026-10-17T05:42:13.335422Z"
+        },
+        {
+          "id": "3e277e34-d66d-5405-87ea-4fe8840d3927",
+          "investigation_id": "b4caf4cb-e366-5c33-bd9d-75ccca5af69b",
+          "agent_id": "f7962e30-7f3e-54f9-a6c8-1e8826d7f0fe",
+          "stage": "coordinator",
+          "status": "completed",
+          "attempt_count": 1,
+          "input_evidence_ids": [
+            "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+          ],
+          "retrieved_memory_ids": [
+            "adc43640-cf96-5e60-9f8d-b431075bab39",
+            "364c0286-2ad5-51de-be3b-fbfa2fbf7cbc",
+            "078bab6d-5045-56ea-aeeb-8e48b26d843b",
+            "acaf8aee-402b-59a5-b2b2-27c02cd1538c"
+          ],
+          "output": {
+            "stage": "coordinator",
+            "summary": "Coordinator assigned six unique dependency-ordered steps and creates bounded finding-review tasks for the Response Architect. Remediation proposals require independent human authorization.",
+            "evidence_ids": [
+              "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+            ],
+            "finding_ids": [
+              "9554470d-0a5b-5933-9ef2-851467b4a726"
+            ],
+            "identity_ids": [],
+            "resource_ids": [],
+            "memory_ids": [],
+            "conflict_ids": [],
+            "analysis_id": null,
+            "relationship_ids": [],
+            "proposals": [],
+            "limitations": [],
+            "model_note": {
+              "summary": "coordinator: 0 modeled changes, 1 potential findings, 4 related memories.",
+              "evidence_ids": [
+                "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+              ],
+              "confidence": 0.5
+            },
+            "privileged_actions": []
+          },
+          "pending_task_ids": [
+            "75d182c6-a753-50de-80ba-0f0a3d5dfaaf",
+            "472af197-f249-5d80-b663-57476a38e010"
+          ],
+          "handoff_target": "5c8f4890-3e24-598e-bb0e-853e5981d2ab",
+          "handoff_id": "65984f66-26cd-5f0b-a160-b85e19dcd321",
+          "memory_id": "76445511-f3ae-541c-ba35-70915fde457f",
+          "operation_id": "ac522b51-112c-59c3-9c53-56b2ab68be9b",
+          "error_code": "",
+          "created_at": "2026-10-17T05:42:03.294171Z",
+          "updated_at": "2026-10-17T05:42:14.293504Z"
+        },
+        {
+          "id": "8b553aff-84a6-5dcd-bedf-71c367d5c98b",
+          "investigation_id": "b4caf4cb-e366-5c33-bd9d-75ccca5af69b",
+          "agent_id": "5c8f4890-3e24-598e-bb0e-853e5981d2ab",
+          "stage": "response_architect",
+          "status": "completed",
+          "attempt_count": 1,
+          "input_evidence_ids": [
+            "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+          ],
+          "retrieved_memory_ids": [
+            "adc43640-cf96-5e60-9f8d-b431075bab39",
+            "364c0286-2ad5-51de-be3b-fbfa2fbf7cbc",
+            "078bab6d-5045-56ea-aeeb-8e48b26d843b",
+            "acaf8aee-402b-59a5-b2b2-27c02cd1538c",
+            "76445511-f3ae-541c-ba35-70915fde457f"
+          ],
+          "output": {
+            "stage": "response_architect",
+            "summary": "Produced 1 evidence-backed grant-removal proposals using non-mutating graph what-if analysis. No IAM changes were executed.",
+            "evidence_ids": [
+              "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+            ],
+            "finding_ids": [
+              "9554470d-0a5b-5933-9ef2-851467b4a726"
+            ],
+            "identity_ids": [],
+            "resource_ids": [],
+            "memory_ids": [],
+            "conflict_ids": [],
+            "analysis_id": "c33e7ecf-aa3a-5336-8380-d1f43323d3f3",
+            "relationship_ids": [],
+            "proposals": [
+              {
+                "relationship_id": "9d7f9c9e-70db-56e2-a193-c4396b3ba2a9",
+                "finding_ids": [
+                  "9554470d-0a5b-5933-9ef2-851467b4a726"
+                ],
+                "before_paths": 1,
+                "after_paths": 0,
+                "removed_path_ids": [
+                  "38ce82be-da67-5169-b878-a791f3518b59"
+                ],
+                "action": "propose_relationship_removal",
+                "simulation_only": true,
+                "execution_allowed": false
+              }
+            ],
+            "limitations": [],
+            "model_note": {
+              "summary": "response_architect: 0 modeled changes, 1 potential findings, 5 related memories.",
+              "evidence_ids": [
+                "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+              ],
+              "confidence": 0.5
+            },
+            "privileged_actions": []
+          },
+          "pending_task_ids": [
+            "472af197-f249-5d80-b663-57476a38e010"
+          ],
+          "handoff_target": "f7962e30-7f3e-54f9-a6c8-1e8826d7f0fe",
+          "handoff_id": "9e151169-28dd-5f65-881a-3399487e6f03",
+          "memory_id": "10796b27-b44f-5c54-a333-8455dd5f1318",
+          "operation_id": "bcd8c4a8-8482-52b1-bff1-3255688c66ac",
+          "error_code": "",
+          "created_at": "2026-10-17T05:42:03.294171Z",
+          "updated_at": "2026-10-17T05:42:15.752759Z"
+        }
+      ],
+      "tasks": [
+        {
+          "id": "d40a7221-078b-5002-a30f-7358957019fc",
+          "agent_id": "e8f3365e-201f-5506-b0e5-585d5db604bb",
+          "stage": "cloud_sentinel",
+          "status": "completed",
+          "task_type": "workflow_step",
+          "depends_on": []
+        },
+        {
+          "id": "caf1633f-7dbd-587b-a7d4-242c6637319f",
+          "agent_id": "acea1488-4927-55cc-9360-1c3f0368db6f",
+          "stage": "identity_guardian",
+          "status": "completed",
+          "task_type": "workflow_step",
+          "depends_on": [
+            "d40a7221-078b-5002-a30f-7358957019fc"
+          ]
+        },
+        {
+          "id": "3feb7f43-2511-5771-8a20-75d92da3e219",
+          "agent_id": "c279e5b4-1e20-50b6-92da-2b503049fba8",
+          "stage": "risk_oracle",
+          "status": "completed",
+          "task_type": "workflow_step",
+          "depends_on": [
+            "caf1633f-7dbd-587b-a7d4-242c6637319f"
+          ]
+        },
+        {
+          "id": "187abc89-5873-5838-8b59-1dc188b1bf6c",
+          "agent_id": "1122bdb5-fcdb-5c96-9b5b-615238bcfe59",
+          "stage": "memory_keeper",
+          "status": "completed",
+          "task_type": "workflow_step",
+          "depends_on": [
+            "3feb7f43-2511-5771-8a20-75d92da3e219"
+          ]
+        },
+        {
+          "id": "70371a08-3c8c-5e0a-9f8b-9fd27744c7e8",
+          "agent_id": "f7962e30-7f3e-54f9-a6c8-1e8826d7f0fe",
+          "stage": "coordinator",
+          "status": "completed",
+          "task_type": "workflow_step",
+          "depends_on": [
+            "187abc89-5873-5838-8b59-1dc188b1bf6c"
+          ]
+        },
+        {
+          "id": "75d182c6-a753-50de-80ba-0f0a3d5dfaaf",
+          "agent_id": "5c8f4890-3e24-598e-bb0e-853e5981d2ab",
+          "stage": "response_architect",
+          "status": "completed",
+          "task_type": "workflow_step",
+          "depends_on": [
+            "70371a08-3c8c-5e0a-9f8b-9fd27744c7e8"
+          ]
+        },
+        {
+          "id": "472af197-f249-5d80-b663-57476a38e010",
+          "agent_id": "5c8f4890-3e24-598e-bb0e-853e5981d2ab",
+          "stage": "response_architect",
+          "status": "awaiting_review",
+          "task_type": "remediation_review",
+          "depends_on": [
+            "70371a08-3c8c-5e0a-9f8b-9fd27744c7e8"
+          ]
+        }
+      ],
+      "created_at": "2026-10-17T05:42:03.294171Z",
+      "updated_at": "2026-10-17T05:42:15.752759Z"
+    },
+    "shared_memory": {
+      "id": "078bab6d-5045-56ea-aeeb-8e48b26d843b",
+      "memory_key": "b4caf4cb-e366-5c33-bd9d-75ccca5af69b/risk_oracle",
+      "memory_type": "episodic",
+      "version": 1,
+      "author_agent_id": "c279e5b4-1e20-50b6-92da-2b503049fba8",
+      "audience": "team",
+      "confidence": 0.5,
+      "verification_status": "unverified",
+      "state": "current",
+      "content": "Graph traversal identified 1 POTENTIAL ATTACK PATHS; connected paths do not prove effective AWS authorization.",
+      "source_trust": "untrusted_data",
+      "executable": false,
+      "created_at": "2026-10-17T05:42:04.666392Z",
+      "updated_at": "2026-10-17T05:42:04.666392Z",
+      "valid_from": "2026-10-17T05:42:04.666392Z",
+      "valid_to": null,
+      "provenance": {
+        "source": "shadowchain.agents.v1",
+        "source_id": "621ae591-ac06-5231-b7ba-9ce1a7e82273",
+        "observed_at": "2026-10-17T05:42:03.294171Z",
+        "collector": "agents-2026.1",
+        "source_uri": "urn:shadowchain:agent-run:621ae591-ac06-5231-b7ba-9ce1a7e82273"
+      },
+      "claim": null,
+      "procedure": null,
+      "subjects": [
+        {
+          "account_id": "000000000001",
+          "arn": "arn:aws:iam::000000000001:user/shadowchain-synthetic-alice",
+          "collector": "synthetic-event-engine",
+          "created_at": 1792215720756467,
+          "dataset_version": "synthetic-2026.1",
+          "display_name": "SYNTHETIC alice",
+          "entity_key": "identity/alice",
+          "fingerprint": "2ce7b1394ab028e0dd00618ae790d3e853685472cf730b9d176d49a5bac4d67d",
+          "id": "4e0d4c7d-6003-57bb-8491-3dc47988a5bf",
+          "identity_type": "IAMUser",
+          "kind": "Identity",
+          "logical_key": "identity/alice",
+          "observed_at": 1792141200000000,
+          "scenario_id": "baseline",
+          "source": "shadowchain.synthetic.synthetic-2026.1",
+          "source_id": "identity/alice",
+          "source_time": 1792141200000000,
+          "source_uri": "urn:shadowchain:identity/alice",
+          "synthetic": true,
+          "tenant_id": "shadowchain-synthetic-demo",
+          "updated_at": 1792215720756467,
+          "valid_from": 1792141200000000
+        },
+        {
+          "collector": "agents-2026.1",
+          "created_at": 1792215723294171,
+          "fingerprint": "cfc612d8b7c84f0a071f769f5fae64a56e0ee9596e2ac7a8e53c60c9a428e8f5",
+          "id": "b4caf4cb-e366-5c33-bd9d-75ccca5af69b",
+          "kind": "Investigation",
+          "lease_expires_at": 0,
+          "lease_owner": "",
+          "lock_version": 18,
+          "observed_at": 1792215723294171,
+          "provider_mode": "mock",
+          "request_json": "{\"request\": {\"request_id\": \"demo/phase11/workflow\", \"event_id\": \"2400a2bf-5fc3-5392-b4f4-cf30eed1dab4\", \"evidence_ids\": [], \"at\": null}, \"source_fingerprints\": {\"2400a2bf-5fc3-5392-b4f4-cf30eed1dab4\": \"b0ec838244b59f17fa04c159e27a36b15ca2235d9b8d93513b44775d93dd513d\"}, \"at\": \"2026-10-16T12:00:00+00:00\", \"scenario\": \"A\"}",
+          "request_sha256": "0c6bc752dd3016ade6b9044f5657ceffb59ecbb219355ed3271fa3fe483090a2",
+          "revision": 6,
+          "sequence": 6,
+          "source": "shadowchain.agents.v1",
+          "source_id": "investigation/demo/phase11/workflow",
+          "source_uri": "urn:shadowchain:agents:investigation/demo/phase11/workflow",
+          "space_id": "23b603c4-4833-5fc2-92cb-fd6f89e80690",
+          "status": "completed",
+          "summary": "Bounded six-agent workflow; proposed actions are non-executable",
+          "tenant_id": "shadowchain-synthetic-demo",
+          "title": "Evidence-grounded security event investigation",
+          "updated_at": 1792215735752759,
+          "workflow_version": "agents-2026.1"
+        },
+        {
+          "account_id": "000000000002",
+          "arn": "arn:aws:s3:::shadowchain-synthetic-hr-data",
+          "collector": "synthetic-event-engine",
+          "created_at": 1792215720756467,
+          "dataset_version": "synthetic-2026.1",
+          "display_name": "SYNTHETIC S3 hr-data",
+          "entity_key": "resource/hr-data",
+          "fingerprint": "0e8baadbc0ec0bfe5e2a8f6047a709297954abaeb61caf12a62b22f12b65c2bf",
+          "id": "cfc7ce35-25fb-5fa0-91eb-08fa3184a300",
+          "kind": "Resource",
+          "logical_key": "resource/hr-data",
+          "object_arn": "arn:aws:s3:::shadowchain-synthetic-hr-data/*",
+          "observed_at": 1792141200000000,
+          "region": "us-east-1",
+          "resource_type": "s3:bucket",
+          "scenario_id": "baseline",
+          "sensitive": true,
+          "source": "shadowchain.synthetic.synthetic-2026.1",
+          "source_id": "resource/hr-data",
+          "source_time": 1792141200000000,
+          "source_uri": "urn:shadowchain:resource/hr-data",
+          "synthetic": true,
+          "tenant_id": "shadowchain-synthetic-demo",
+          "updated_at": 1792215720756467,
+          "valid_from": 1792141200000000
+        }
+      ],
+      "evidence": [
+        {
+          "record": {
+            "analysis_id": "c33e7ecf-aa3a-5336-8380-d1f43323d3f3",
+            "collector": "risk-2026.1",
+            "content_sha256": "8cd91c3f04a01315c5772c8a0f441efb69394442779473667a73e68a382aac7c",
+            "created_at": 1792215722727042,
+            "evidence_type": "risk-graph-record-snapshot",
+            "fingerprint": "b388e4ddf3272a04d8b632c5974dd1e2bba046dc963fb63de0b68be0d3a70d9f",
+            "id": "0223aea0-08da-5919-827a-bf92fc0372c5",
+            "kind": "Evidence",
+            "observed_at": 1792152000000000,
+            "record_id": "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4",
+            "record_json": "{\"account_id\": \"000000000002\", \"applied_revision\": 4, \"collector\": \"synthetic-event-engine\", \"content_sha256\": \"ee122f5ad68724449b35e240aefb53393acefc274ef7f457186d6391e9e2e840\", \"created_at\": 1792215722400826, \"dataset_version\": \"synthetic-2026.1\", \"entity_key\": \"event/199de1aa-8744-5dc5-9f05-110e2cf7f378\", \"event_id\": \"199de1aa-8744-5dc5-9f05-110e2cf7f378\", \"event_time\": 1792152000000000, \"event_type\": \"SyntheticSensitiveReadPolicyAttached\", \"fingerprint\": \"b0ec838244b59f17fa04c159e27a36b15ca2235d9b8d93513b44775d93dd513d\", \"generation\": 0, \"id\": \"2400a2bf-5fc3-5392-b4f4-cf30eed1dab4\", \"ingested_at\": 1792215722400826, \"kind\": \"SecurityEvent\", \"logical_key\": \"event/199de1aa-8744-5dc5-9f05-110e2cf7f378\", \"observed_at\": 1792152000000000, \"scenario_id\": \"A\", \"sequence\": 3, \"source\": \"shadowchain.synthetic.synthetic-2026.1\", \"source_id\": \"event/199de1aa-8744-5dc5-9f05-110e2cf7f378\", \"source_time\": 1792152000000000, \"source_uri\": \"urn:shadowchain:event/199de1aa-8744-5dc5-9f05-110e2cf7f378\", \"synthetic\": true, \"tenant_id\": \"shadowchain-synthetic-demo\", \"updated_at\": 1792215722400826, \"valid_from\": 1792152000000000}",
+            "source": "shadowchain.risk.v1",
+            "source_id": "c33e7ecf-aa3a-5336-8380-d1f43323d3f3/record/2400a2bf-5fc3-5392-b4f4-cf30eed1dab4",
+            "source_uri": "urn:shadowchain:risk:c33e7ecf-aa3a-5336-8380-d1f43323d3f3:record/2400a2bf-5fc3-5392-b4f4-cf30eed1dab4",
+            "summary": "Graph evidence observed by deterministic risk analysis",
+            "tenant_id": "shadowchain-synthetic-demo",
+            "updated_at": 1792215722727042
+          },
+          "data_only": true,
+          "executable": false
+        },
+        {
+          "record": {
+            "analysis_id": "c33e7ecf-aa3a-5336-8380-d1f43323d3f3",
+            "collector": "risk-2026.1",
+            "content_sha256": "8caf35c3890a4389d99f9eb17f9318ae4c7a189ed51ffab7f42ba2b0c0dccc0b",
+            "created_at": 1792215722727042,
+            "evidence_type": "risk-graph-record-snapshot",
+            "fingerprint": "353dd477b79ed696ca5ae59025dff2494abb0368e81347186fbab172a250c3bd",
+            "id": "05361801-31dc-5272-9df7-be2b0d1d0068",
+            "kind": "Evidence",
+            "observed_at": 1792152000000000,
+            "record_id": "0e0827b2-31de-5ee7-a955-1a6dd43ddd61",
+            "record_json": "{\"collector\": \"synthetic-event-engine\", \"confidence\": 1.0, \"created_at\": 1792215720756467, \"dataset_version\": \"synthetic-2026.1\", \"edge_key\": \"grant/assume-temp/sts\", \"fingerprint\": \"e533eb8eb891f678970b5f0d2392cc19ce8a51035f047b2c506ec3911ac6c95a\", \"id\": \"0e0827b2-31de-5ee7-a955-1a6dd43ddd61\", \"kind\": \"GRANTS\", \"observed_at\": 1792141200000000, \"scenario_id\": \"baseline\", \"source\": \"shadowchain.synthetic.synthetic-2026.1\", \"source_event_id\": \"652743da-ae41-5b7a-a7f2-73ce1d07282f\", \"source_id\": \"baseline/grant/assume-temp/sts\", \"source_kind\": \"Policy\", \"source_node_id\": \"1d1aa021-b171-5b86-80c8-ff04ca77deaa\", \"source_uri\": \"urn:shadowchain:baseline/grant/assume-temp/sts\", \"synthetic\": true, \"target_kind\": \"Permission\", \"target_node_id\": \"4b3c6bd3-c3fd-5238-bb12-de992910abf6\", \"tenant_id\": \"shadowchain-synthetic-demo\", \"updated_at\": 1792215720756467, \"valid_from\": 1792141200000000, \"verification_status\": \"verified\"}",
+            "source": "shadowchain.risk.v1",
+            "source_id": "c33e7ecf-aa3a-5336-8380-d1f43323d3f3/record/0e0827b2-31de-5ee7-a955-1a6dd43ddd61",
+            "source_uri": "urn:shadowchain:risk:c33e7ecf-aa3a-5336-8380-d1f43323d3f3:record/0e0827b2-31de-5ee7-a955-1a6dd43ddd61",
+            "summary": "Graph evidence observed by deterministic risk analysis",
+            "tenant_id": "shadowchain-synthetic-demo",
+            "updated_at": 1792215722727042
+          },
+          "data_only": true,
+          "executable": false
+        },
+        {
+          "record": {
+            "analysis_id": "c33e7ecf-aa3a-5336-8380-d1f43323d3f3",
+            "collector": "risk-2026.1",
+            "content_sha256": "e72e3ce6352fe37077911edcaf2bc12761eee13c67cf162d8f25d2206467e2fe",
+            "created_at": 1792215722727042,
+            "evidence_type": "risk-graph-record-snapshot",
+            "fingerprint": "0ee08df2f1a6ca12059afea23ea3148731fc59b3402f84aa3210c89846f98e5b",
+            "id": "09b3cb25-b241-5aab-8173-bff1ca39ef6d",
+            "kind": "Evidence",
+            "observed_at": 1792152000000000,
+            "record_id": "9d7f9c9e-70db-56e2-a193-c4396b3ba2a9",
+            "record_json": "{\"collector\": \"synthetic-event-engine\", \"confidence\": 1.0, \"created_at\": 1792215722400826, \"dataset_version\": \"synthetic-2026.1\", \"edge_key\": \"a/backup-sensitive-read\", \"fingerprint\": \"efc496fc5b086768df51c79b32b4f51d3a9b2828c4ba769607703045e4ffadef\", \"id\": \"9d7f9c9e-70db-56e2-a193-c4396b3ba2a9\", \"kind\": \"HAS_POLICY\", \"observed_at\": 1792152000000000, \"scenario_id\": \"A\", \"source\": \"shadowchain.synthetic.synthetic-2026.1\", \"source_event_id\": \"2400a2bf-5fc3-5392-b4f4-cf30eed1dab4\", \"source_id\": \"a/sensitive-read-attachment/a/backup-sensitive-read\", \"source_kind\": \"Role\", \"source_node_id\": \"02f6f4e2-ddb2-52b7-a256-8b3e0d6f624b\", \"source_uri\": \"urn:shadowchain:a/sensitive-read-attachment/a/backup-sensitive-read\", \"synthetic\": true, \"target_kind\": \"Policy\", \"target_node_id\": \"8a41f093-3744-57f0-8926-5f62ad500ceb\", \"tenant_id\": \"shadowchain-synthetic-demo\", \"updated_at\": 1792215722400826, \"valid_from\": 1792152000000000, \"verification_status\": \"verified\"}",
+            "source": "shadowchain.risk.v1",
+            "source_id": "c33e7ecf-aa3a-5336-8380-d1f43323d3f3/record/9d7f9c9e-70db-56e2-a193-c4396b3ba2a9",
+            "source_uri": "urn:shadowchain:risk:c33e7ecf-aa3a-5336-8380-d1f43323d3f3:record/9d7f9c9e-70db-56e2-a193-c4396b3ba2a9",
+            "summary": "Graph evidence observed by deterministic risk analysis",
+            "tenant_id": "shadowchain-synthetic-demo",
+            "updated_at": 1792215722727042
+          },
+          "data_only": true,
+          "executable": false
+        },
+        {
+          "record": {
+            "account_id": "000000000002",
+            "applied_revision": 4,
+            "collector": "synthetic-event-engine",
+            "content_sha256": "ee122f5ad68724449b35e240aefb53393acefc274ef7f457186d6391e9e2e840",
+            "created_at": 1792215722400826,
+            "dataset_version": "synthetic-2026.1",
+            "entity_key": "event/199de1aa-8744-5dc5-9f05-110e2cf7f378",
+            "event_id": "199de1aa-8744-5dc5-9f05-110e2cf7f378",
+            "event_time": 1792152000000000,
+            "event_type": "SyntheticSensitiveReadPolicyAttached",
+            "fingerprint": "b0ec838244b59f17fa04c159e27a36b15ca2235d9b8d93513b44775d93dd513d",
+            "generation": 0,
+            "id": "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4",
+            "ingested_at": 1792215722400826,
+            "kind": "SecurityEvent",
+            "logical_key": "event/199de1aa-8744-5dc5-9f05-110e2cf7f378",
+            "observed_at": 1792152000000000,
+            "payload": "{\"account_id\": \"000000000002\", \"business_justification\": null, \"close_edges\": [], \"close_nodes\": [], \"dataset_version\": \"synthetic-2026.1\", \"edges\": [{\"justification_expires_at\": null, \"justification_key\": null, \"key\": \"a/backup-sensitive-read\", \"kind\": \"HAS_POLICY\", \"source_key\": \"role/ec2-backup\", \"target_key\": \"policy/sensitive-read\", \"valid_to\": null}], \"event_id\": \"199de1aa-8744-5dc5-9f05-110e2cf7f378\", \"event_type\": \"SyntheticSensitiveReadPolicyAttached\", \"nodes\": [], \"occurred_at\": \"2026-10-16T12:00:00Z\", \"scenario\": \"A\", \"sequence\": 3, \"source_id\": \"a/sensitive-read-attachment\", \"synthetic\": true}",
+            "scenario_id": "A",
+            "sequence": 3,
+            "source": "shadowchain.synthetic.synthetic-2026.1",
+            "source_id": "event/199de1aa-8744-5dc5-9f05-110e2cf7f378",
+            "source_time": 1792152000000000,
+            "source_uri": "urn:shadowchain:event/199de1aa-8744-5dc5-9f05-110e2cf7f378",
+            "synthetic": true,
+            "tenant_id": "shadowchain-synthetic-demo",
+            "updated_at": 1792215722400826,
+            "valid_from": 1792152000000000
+          },
+          "data_only": true,
+          "executable": false
+        },
+        {
+          "record": {
+            "action": "memory.write",
+            "actor_agent_id": "c279e5b4-1e20-50b6-92da-2b503049fba8",
+            "audit_json": "{\"new_version\": 1, \"previous_id\": null}",
+            "collector": "memory-2026.1",
+            "created_at": 1792215724666392,
+            "fingerprint": "ca8184c140dfceb3d5e6dfabb6cc1d32839d4632db543b8792a02064ce11a3a5",
+            "id": "bb6a2e99-78e4-53fc-a993-840c931eddc0",
+            "kind": "Decision",
+            "observed_at": 1792215724666392,
+            "rationale": "Graph-authorized memory operation",
+            "request_sha256": "56938a1fc5b4fee0453586fb5ee095e02f61f8edcd6e493a506fe5df2ed98811",
+            "response_json": "{\"memory_id\": \"078bab6d-5045-56ea-aeeb-8e48b26d843b\"}",
+            "source": "shadowchain.memory.v1",
+            "source_id": "5a952d39-a264-5e53-ae02-1b3fd4513439",
+            "source_uri": "urn:shadowchain:memory:5a952d39-a264-5e53-ae02-1b3fd4513439",
+            "space_id": "23b603c4-4833-5fc2-92cb-fd6f89e80690",
+            "status": "applied",
+            "tenant_id": "shadowchain-synthetic-demo",
+            "updated_at": 1792215724666392
+          },
+          "data_only": true,
+          "executable": false
+        }
+      ],
+      "conflicting_memory_ids": []
+    },
+    "reader_run": {
+      "id": "0cda32d8-65a5-5de0-9e9f-21196560dee8",
+      "investigation_id": "b4caf4cb-e366-5c33-bd9d-75ccca5af69b",
+      "agent_id": "1122bdb5-fcdb-5c96-9b5b-615238bcfe59",
+      "stage": "memory_keeper",
+      "status": "completed",
+      "attempt_count": 1,
+      "input_evidence_ids": [
+        "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+      ],
+      "retrieved_memory_ids": [
+        "adc43640-cf96-5e60-9f8d-b431075bab39",
+        "364c0286-2ad5-51de-be3b-fbfa2fbf7cbc",
+        "078bab6d-5045-56ea-aeeb-8e48b26d843b"
+      ],
+      "output": {
+        "stage": "memory_keeper",
+        "summary": "Retrieved 3 graph-grounded shared observations and 0 visible claim conflicts; retained source provenance.",
+        "evidence_ids": [
+          "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+        ],
+        "finding_ids": [],
+        "identity_ids": [],
+        "resource_ids": [],
+        "memory_ids": [
+          "adc43640-cf96-5e60-9f8d-b431075bab39",
+          "364c0286-2ad5-51de-be3b-fbfa2fbf7cbc",
+          "078bab6d-5045-56ea-aeeb-8e48b26d843b"
+        ],
+        "conflict_ids": [],
+        "analysis_id": null,
+        "relationship_ids": [],
+        "proposals": [],
+        "limitations": [],
+        "model_note": {
+          "summary": "memory_keeper: 0 modeled changes, 0 potential findings, 3 related memories.",
+          "evidence_ids": [
+            "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4"
+          ],
+          "confidence": 0.5
+        },
+        "privileged_actions": []
+      },
+      "pending_task_ids": [
+        "70371a08-3c8c-5e0a-9f8b-9fd27744c7e8",
+        "75d182c6-a753-50de-80ba-0f0a3d5dfaaf"
+      ],
+      "handoff_target": "f7962e30-7f3e-54f9-a6c8-1e8826d7f0fe",
+      "handoff_id": "30dc8bc4-5622-5eed-a910-e11fa2b8fb34",
+      "memory_id": "acaf8aee-402b-59a5-b2b2-27c02cd1538c",
+      "operation_id": "7e7b86fc-4e5d-5e83-ad10-c457c4ae11b7",
+      "error_code": "",
+      "created_at": "2026-10-17T05:42:03.294171Z",
+      "updated_at": "2026-10-17T05:42:13.335422Z"
+    },
+    "completed_runs_preserved": 3,
+    "completed_step_tasks": 6,
+    "unique_task_count": 7,
+    "pending_human_review_tasks": 1,
+    "internal_handoffs_consumed": 5,
+    "internal_handoffs_expected": 5,
+    "published_handoffs": 6,
+    "duplicate_trigger_unchanged": true
+  },
+  "backend_process_restart": {
+    "first_pid": 21568,
+    "second_pid": 39424,
+    "first_launcher_pid": 24760,
+    "second_launcher_pid": 40844,
+    "first_listener_closed": true,
+    "first_process_exited": true,
+    "completed_before_restart": 3,
+    "completed_after_restart": 6,
+    "startup_recovered_without_resume_request": true,
+    "mode": "owned FastAPI process termination and new process; FalkorDB remains running"
+  },
+  "demo4": {
+    "conflicts": [
+      {
+        "claim_key": "4cefba2397820c494fc3cd0e0442945a5b87fa621067cfc9deb19827a3b29eaa",
+        "current": true,
+        "id": "c3e12ceb-7887-585a-aa6e-966ca6dfaa48",
+        "memory_ids": [
+          "73174ac7-8321-54d0-bf29-b31a9c70b835",
+          "822f33c5-1a7b-556c-9a21-36e46eb7e2b2"
+        ]
+      }
+    ],
+    "definitive_fact_count": 0,
+    "observations": [
+      {
+        "audience": "team",
+        "author_agent_id": "71ee95b0-7ecd-53ee-8e66-e121c5b983aa",
+        "claim": {
+          "object_id": null,
+          "predicate": "s3.public_access",
+          "subject_id": "d9416aa9-ef54-5783-bbc0-24af0fad55c3",
+          "value": true
+        },
+        "confidence": 0.5,
+        "conflicting_memory_ids": [
+          "73174ac7-8321-54d0-bf29-b31a9c70b835"
+        ],
+        "content": "SYNTHETIC investigation observation: suspicious",
+        "created_at": "2026-10-17T05:42:06.823784Z",
+        "evidence": [
+          {
+            "data_only": true,
+            "executable": false,
+            "record": {
+              "collector": "synthetic-event-engine",
+              "content_sha256": "e280bb54d4773fff2074fa06cbc74b5a109fc28e239ad6b3ad8a45c535601035",
+              "created_at": 1792215725984925,
+              "dataset_version": "synthetic-2026.1",
+              "entity_key": "c/evidence/acl",
+              "evidence_type": "synthetic-acl-snapshot",
+              "fingerprint": "104075c4cf26fab820ca7db961450bf1dcb0c7ccd15c2f6ba222b0bb48f72b70",
+              "id": "554ee701-e94f-591c-9705-ae8a5647b176",
+              "kind": "Evidence",
+              "logical_key": "c/evidence/acl",
+              "observed_at": 1792144800000000,
+              "scenario_id": "C",
+              "source": "shadowchain.synthetic.synthetic-2026.1",
+              "source_event_id": "d599b48b-07b3-5284-8b79-b7bb6c41cf41",
+              "source_id": "c/evidence/acl",
+              "source_time": 1792144800000000,
+              "source_uri": "urn:shadowchain:c/evidence/acl",
+              "summary": "SYNTHETIC ACL report suggests public read; policy context not yet verified.",
+              "synthetic": true,
+              "tenant_id": "shadowchain-synthetic-demo",
+              "updated_at": 1792215725984925,
+              "valid_from": 1792144800000000
+            }
+          },
+          {
+            "data_only": true,
+            "executable": false,
+            "record": {
+              "action": "memory.write",
+              "actor_agent_id": "71ee95b0-7ecd-53ee-8e66-e121c5b983aa",
+              "audit_json": "{\"new_version\": 1, \"previous_id\": null}",
+              "collector": "memory-2026.1",
+              "created_at": 1792215726823784,
+              "fingerprint": "442a2717ce3acffff13fe93e5b51df5efb3b8c472159bfe882dd60052b810157",
+              "id": "d1c2ca80-7382-5b2a-83c1-e7e331687ccb",
+              "kind": "Decision",
+              "observed_at": 1792215726823784,
+              "rationale": "Graph-authorized memory operation",
+              "request_sha256": "af040025045a1642305bb7bafb41c09d01dea8d91781dd0245af80c4a3cda778",
+              "response_json": "{\"memory_id\": \"822f33c5-1a7b-556c-9a21-36e46eb7e2b2\"}",
+              "source": "shadowchain.memory.v1",
+              "source_id": "0fdb1a62-7659-5be2-9b26-d9f6242f106b",
+              "source_uri": "urn:shadowchain:memory:0fdb1a62-7659-5be2-9b26-d9f6242f106b",
+              "space_id": "be92d29c-9885-5cce-aff1-62041e4cbf73",
+              "status": "applied",
+              "tenant_id": "shadowchain-synthetic-demo",
+              "updated_at": 1792215726823784
+            }
+          }
+        ],
+        "executable": false,
+        "id": "822f33c5-1a7b-556c-9a21-36e46eb7e2b2",
+        "memory_key": "phase11/suspicious",
+        "memory_type": "semantic",
+        "procedure": null,
+        "provenance": {
+          "collector": "evaluation-2026.1",
+          "observed_at": "2026-10-16T10:00:00Z",
+          "source": "shadowchain.evaluation.v1",
+          "source_id": "suspicious",
+          "source_uri": "urn:shadowchain:synthetic:evaluation:suspicious"
+        },
+        "source_trust": "untrusted_data",
+        "state": "current",
+        "subjects": [
+          {
+            "collector": "synthetic-event-engine",
+            "created_at": 1792215726098683,
+            "dataset_version": "synthetic-2026.1",
+            "entity_key": "c/investigation/v2",
+            "fingerprint": "165162ea89645e2c27cf982be06a010b8e824a107c57106055a71b3a146b5a51",
+            "id": "0bfd069f-97e7-51f0-bf0c-7c1413c578b7",
+            "kind": "Investigation",
+            "logical_key": "c/investigation",
+            "observed_at": 1792148400000000,
+            "scenario_id": "C",
+            "source": "shadowchain.synthetic.synthetic-2026.1",
+            "source_event_id": "19d5faef-4399-5ebf-b860-82899d45e29d",
+            "source_id": "c/investigation/v2",
+            "source_time": 1792148400000000,
+            "source_uri": "urn:shadowchain:c/investigation/v2",
+            "status": "needs_investigation",
+            "synthetic": true,
+            "tenant_id": "shadowchain-synthetic-demo",
+            "title": "SYNTHETIC conflicting access observations",
+            "updated_at": 1792215726098683,
+            "valid_from": 1792148400000000
+          },
+          {
+            "account_id": "000000000002",
+            "arn": "arn:aws:s3:::shadowchain-synthetic-customer-data",
+            "collector": "synthetic-event-engine",
+            "created_at": 1792215720756467,
+            "dataset_version": "synthetic-2026.1",
+            "display_name": "SYNTHETIC S3 customer-data",
+            "entity_key": "resource/customer-data",
+            "fingerprint": "04fd6fd7ab8fcb4d7482937044070b9e4faac3b4119feda7a6b108a09a5840e1",
+            "id": "d9416aa9-ef54-5783-bbc0-24af0fad55c3",
+            "kind": "Resource",
+            "logical_key": "resource/customer-data",
+            "object_arn": "arn:aws:s3:::shadowchain-synthetic-customer-data/*",
+            "observed_at": 1792141200000000,
+            "region": "us-east-1",
+            "resource_type": "s3:bucket",
+            "scenario_id": "baseline",
+            "sensitive": true,
+            "source": "shadowchain.synthetic.synthetic-2026.1",
+            "source_id": "resource/customer-data",
+            "source_time": 1792141200000000,
+            "source_uri": "urn:shadowchain:resource/customer-data",
+            "synthetic": true,
+            "tenant_id": "shadowchain-synthetic-demo",
+            "updated_at": 1792215720756467,
+            "valid_from": 1792141200000000
+          }
+        ],
+        "updated_at": "2026-10-17T05:42:06.823784Z",
+        "valid_from": "2026-10-17T05:42:06.823784Z",
+        "valid_to": null,
+        "verification_status": "unverified",
+        "version": 1
+      },
+      {
+        "audience": "team",
+        "author_agent_id": "cd47ee0c-0426-5924-a3bf-0a0f03a52c05",
+        "claim": {
+          "object_id": null,
+          "predicate": "s3.public_access",
+          "subject_id": "d9416aa9-ef54-5783-bbc0-24af0fad55c3",
+          "value": false
+        },
+        "confidence": 0.5,
+        "conflicting_memory_ids": [
+          "822f33c5-1a7b-556c-9a21-36e46eb7e2b2"
+        ],
+        "content": "SYNTHETIC investigation observation: disputing",
+        "created_at": "2026-10-17T05:42:06.895352Z",
+        "evidence": [
+          {
+            "data_only": true,
+            "executable": false,
+            "record": {
+              "collector": "synthetic-event-engine",
+              "content_sha256": "992eee872dfa35f5db2a32b16ba5cf8423dcd323d675a823ec56527b4de24900",
+              "created_at": 1792215726098683,
+              "dataset_version": "synthetic-2026.1",
+              "entity_key": "c/evidence/policy",
+              "evidence_type": "synthetic-policy-snapshot",
+              "fingerprint": "c9a3ab3f48f6c03cd001123f5b1131a95ca93a9317b33204a5a6eaa258550fef",
+              "id": "81130854-8d6a-53a1-9674-db22e8797cad",
+              "kind": "Evidence",
+              "logical_key": "c/evidence/policy",
+              "observed_at": 1792148400000000,
+              "scenario_id": "C",
+              "source": "shadowchain.synthetic.synthetic-2026.1",
+              "source_event_id": "19d5faef-4399-5ebf-b860-82899d45e29d",
+              "source_id": "c/evidence/policy",
+              "source_time": 1792148400000000,
+              "source_uri": "urn:shadowchain:c/evidence/policy",
+              "summary": "SYNTHETIC newer policy context reports public-access blocking; earlier ACL finding is disputed, not erased.",
+              "synthetic": true,
+              "tenant_id": "shadowchain-synthetic-demo",
+              "updated_at": 1792215726098683,
+              "valid_from": 1792148400000000
+            }
+          },
+          {
+            "data_only": true,
+            "executable": false,
+            "record": {
+              "action": "memory.write",
+              "actor_agent_id": "cd47ee0c-0426-5924-a3bf-0a0f03a52c05",
+              "audit_json": "{\"new_version\": 1, \"previous_id\": null}",
+              "collector": "memory-2026.1",
+              "created_at": 1792215726895352,
+              "fingerprint": "838cf186244b69475d4af0a2726620fde4f6d17747a5828fdae58264060abbf5",
+              "id": "8734129f-6e2d-5e0e-b543-25d1735ce5a4",
+              "kind": "Decision",
+              "observed_at": 1792215726895352,
+              "rationale": "Graph-authorized memory operation",
+              "request_sha256": "0e7cacdfe4d09c0e70ad2376e676dd30c0e6d1a23342eef3fae6be1b6cd53775",
+              "response_json": "{\"memory_id\": \"73174ac7-8321-54d0-bf29-b31a9c70b835\"}",
+              "source": "shadowchain.memory.v1",
+              "source_id": "0675b04b-7e50-52d1-b7ad-3e0e03064084",
+              "source_uri": "urn:shadowchain:memory:0675b04b-7e50-52d1-b7ad-3e0e03064084",
+              "space_id": "be92d29c-9885-5cce-aff1-62041e4cbf73",
+              "status": "applied",
+              "tenant_id": "shadowchain-synthetic-demo",
+              "updated_at": 1792215726895352
+            }
+          }
+        ],
+        "executable": false,
+        "id": "73174ac7-8321-54d0-bf29-b31a9c70b835",
+        "memory_key": "phase11/disputing",
+        "memory_type": "semantic",
+        "procedure": null,
+        "provenance": {
+          "collector": "evaluation-2026.1",
+          "observed_at": "2026-10-16T11:00:00Z",
+          "source": "shadowchain.evaluation.v1",
+          "source_id": "disputing",
+          "source_uri": "urn:shadowchain:synthetic:evaluation:disputing"
+        },
+        "source_trust": "untrusted_data",
+        "state": "current",
+        "subjects": [
+          {
+            "collector": "synthetic-event-engine",
+            "created_at": 1792215726098683,
+            "dataset_version": "synthetic-2026.1",
+            "entity_key": "c/investigation/v2",
+            "fingerprint": "165162ea89645e2c27cf982be06a010b8e824a107c57106055a71b3a146b5a51",
+            "id": "0bfd069f-97e7-51f0-bf0c-7c1413c578b7",
+            "kind": "Investigation",
+            "logical_key": "c/investigation",
+            "observed_at": 1792148400000000,
+            "scenario_id": "C",
+            "source": "shadowchain.synthetic.synthetic-2026.1",
+            "source_event_id": "19d5faef-4399-5ebf-b860-82899d45e29d",
+            "source_id": "c/investigation/v2",
+            "source_time": 1792148400000000,
+            "source_uri": "urn:shadowchain:c/investigation/v2",
+            "status": "needs_investigation",
+            "synthetic": true,
+            "tenant_id": "shadowchain-synthetic-demo",
+            "title": "SYNTHETIC conflicting access observations",
+            "updated_at": 1792215726098683,
+            "valid_from": 1792148400000000
+          },
+          {
+            "account_id": "000000000002",
+            "arn": "arn:aws:s3:::shadowchain-synthetic-customer-data",
+            "collector": "synthetic-event-engine",
+            "created_at": 1792215720756467,
+            "dataset_version": "synthetic-2026.1",
+            "display_name": "SYNTHETIC S3 customer-data",
+            "entity_key": "resource/customer-data",
+            "fingerprint": "04fd6fd7ab8fcb4d7482937044070b9e4faac3b4119feda7a6b108a09a5840e1",
+            "id": "d9416aa9-ef54-5783-bbc0-24af0fad55c3",
+            "kind": "Resource",
+            "logical_key": "resource/customer-data",
+            "object_arn": "arn:aws:s3:::shadowchain-synthetic-customer-data/*",
+            "observed_at": 1792141200000000,
+            "region": "us-east-1",
+            "resource_type": "s3:bucket",
+            "scenario_id": "baseline",
+            "sensitive": true,
+            "source": "shadowchain.synthetic.synthetic-2026.1",
+            "source_id": "resource/customer-data",
+            "source_time": 1792141200000000,
+            "source_uri": "urn:shadowchain:resource/customer-data",
+            "synthetic": true,
+            "tenant_id": "shadowchain-synthetic-demo",
+            "updated_at": 1792215720756467,
+            "valid_from": 1792141200000000
+          }
+        ],
+        "updated_at": "2026-10-17T05:42:06.895352Z",
+        "valid_from": "2026-10-17T05:42:06.895352Z",
+        "valid_to": null,
+        "verification_status": "unverified",
+        "version": 1
+      }
+    ],
+    "verification_required": true
+  },
+  "demo5": {
+    "request": {
+      "scenario": "A",
+      "identity_id": null,
+      "action": "s3:GetObject",
+      "max_role_hops": 4,
+      "context": {
+        "mfa_present": null,
+        "source_ip": null,
+        "requested_region": null
+      },
+      "at": "2026-10-16T12:00:00Z",
+      "remove_relationship_ids": [
+        "9d7f9c9e-70db-56e2-a193-c4396b3ba2a9"
+      ]
+    },
+    "before_path_count": 1,
+    "after_path_count": 0,
+    "remaining_path_ids": [],
+    "before_maximum_score": 51,
+    "after_maximum_score": 0,
+    "source_graph_sha256_before": "1022f4528d97c04b7f83e412b561f5026f78a2c0038543cc4e5a4fd9bb791214",
+    "source_graph_sha256_after": "1022f4528d97c04b7f83e412b561f5026f78a2c0038543cc4e5a4fd9bb791214",
+    "supporting_evidence_ids": [
+      "0223aea0-08da-5919-827a-bf92fc0372c5",
+      "05361801-31dc-5272-9df7-be2b0d1d0068",
+      "09b3cb25-b241-5aab-8173-bff1ca39ef6d",
+      "0b6557e2-ec35-5c5c-bebc-efbfda80d1ba",
+      "0d0aca18-f010-5379-aa15-2fa1fea4c27f",
+      "0d33be78-e7a7-5042-90c8-1cfc8e757718",
+      "13c4ff12-850b-53af-8f26-7f753f506ee0",
+      "14dd7833-115b-5992-bb47-d6365f4c1fcf",
+      "15b25ed6-71c1-5c2a-9556-36def799b2cd",
+      "17473d2a-550e-5ba4-8343-d002e79195d5",
+      "1cabf1cd-0b70-5d27-ae58-07296095e55e",
+      "23c9aaeb-afb3-52bd-b002-705767c7067d",
+      "291d5bef-c1b3-5162-aedf-baad4e38b584",
+      "34938e65-013e-5d23-baba-aface7b940e7",
+      "35eab8c2-e2dc-54cc-a9fa-345faec7d9c3",
+      "3bf981fe-e636-566c-93bf-3683efb8f2c7",
+      "3c23cf6e-00f2-5209-8914-d675c4d14785",
+      "439391dd-cf8d-5fdf-a5ce-91239acdae09",
+      "4708da75-b63f-5ec1-8d7b-192148b2729a",
+      "47270a9d-6db8-5e7c-9f4d-5f94f75be668",
+      "4c897abd-813b-5127-949b-25ef5335c887",
+      "50817436-4c42-5cd4-a948-7167ea6d07a0",
+      "5530f318-6c23-5af6-88d8-bc7f4002182c",
+      "563d48bf-25be-56a7-b207-5e09345d1b77",
+      "57e721b0-7dd1-5f83-9692-418236fa3443",
+      "5900a1d5-8b76-5fab-ae07-d995434b7877",
+      "5b8b2cb2-4df0-5c63-a10b-f6d70cd62036",
+      "5fc8ce50-c89b-5713-895d-e1be29ac4a45",
+      "675f2dcb-43a5-5fcb-8305-a1567312c6d6",
+      "67bbf878-1406-521b-b8e1-fc4ebfa16942",
+      "689574fa-e35e-54bb-a7f1-1cdc3050ac95",
+      "6a0ffd4e-5d8c-5ca7-959f-73b7b67132c3",
+      "6ebc99ab-9ed1-5ede-a937-26383cf2f009",
+      "725a649e-1efe-5b4c-9806-70aa508c48b0",
+      "7537c6df-2379-5e58-9947-0f5efd5c0524",
+      "76c509f8-f4a0-53d1-ae08-fac1c9860648",
+      "77f6b8a4-ea05-5688-a87e-38f2a0a46093",
+      "78b60449-dd66-5a8b-aaa8-05f00b376be4",
+      "8a6f0324-9323-55a3-b04f-1d1c6202cbab",
+      "8e94c016-436d-59a5-87b2-4983e9b05570",
+      "8ee3a646-4a16-5415-a63a-b19b7943a0bf",
+      "907ce186-bb62-5125-8226-d25d1a21b835",
+      "90d6fa9f-d66d-56a0-b45c-d3d30a7ad5e7",
+      "9280b243-a796-5624-aeec-05814358e8ec",
+      "95fbe0a5-28e2-59e4-8b6a-36c28786e25d",
+      "9694b097-b437-515b-8375-2294d300dc14",
+      "9898d8b4-49c3-59b1-a9f9-c1a5ab8fc69c",
+      "9d3de3d5-aff8-5d9a-abcf-d6b49394b41f",
+      "a136dd6d-edb3-5bbc-bff5-a89db9917c62",
+      "a2aab168-100a-50bf-b512-1fad8e13e9f7",
+      "a57267e2-2366-5f23-90b6-548e4fbf22f2",
+      "a63db99e-4739-5a12-bdb2-8ff253135328",
+      "ad6c8a38-f317-521d-8fbc-6f70d0c50d29",
+      "b5051e63-145f-5503-9196-02f811948ead",
+      "b7b12229-e5a5-5cff-8ea7-fcb1ac22c4b9",
+      "bb45a403-87d2-5ef9-b59c-f0efaca7f169",
+      "bdee2887-230c-5328-b7a8-1ff624e09dd3",
+      "bea96adf-c645-568d-9745-9634baafec64",
+      "c2911cc7-38f5-558a-9955-0153f430285b",
+      "c4054560-f370-51ab-b8e1-f04a8236ada3",
+      "c54d974a-5818-56fb-bc12-4faddf22fa87",
+      "c8bdb623-2492-5281-9d57-6c08664cdda1",
+      "cc3b970c-15c5-5e77-b94f-d225ff499ebe",
+      "cf27356b-943d-5b71-92ef-b044110101ad",
+      "da2dac36-7e7c-56b5-842f-1981eb106f6b",
+      "df7b6b46-2f64-5c71-a3d9-480c1bd47dd8",
+      "e071eb58-b104-5a9a-8244-25503e0f575c",
+      "e25d940e-9591-5001-b87e-502d94794778",
+      "e2ad4020-e4db-5ff5-a4ed-1ca891b181d4",
+      "eb80625f-5445-5722-a068-d610066944fd",
+      "ede11709-da1a-5940-b6eb-edf7824160e5",
+      "ef8a14ae-0792-5708-bf8d-1eb30f72965b",
+      "f05bc85a-aa7a-5edc-b1c1-a40d29efcb91",
+      "f1ce3e2d-e3d2-5350-abd6-bbc2c78f0b29",
+      "ff2e8986-a9fe-5a50-924c-323453c595d2"
+    ],
+    "repeatable": true,
+    "aws_operations": [],
+    "graph_mutated": false,
+    "uncertainty": [
+      "POTENTIAL ATTACK PATHS are modeled possibilities, not proven exploitable AWS access.",
+      "Only normalized identity/trust/resource policies, boundary/session policies and attached SCP/RCP constraints are evaluated. Missing unmodeled AWS constraints remain unknown.",
+      "Candidates require an identity-policy grant. Resource-policy-only grants, session-principal exceptions, IAM groups, NotAction/NotResource, ABAC, service-specific semantics, KMS and S3 ownership/public-access-block evaluation are not implemented.",
+      "Unknown applicable conditions or required constraints exclude a candidate as unresolved; zero findings does not certify safety. User-supplied context is a hypothetical assumption.",
+      "Traversal is bounded to the requested role hops (maximum four); IAM evaluation is per hop. STS sessions, transitive session tags and session-policy propagation are not simulated.",
+      "Scores are explainable prioritization heuristics, not exploitation probabilities.",
+      "Account/organization controls are resolved through at most two membership hops; deeper modeled hierarchy is detected and rejected as unresolved."
+    ]
+  },
+  "ablation": {
+    "before_restart_count": 1,
+    "after_restart_count": 0,
+    "input_sha256": "efcdd3670aafe0e89071da383b2f087bcc115095e5dbe28575b0baa6c6119c17",
+    "baseline_processes": 2,
+    "persistent_storage": false,
+    "graph_reproduced": false,
+    "persistent_before_restart_count": 1,
+    "persistent_after_restart_count": 1,
+    "persistent_reader_processes": 2,
+    "input": {
+      "query": {
+        "at": null,
+        "include_superseded": false,
+        "limit": 50,
+        "max_hops": 0,
+        "memory_ids": [],
+        "memory_type": null,
+        "subject_ids": [
+          "d9416aa9-ef54-5783-bbc0-24af0fad55c3",
+          "0bfd069f-97e7-51f0-bf0c-7c1413c578b7"
+        ]
+      },
+      "write": {
+        "audience": "team",
+        "claim": null,
+        "confidence": 0.5,
+        "content": "SYNTHETIC investigation observation: ablation",
+        "evidence_ids": [
+          "554ee701-e94f-591c-9705-ae8a5647b176"
+        ],
+        "memory_key": "phase11/ablation",
+        "memory_type": "episodic",
+        "procedure": null,
+        "provenance": {
+          "collector": "evaluation-2026.1",
+          "observed_at": "2026-10-16T10:00:00Z",
+          "source": "shadowchain.evaluation.v1",
+          "source_id": "ablation",
+          "source_uri": "urn:shadowchain:synthetic:evaluation:ablation"
+        },
+        "request_id": "phase11/ablation",
+        "subject_ids": [
+          "d9416aa9-ef54-5783-bbc0-24af0fad55c3",
+          "0bfd069f-97e7-51f0-bf0c-7c1413c578b7"
+        ],
+        "valid_from": null,
+        "valid_to": null
+      }
+    },
+    "graph_unavailable_operations": [
+      "temporal access-path traversal and policy evidence",
+      "historical graph reconstruction and contributing event provenance",
+      "persistent cross-agent memory and conflict history",
+      "durable task ownership, deduplication, handoffs and restart recovery",
+      "investigations, remediation proposals and review audits",
+      "tenant event sequence, replay and graph-backed API rate budgets"
+    ],
+    "scope": "one shared observation, same write/query inputs; no graph or risk engine in baseline",
+    "baseline_limitations": "No ACL, provenance validation, graph traversal or workflow coordination; retention only."
+  },
+  "falkordb_off_checks": [
+    {
+      "operation": "readiness",
+      "error_code": "dependency_unavailable",
+      "test": "non-listening loopback dependency (refusal or timeout)",
+      "transport_failure": "TimeoutError"
+    },
+    {
+      "operation": "attack_path_discovery",
+      "error_code": "dependency_unavailable",
+      "test": "non-listening loopback dependency (refusal or timeout)",
+      "transport_failure": "TimeoutError"
+    },
+    {
+      "operation": "shared_memory",
+      "error_code": "dependency_unavailable",
+      "test": "non-listening loopback dependency (refusal or timeout)",
+      "transport_failure": "TimeoutError"
+    },
+    {
+      "operation": "workflow_reconstruction",
+      "error_code": "dependency_unavailable",
+      "test": "non-listening loopback dependency (refusal or timeout)",
+      "transport_failure": "TimeoutError"
+    }
+  ],
+  "graph_query_latency": {
+    "method": "sequential client wall-clock operation round trips, perf_counter_ns",
+    "scope": "query latency includes SDK/network/Cypher/decoding; operation latency also includes service ACL/provenance reconstruction",
+    "warmup_per_operation": 1,
+    "concurrency": 1,
+    "errors": 0,
+    "operations": {
+      "bounded_path_traversal": {
+        "operation_latency": {
+          "samples": 20,
+          "raw_ms": [
+            115.5089,
+            116.669,
+            90.7684,
+            91.7102,
+            101.6791,
+            88.1245,
+            92.5293,
+            92.897,
+            139.8545,
+            92.0844,
+            92.6793,
+            116.3166,
+            134.9694,
+            103.3271,
+            90.2602,
+            126.6804,
+            131.432,
+            101.7048,
+            95.223,
+            114.2494
+          ],
+          "minimum_ms": 88.1245,
+          "median_ms": 101.69195,
+          "p95_ms": 134.9694,
+          "maximum_ms": 139.8545,
+          "p95_method": "nearest-rank"
+        },
+        "graph_query_latency": {
+          "samples": 20,
+          "raw_ms": [
+            115.1179,
+            116.33,
+            90.4783,
+            91.3679,
+            101.2942,
+            87.8069,
+            92.2058,
+            92.5988,
+            139.4961,
+            91.7787,
+            92.2157,
+            115.9392,
+            134.691,
+            103.0127,
+            89.9901,
+            126.3145,
+            131.1123,
+            101.3826,
+            94.9073,
+            113.954
+          ],
+          "minimum_ms": 87.8069,
+          "median_ms": 101.33840000000001,
+          "p95_ms": 134.691,
+          "maximum_ms": 139.4961,
+          "p95_method": "nearest-rank"
+        }
+      },
+      "memory_with_acl_and_provenance": {
+        "operation_latency": {
+          "samples": 20,
+          "raw_ms": [
+            26.3625,
+            22.3544,
+            24.6595,
+            22.0918,
+            22.5879,
+            24.97,
+            23.3042,
+            23.4643,
+            32.311,
+            40.6842,
+            76.0933,
+            27.5349,
+            32.9122,
+            35.2019,
+            32.6592,
+            26.1576,
+            28.7236,
+            35.0323,
+            28.8775,
+            41.9408
+          ],
+          "minimum_ms": 22.0918,
+          "median_ms": 28.12925,
+          "p95_ms": 41.9408,
+          "maximum_ms": 76.0933,
+          "p95_method": "nearest-rank"
+        },
+        "graph_query_latency": {
+          "samples": 60,
+          "raw_ms": [
+            10.2317,
+            14.4886,
+            1.1837,
+            6.7297,
+            13.8827,
+            1.3654,
+            7.8274,
+            15.1549,
+            1.0568,
+            6.6424,
+            13.9527,
+            1.1256,
+            7.3162,
+            13.717,
+            1.1884,
+            6.7958,
+            16.4918,
+            1.2351,
+            7.3582,
+            14.3351,
+            1.1913,
+            6.9068,
+            14.1155,
+            1.9673,
+            9.2104,
+            20.5558,
+            1.9576,
+            7.7651,
+            31.0198,
+            1.4663,
+            56.7846,
+            17.4279,
+            1.3902,
+            6.3884,
+            19.3808,
+            1.3181,
+            9.1374,
+            21.6006,
+            1.7077,
+            8.1875,
+            24.5076,
+            1.9796,
+            11.3708,
+            19.6211,
+            1.2328,
+            8.5927,
+            15.5113,
+            1.6134,
+            7.2437,
+            19.1033,
+            1.8591,
+            10.9423,
+            21.3113,
+            2.2852,
+            10.7566,
+            15.6566,
+            1.8447,
+            12.3244,
+            26.8863,
+            2.2549
+          ],
+          "minimum_ms": 1.0568,
+          "median_ms": 8.00745,
+          "p95_ms": 24.5076,
+          "maximum_ms": 56.7846,
+          "p95_method": "nearest-rank"
+        }
+      },
+      "durable_workflow_reconstruction": {
+        "operation_latency": {
+          "samples": 20,
+          "raw_ms": [
+            18.8174,
+            13.6705,
+            14.0394,
+            15.8336,
+            16.5199,
+            14.1328,
+            17.051,
+            19.1407,
+            19.4754,
+            15.482,
+            17.1219,
+            14.3829,
+            14.0961,
+            12.6913,
+            12.2585,
+            11.8266,
+            12.0464,
+            11.7603,
+            13.5962,
+            12.7544
+          ],
+          "minimum_ms": 11.7603,
+          "median_ms": 14.11445,
+          "p95_ms": 19.1407,
+          "maximum_ms": 19.4754,
+          "p95_method": "nearest-rank"
+        },
+        "graph_query_latency": {
+          "samples": 280,
+          "raw_ms": [
+            0.796,
+            1.427,
+            1.7455,
+            1.8309,
+            1.3959,
+            1.0636,
+            0.965,
+            0.7272,
+            0.8178,
+            0.6156,
+            1.6341,
+            1.5346,
+            2.0823,
+            1.2422,
+            1.1209,
+            2.5463,
+            0.9122,
+            0.6582,
+            0.7884,
+            0.6366,
+            0.7072,
+            0.5434,
+            0.8663,
+            0.9039,
+            1.0622,
+            0.8037,
+            0.8365,
+            0.5331,
+            0.6955,
+            1.2053,
+            0.7382,
+            0.5467,
+            0.8355,
+            0.5842,
+            0.67,
+            0.7517,
+            1.0812,
+            1.1048,
+            1.4209,
+            1.0368,
+            1.4031,
+            1.1308,
+            0.9046,
+            1.3161,
+            0.9157,
+            1.018,
+            1.4435,
+            1.1079,
+            1.6903,
+            0.7587,
+            0.9546,
+            0.898,
+            1.053,
+            0.6782,
+            1.1121,
+            0.8725,
+            1.2099,
+            1.4624,
+            1.0151,
+            1.2774,
+            1.3266,
+            0.9887,
+            1.0461,
+            0.9927,
+            1.6698,
+            1.1371,
+            1.1536,
+            0.8925,
+            0.7999,
+            0.565,
+            0.8305,
+            1.2623,
+            0.7485,
+            0.595,
+            0.8196,
+            0.7292,
+            0.9548,
+            0.99,
+            1.1182,
+            0.9323,
+            1.1065,
+            0.9204,
+            1.1647,
+            1.0474,
+            0.8497,
+            1.2164,
+            0.7408,
+            0.8901,
+            1.2934,
+            1.211,
+            1.3862,
+            1.2253,
+            1.4575,
+            1.3284,
+            1.6696,
+            1.0625,
+            0.9189,
+            0.5969,
+            0.8726,
+            2.1412,
+            1.6004,
+            1.2589,
+            1.4511,
+            1.0513,
+            1.3404,
+            1.4165,
+            1.7908,
+            0.922,
+            0.9814,
+            0.6591,
+            1.1775,
+            1.279,
+            1.4125,
+            2.34,
+            1.7709,
+            1.5004,
+            1.58,
+            1.045,
+            1.2747,
+            0.8779,
+            1.0915,
+            1.0604,
+            1.752,
+            1.3114,
+            0.8141,
+            0.6931,
+            1.1855,
+            1.2399,
+            0.8083,
+            0.6252,
+            0.9757,
+            0.7368,
+            1.0192,
+            1.3278,
+            1.1327,
+            0.8181,
+            0.8767,
+            0.9142,
+            1.5198,
+            1.3471,
+            1.6176,
+            2.4949,
+            1.4994,
+            0.6981,
+            0.7533,
+            1.2845,
+            1.2948,
+            1.0452,
+            0.9598,
+            0.7172,
+            0.8571,
+            0.7436,
+            1.3806,
+            0.8887,
+            1.1207,
+            2.274,
+            1.1354,
+            0.637,
+            0.6627,
+            0.6128,
+            1.043,
+            1.0953,
+            1.1511,
+            0.7487,
+            0.8593,
+            0.6337,
+            0.8588,
+            0.7644,
+            0.9869,
+            1.3068,
+            0.8754,
+            0.5804,
+            0.8826,
+            0.5907,
+            0.6791,
+            0.5702,
+            0.7687,
+            0.8461,
+            1.308,
+            1.5061,
+            1.5776,
+            0.8064,
+            0.7746,
+            1.245,
+            0.8707,
+            0.614,
+            0.851,
+            0.6831,
+            0.7446,
+            0.6934,
+            0.8106,
+            0.6491,
+            0.7732,
+            0.9322,
+            1.1887,
+            1.0339,
+            1.3944,
+            1.6377,
+            0.9267,
+            0.7122,
+            0.7799,
+            0.7417,
+            0.7478,
+            0.6082,
+            0.7846,
+            0.6075,
+            0.813,
+            0.5884,
+            0.7033,
+            0.5186,
+            0.6975,
+            1.2453,
+            0.7281,
+            0.5348,
+            0.6874,
+            1.2301,
+            0.9222,
+            0.6374,
+            0.989,
+            0.5957,
+            0.7954,
+            0.5676,
+            0.866,
+            0.62,
+            0.7387,
+            1.5747,
+            0.8602,
+            0.5989,
+            0.6903,
+            0.6245,
+            0.7214,
+            0.561,
+            0.6251,
+            0.5663,
+            1.0549,
+            1.0844,
+            0.8625,
+            0.7738,
+            0.7911,
+            1.3698,
+            0.7914,
+            0.6007,
+            1.1225,
+            0.9849,
+            1.0051,
+            0.6941,
+            0.6782,
+            0.5677,
+            0.6787,
+            0.5127,
+            0.5884,
+            0.6968,
+            0.6478,
+            1.4408,
+            1.3151,
+            0.9084,
+            0.9569,
+            0.6435,
+            0.7413,
+            0.9877,
+            0.8704,
+            0.602,
+            0.9873,
+            0.797,
+            0.9985,
+            0.8869,
+            0.8739,
+            1.5117,
+            0.9421,
+            0.7426,
+            0.9373,
+            1.068,
+            0.9673,
+            0.7429,
+            0.7069,
+            0.5689,
+            0.7803,
+            0.6439,
+            0.7345,
+            0.6811
+          ],
+          "minimum_ms": 0.5127,
+          "median_ms": 0.9103,
+          "p95_ms": 1.6377,
+          "maximum_ms": 2.5463,
+          "p95_method": "nearest-rank"
+        }
+      }
+    },
+    "limitations": "Small synthetic local fixture; not server-only latency or a production benchmark."
+  },
+  "limitations": [
+    "Fixed fixture checks do not estimate precision or recall on real AWS estates.",
+    "The sixth handoff is a pending human recommendation review; no automatic AWS action.",
+    "Backend restart is measured; database-host recovery has separate persistence tests.",
+    "No performance improvement is inferred from the memory retention ablation."
+  ]
+}
