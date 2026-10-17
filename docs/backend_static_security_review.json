@@ -1,0 +1,57 @@
+{
+  "tool": "bandit",
+  "version": "1.9.4",
+  "command_exit_code": 1,
+  "scope": [
+    "backend/app",
+    "scripts"
+  ],
+  "metrics": {
+    "CONFIDENCE.HIGH": 4,
+    "CONFIDENCE.LOW": 0,
+    "CONFIDENCE.MEDIUM": 0,
+    "CONFIDENCE.UNDEFINED": 0,
+    "SEVERITY.HIGH": 0,
+    "SEVERITY.LOW": 4,
+    "SEVERITY.MEDIUM": 0,
+    "SEVERITY.UNDEFINED": 0,
+    "loc": 15616,
+    "nosec": 0,
+    "skipped_tests": 0
+  },
+  "errors": [],
+  "findings": [
+    {
+      "file": "backend/app\\demo\\hackathon.py",
+      "line": 10,
+      "id": "B404",
+      "severity": "LOW",
+      "confidence": "HIGH",
+      "review": "Expected local evaluation subprocess use: fixed sys.executable and module, argument arrays, shell=False, input via stdin. No source/model text becomes a command."
+    },
+    {
+      "file": "backend/app\\demo\\hackathon.py",
+      "line": 117,
+      "id": "B603",
+      "severity": "LOW",
+      "confidence": "HIGH",
+      "review": "Expected local evaluation subprocess use: fixed sys.executable and module, argument arrays, shell=False, input via stdin. No source/model text becomes a command."
+    },
+    {
+      "file": "backend/app\\demo\\hackathon.py",
+      "line": 169,
+      "id": "B603",
+      "severity": "LOW",
+      "confidence": "HIGH",
+      "review": "Expected local evaluation subprocess use: fixed sys.executable and module, argument arrays, shell=False, input via stdin. No source/model text becomes a command."
+    },
+    {
+      "file": "backend/app\\demo\\hackathon.py",
+      "line": 192,
+      "id": "B603",
+      "severity": "LOW",
+      "confidence": "HIGH",
+      "review": "Expected local evaluation subprocess use: fixed sys.executable and module, argument arrays, shell=False, input via stdin. No source/model text becomes a command."
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "checked_at": "2026-10-17T06:35:34.394167+00:00",
+  "dependencies": {
+    "tool": "pip-audit 2.10.1",
+    "command_exit": 0,
+    "packages": 60,
+    "skipped": [],
+    "known_vulnerabilities": 0
+  },
+  "static_security": {
+    "tool": "Bandit 1.9.4",
+    "command_exit": 1,
+    "metrics": {
+      "CONFIDENCE.HIGH": 4,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 4,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 15616,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "scan_errors": [],
+    "findings": [
+      {
+        "id": "B404",
+        "file": "backend/app\\demo\\hackathon.py",
+        "line": 10,
+        "severity": "LOW",
+        "disposition": "Reviewed fixed-executable, fixed-module local evaluation subprocess, no shell/source-text execution"
+      },
+      {
+        "id": "B603",
+        "file": "backend/app\\demo\\hackathon.py",
+        "line": 117,
+        "severity": "LOW",
+        "disposition": "Reviewed fixed-executable, fixed-module local evaluation subprocess, no shell/source-text execution"
+      },
+      {
+        "id": "B603",
+        "file": "backend/app\\demo\\hackathon.py",
+        "line": 169,
+        "severity": "LOW",
+        "disposition": "Reviewed fixed-executable, fixed-module local evaluation subprocess, no shell/source-text execution"
+      },
+      {
+        "id": "B603",
+        "file": "backend/app\\demo\\hackathon.py",
+        "line": 192,
+        "severity": "LOW",
+        "disposition": "Reviewed fixed-executable, fixed-module local evaluation subprocess, no shell/source-text execution"
+      }
+    ]
+  },
+  "ruff_lint": "passed",
+  "ruff_format": {
+    "files": 146,
+    "result": "passed"
+  },
+  "dependency_consistency": "No broken requirements found",
+  "powershell_parse": {
+    "scripts": 14,
+    "errors": 0
+  },
+  "setup_windows_powershell": {
+    "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup.ps1 -SkipPython",
+    "exit_code": 0,
+    "env_unchanged": true,
+    "private_key_file_unchanged": true
+  },
+  "compose_config_exit": 0,
+  "docker_build": {
+    "exit_code": 1,
+    "verified": false,
+    "reason": "Docker Desktop Linux engine named pipe missing"
+  },
+  "native_health_http": 200,
+  "native_ready_http": 200,
+  "aws_enabled": false,
+  "cloudtrail_enabled": false,
+  "export_mode": "local",
+  "optimized_verifier_failure_rejected": true,
+  "limitations": [
+    "No live AWS, S3 or Gemini verification",
+    "No container/image OS vulnerability scan",
+    "Bandit low findings remain visible; not a clean zero-finding scan",
+    "Package advisory result is dated, not proof that no vulnerabilities exist"
+  ]
+}

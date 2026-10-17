@@ -1,0 +1,2756 @@
+{
+  "checked_at": "2026-10-17T06:38:33.885057+00:00",
+  "command": "python -m pytest backend/tests -q --tb=short --show-capture=no --junitxml=artifacts/hackathon/backend-audit-recheck-tests.xml",
+  "exit_code": 0,
+  "tests": 457,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "elapsed_seconds": 341.518,
+  "real_falkordb_integration_tests": 202,
+  "other_tests": 255,
+  "results": [
+    {
+      "nodeid": "tests/test_api_contract.py::test_canonical_query_times_are_normalized_to_utc",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_api_contract.py::test_all_data_and_mutation_routes_require_auth[post-/demo/seed]",
+      "integration": false,
+      "seconds": 0.072,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_api_contract.py::test_all_data_and_mutation_routes_require_auth[get-/graph/snapshot]",
+      "integration": false,
+      "seconds": 0.042,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_api_contract.py::test_all_data_and_mutation_routes_require_auth[post-/agents/run]",
+      "integration": false,
+      "seconds": 0.039,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_api_contract.py::test_all_data_and_mutation_routes_require_auth[post-/aws/sync]",
+      "integration": false,
+      "seconds": 0.23,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_api_contract.py::test_all_data_and_mutation_routes_require_auth[get-/aws/status]",
+      "integration": false,
+      "seconds": 0.163,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_api_contract.py::test_all_data_and_mutation_routes_require_auth[get-/investigations]",
+      "integration": false,
+      "seconds": 0.126,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_api_contract.py::test_empty_auth_configuration_fails_closed",
+      "integration": false,
+      "seconds": 0.103,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_api_contract.py::test_reader_cannot_mutate_or_review",
+      "integration": false,
+      "seconds": 0.277,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_api_contract.py::test_write_scope_does_not_grant_review_or_aws_permission",
+      "integration": false,
+      "seconds": 0.18,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_api_contract.py::test_request_bytes_are_bounded_without_echo",
+      "integration": false,
+      "seconds": 0.011,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_api_contract.py::test_websocket_log_transport_never_reflects_frame_or_url_secret",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_api_contract.py::test_openapi_has_canonical_routes_security_models_and_uniform_errors",
+      "integration": false,
+      "seconds": 0.757,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_api_contract.py::test_complete_frontend_contract_and_read_only_simulation",
+      "integration": true,
+      "seconds": 7.368,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_api_contract.py::test_keyset_pagination_staleness_and_tenant_isolation",
+      "integration": true,
+      "seconds": 1.17,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_api_contract.py::test_shared_rate_budget_survives_reconnect",
+      "integration": true,
+      "seconds": 0.311,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_api_contract.py::test_unified_aws_sync_stays_disabled_without_sdk",
+      "integration": true,
+      "seconds": 0.411,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_disabled_never_constructs_session_or_reads_provider_chain",
+      "integration": false,
+      "seconds": 0.003,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_disallowed_mutations_fail_before_sdk_construction[iam-create_role]",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_disallowed_mutations_fail_before_sdk_construction[iam-delete_role]",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_disallowed_mutations_fail_before_sdk_construction[iam-attach_role_policy]",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_disallowed_mutations_fail_before_sdk_construction[iam-put_role_policy]",
+      "integration": false,
+      "seconds": 0.003,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_disallowed_mutations_fail_before_sdk_construction[s3-create_bucket]",
+      "integration": false,
+      "seconds": 0.003,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_disallowed_mutations_fail_before_sdk_construction[s3-put_bucket_policy]",
+      "integration": false,
+      "seconds": 0.003,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_disallowed_mutations_fail_before_sdk_construction[cloudtrail-create_trail]",
+      "integration": false,
+      "seconds": 0.003,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_iam_reads_all_requested_inventory_and_drops_condition_secrets",
+      "integration": false,
+      "seconds": 0.004,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_account_mismatch_fails_before_inventory_read",
+      "integration": false,
+      "seconds": 0.003,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_iam_pagination_and_repeated_marker_are_bounded",
+      "integration": false,
+      "seconds": 0.005,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_throttling_is_safe_and_sdk_retries_are_bounded",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_cloudtrail_redacts_payloads_and_preserves_source_fields",
+      "integration": false,
+      "seconds": 0.003,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_cloudtrail_scope_mismatch_is_rejected[recipientAccountId-999999999999]",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_cloudtrail_scope_mismatch_is_rejected[awsRegion-eu-west-1]",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_condition_values_and_unsupported_statements_never_become_authorization",
+      "integration": false,
+      "seconds": 0.0,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_config_requires_scope_and_export_destination[overrides0]",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_config_requires_scope_and_export_destination[overrides1]",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_config_requires_scope_and_export_destination[overrides2]",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_event_history_rejects_unbounded_window",
+      "integration": false,
+      "seconds": 0.0,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_clients.py::test_cloudtrail_next_token_is_preserved_and_duplicates_are_deduplicated",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_exports.py::test_s3_private_bucket_exact_destination_and_encryption_only",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_exports.py::test_insecure_bucket_never_receives_report[public-block]",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_exports.py::test_insecure_bucket_never_receives_report[public-policy]",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_exports.py::test_insecure_bucket_never_receives_report[public-acl]",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_exports.py::test_insecure_bucket_never_receives_report[wrong-owner]",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_exports.py::test_existing_export_is_not_overwritten_if_hash_differs",
+      "integration": false,
+      "seconds": 0.003,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_exports.py::test_sdk_stubber_verifies_real_s3_shapes_without_network",
+      "integration": false,
+      "seconds": 0.39,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_exports.py::test_aws_status_and_disabled_sync_never_construct_sdk",
+      "integration": false,
+      "seconds": 0.173,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_exports.py::test_caller_cannot_choose_credentials_destination_or_endpoint[aws_access_key_id]",
+      "integration": false,
+      "seconds": 0.162,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_exports.py::test_caller_cannot_choose_credentials_destination_or_endpoint[aws_secret_access_key]",
+      "integration": false,
+      "seconds": 0.3,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_exports.py::test_caller_cannot_choose_credentials_destination_or_endpoint[bucket]",
+      "integration": false,
+      "seconds": 0.156,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_exports.py::test_caller_cannot_choose_credentials_destination_or_endpoint[endpoint_url]",
+      "integration": false,
+      "seconds": 0.175,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_exports.py::test_dispatcher_enforces_single_export_bucket",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_graph_integration.py::test_iam_atomic_persistence_repeated_request_and_historical_snapshot",
+      "integration": true,
+      "seconds": 0.283,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_graph_integration.py::test_over_limit_does_not_replace_previous_inventory",
+      "integration": true,
+      "seconds": 0.252,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_graph_integration.py::test_cloudtrail_duplicate_events_not_duplicated_and_provenance_persists",
+      "integration": true,
+      "seconds": 0.29,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_graph_integration.py::test_local_redacted_report_without_aws_and_no_report_body_in_graph",
+      "integration": true,
+      "seconds": 6.604,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_graph_integration.py::test_managed_policy_is_shared_without_duplicate_grants",
+      "integration": true,
+      "seconds": 0.265,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_graph_integration.py::test_s3_export_publishes_only_redacted_bytes_and_graph_metadata",
+      "integration": true,
+      "seconds": 6.704,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_aws_graph_integration.py::test_unsupported_deny_is_not_silently_ignored",
+      "integration": true,
+      "seconds": 0.194,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_backend_audit.py::test_writer_cannot_make_lifecycle_review_decisions",
+      "integration": false,
+      "seconds": 0.944,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_backend_audit.py::test_memory_review_uses_graph_authorized_curator",
+      "integration": true,
+      "seconds": 1.586,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_backend_audit.py::test_edge_diff_matches_snapshots_when_endpoint_expires",
+      "integration": true,
+      "seconds": 0.221,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_backend_audit.py::test_rapid_websocket_pings_do_not_accelerate_graph_queries",
+      "integration": true,
+      "seconds": 0.843,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_config_logging.py::test_demo_requires_no_external_credentials",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_config_logging.py::test_cors_rejects_invalid_origins[*]",
+      "integration": false,
+      "seconds": 0.003,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_config_logging.py::test_cors_rejects_invalid_origins[https://example.com/path]",
+      "integration": false,
+      "seconds": 0.003,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_config_logging.py::test_cors_rejects_invalid_origins[ftp://example.com]",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_config_logging.py::test_production_requires_password",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_config_logging.py::test_query_timeout_must_fit_socket_timeout",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_config_logging.py::test_secrets_are_masked",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_config_logging.py::test_structured_logs_are_utc_and_exclude_sensitive_extras",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_database.py::test_database_failures_are_translated[error0]",
+      "integration": false,
+      "seconds": 0.003,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_database.py::test_database_failures_are_translated[error1]",
+      "integration": false,
+      "seconds": 0.004,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_database.py::test_readiness_uses_graph_query_not_ping",
+      "integration": false,
+      "seconds": 0.003,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_database.py::test_constructor_outage_is_retried_on_next_request",
+      "integration": false,
+      "seconds": 0.007,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_demo_api.py::test_demo_endpoints_are_disabled_when_demo_mode_is_off",
+      "integration": false,
+      "seconds": 0.075,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_demo_api.py::test_event_payload_cannot_choose_tenant",
+      "integration": false,
+      "seconds": 0.089,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_demo_api.py::test_scenario_api_seed_replay_inspect_compare_reset[A]",
+      "integration": true,
+      "seconds": 1.157,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_demo_api.py::test_scenario_api_seed_replay_inspect_compare_reset[B]",
+      "integration": true,
+      "seconds": 1.016,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_demo_api.py::test_scenario_api_seed_replay_inspect_compare_reset[C]",
+      "integration": true,
+      "seconds": 1.274,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_demo_api.py::test_event_ingestion_api_returns_receipts_and_duplicates",
+      "integration": true,
+      "seconds": 0.777,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_evaluation.py::test_nearest_rank_latency_summary_uses_measured_samples",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_evaluation.py::test_listener_exit_waits_for_real_socket_ownership_to_end",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_evaluation.py::test_ephemeral_baseline_restarts_without_any_persistent_store",
+      "integration": false,
+      "seconds": 0.39,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_evaluation.py::test_graph_off_core_operations_fail_clearly",
+      "integration": false,
+      "seconds": 0.86,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_evaluation.py::test_runner_refuses_non_isolated_graph_without_connecting",
+      "integration": false,
+      "seconds": 0.004,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_evaluation.py::test_child_configuration_keeps_cloud_disabled_and_clears_model_key",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_evaluation_integration.py::test_five_demos_real_backend_restart_and_measured_ablation",
+      "integration": true,
+      "seconds": 25.619,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_evaluation_integration.py::test_evaluation_documents_are_graph_persistent_and_bounded",
+      "integration": true,
+      "seconds": 0.753,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_shared_inventory_is_exact_and_idempotent",
+      "integration": true,
+      "seconds": 0.866,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_scenario_a_changes_at_four_timestamps_and_denies_override_allow",
+      "integration": true,
+      "seconds": 1.575,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_scenario_b_resolved_justification_does_not_revoke_actual_grant",
+      "integration": true,
+      "seconds": 1.011,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_scenario_c_preserves_both_memories_evidence_and_conflict_review",
+      "integration": true,
+      "seconds": 0.989,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_reset_and_replay_reproduce_logical_graph[A]",
+      "integration": true,
+      "seconds": 1.624,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_reset_and_replay_reproduce_logical_graph[B]",
+      "integration": true,
+      "seconds": 1.194,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_reset_and_replay_reproduce_logical_graph[C]",
+      "integration": true,
+      "seconds": 1.175,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_reset_never_erases_other_scenarios",
+      "integration": true,
+      "seconds": 1.487,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_out_of_order_and_late_events_are_rejected_without_side_effects",
+      "integration": true,
+      "seconds": 0.779,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_duplicate_id_with_different_content_is_rejected",
+      "integration": true,
+      "seconds": 0.547,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_concurrent_duplicate_ingestion_advances_cursor_once",
+      "integration": true,
+      "seconds": 1.069,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_restart_recovery_uses_database_cursor",
+      "integration": true,
+      "seconds": 1.021,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_invalid_related_change_is_rejected_as_a_whole",
+      "integration": true,
+      "seconds": 0.548,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_graph_failure_rolls_back_event_and_cursor",
+      "integration": true,
+      "seconds": 0.638,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_tenant_and_dataset_version_guards",
+      "integration": true,
+      "seconds": 0.508,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_revocation_event_keeps_half_open_historical_relationship",
+      "integration": true,
+      "seconds": 0.936,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_reset_of_an_empty_scenario_preserves_baseline",
+      "integration": true,
+      "seconds": 0.577,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_lost_write_ack_is_reconciled_from_committed_graph",
+      "integration": true,
+      "seconds": 0.625,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_concurrent_seed_creates_one_inventory",
+      "integration": true,
+      "seconds": 0.634,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_custom_event_cannot_reference_another_scenario_memory",
+      "integration": true,
+      "seconds": 0.892,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_integration.py::test_snapshot_digest_does_not_change_just_because_query_time_changes",
+      "integration": true,
+      "seconds": 0.467,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_models.py::test_dataset_manifest_and_event_ids_are_deterministic",
+      "integration": false,
+      "seconds": 0.01,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_models.py::test_source_id_reuse_keeps_id_but_content_change_changes_digest",
+      "integration": false,
+      "seconds": 0.005,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_models.py::test_event_input_rejects_invalid_or_server_owned_fields[overrides0]",
+      "integration": false,
+      "seconds": 0.005,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_models.py::test_event_input_rejects_invalid_or_server_owned_fields[overrides1]",
+      "integration": false,
+      "seconds": 0.005,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_models.py::test_event_input_rejects_invalid_or_server_owned_fields[overrides2]",
+      "integration": false,
+      "seconds": 0.004,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_models.py::test_event_input_rejects_invalid_or_server_owned_fields[overrides3]",
+      "integration": false,
+      "seconds": 0.005,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_models.py::test_event_input_rejects_invalid_or_server_owned_fields[overrides4]",
+      "integration": false,
+      "seconds": 0.004,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_models.py::test_event_input_rejects_invalid_or_server_owned_fields[overrides5]",
+      "integration": false,
+      "seconds": 0.004,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_models.py::test_node_specs_cannot_override_scope_and_provenance[tenant_id]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_models.py::test_node_specs_cannot_override_scope_and_provenance[synthetic]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_models.py::test_node_specs_cannot_override_scope_and_provenance[event_id]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_models.py::test_node_specs_cannot_override_scope_and_provenance[payload]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_models.py::test_node_specs_cannot_override_scope_and_provenance[source_event_id]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_events_models.py::test_event_ordering_is_utc_and_not_local_offset_dependent",
+      "integration": false,
+      "seconds": 0.004,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_failures.py::test_core_operations_fail_clearly_with_a_real_unavailable_socket",
+      "integration": false,
+      "seconds": 0.666,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_failures.py::test_transient_reads_retry_but_unsafe_writes_have_unknown_outcome",
+      "integration": false,
+      "seconds": 0.004,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_failures.py::test_idempotent_write_retries_and_deterministic_errors_do_not",
+      "integration": false,
+      "seconds": 0.005,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_failures.py::test_authentication_is_not_retried_and_closed_manager_cannot_reopen",
+      "integration": false,
+      "seconds": 0.003,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[CloudOrganization]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[Identity]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[Role]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[Policy]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[Permission]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[Resource]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[CloudAccount]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[SecurityEvent]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[Evidence]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[RiskFinding]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[Investigation]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[Agent]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[AgentRun]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[AgentMemory]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[Task]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[Decision]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[Handoff]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[Procedure]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[MemorySpace]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_every_required_node_kind_validates[SecurityConcept]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_node_label_injection_is_rejected[Identity) DETACH DELETE n //]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_node_label_injection_is_rejected[`Identity`]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_node_label_injection_is_rejected[]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_node_label_injection_is_rejected[Unknown]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_relationship_type_injection_is_rejected",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_reserved_and_credential_properties_are_rejected[api_key]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_reserved_and_credential_properties_are_rejected[password]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_reserved_and_credential_properties_are_rejected[aws_access_key_id]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_reserved_and_credential_properties_are_rejected[tenant_id]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_reserved_and_credential_properties_are_rejected[id]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_known_credential_material_is_rejected_in_text",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_domain_properties_enforce_types_and_confidence_range",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_credentials_and_signed_uris_are_rejected[https://user:secret@example.com/evidence]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_credentials_and_signed_uris_are_rejected[s3://bucket/key?token=secret]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_timestamp_precision_is_microseconds_and_naive_dates_are_rejected",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_stable_id_has_unambiguous_boundaries_and_tenant_scope",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_models.py::test_temporal_input_rejects_empty_intervals_and_missing_event",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_all_required_relationship_types_persist[BELONGS_TO-Identity-CloudAccount]",
+      "integration": true,
+      "seconds": 0.165,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_all_required_relationship_types_persist[CAN_ASSUME-Identity-Role]",
+      "integration": true,
+      "seconds": 0.162,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_all_required_relationship_types_persist[HAS_POLICY-Role-Policy]",
+      "integration": true,
+      "seconds": 0.133,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_all_required_relationship_types_persist[GRANTS-Policy-Permission]",
+      "integration": true,
+      "seconds": 0.153,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_all_required_relationship_types_persist[TARGETS-Permission-Resource]",
+      "integration": true,
+      "seconds": 0.152,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_all_required_relationship_types_persist[AFFECTS-SecurityEvent-Resource]",
+      "integration": true,
+      "seconds": 0.202,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_all_required_relationship_types_persist[DERIVED_FROM-Evidence-SecurityEvent]",
+      "integration": true,
+      "seconds": 0.185,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_all_required_relationship_types_persist[SUPPORTS-Evidence-RiskFinding]",
+      "integration": true,
+      "seconds": 0.167,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_all_required_relationship_types_persist[CONTRADICTS-Evidence-RiskFinding]",
+      "integration": true,
+      "seconds": 0.14,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_all_required_relationship_types_persist[CAUSED_BY-RiskFinding-SecurityEvent]",
+      "integration": true,
+      "seconds": 0.145,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_all_required_relationship_types_persist[INVESTIGATES-Investigation-RiskFinding]",
+      "integration": true,
+      "seconds": 0.129,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_all_required_relationship_types_persist[REMEMBERS-Agent-AgentMemory]",
+      "integration": true,
+      "seconds": 0.139,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_all_required_relationship_types_persist[ASSIGNED_TO-Task-Agent]",
+      "integration": true,
+      "seconds": 0.181,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_all_required_relationship_types_persist[DEPENDS_ON-Task-Task]",
+      "integration": true,
+      "seconds": 0.171,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_all_required_relationship_types_persist[HANDS_OFF_TO-Handoff-Agent]",
+      "integration": true,
+      "seconds": 0.188,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_all_required_relationship_types_persist[USES_PROCEDURE-AgentRun-Procedure]",
+      "integration": true,
+      "seconds": 0.167,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_all_required_relationship_types_persist[SUPERSEDES-Role-Role]",
+      "integration": true,
+      "seconds": 0.156,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[CloudOrganization]",
+      "integration": true,
+      "seconds": 0.156,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[Identity]",
+      "integration": true,
+      "seconds": 0.14,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[Role]",
+      "integration": true,
+      "seconds": 0.186,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[Policy]",
+      "integration": true,
+      "seconds": 0.139,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[Permission]",
+      "integration": true,
+      "seconds": 0.156,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[Resource]",
+      "integration": true,
+      "seconds": 0.172,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[CloudAccount]",
+      "integration": true,
+      "seconds": 0.17,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[SecurityEvent]",
+      "integration": true,
+      "seconds": 0.172,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[Evidence]",
+      "integration": true,
+      "seconds": 0.139,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[RiskFinding]",
+      "integration": true,
+      "seconds": 0.137,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[Investigation]",
+      "integration": true,
+      "seconds": 0.166,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[Agent]",
+      "integration": true,
+      "seconds": 0.177,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[AgentRun]",
+      "integration": true,
+      "seconds": 0.166,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[AgentMemory]",
+      "integration": true,
+      "seconds": 0.174,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[Task]",
+      "integration": true,
+      "seconds": 0.136,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[Decision]",
+      "integration": true,
+      "seconds": 0.174,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[Handoff]",
+      "integration": true,
+      "seconds": 0.171,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[Procedure]",
+      "integration": true,
+      "seconds": 0.151,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[MemorySpace]",
+      "integration": true,
+      "seconds": 0.158,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_required_nodes_persist_and_are_readable[SecurityConcept]",
+      "integration": true,
+      "seconds": 0.155,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_relationships_persist_with_provenance",
+      "integration": true,
+      "seconds": 0.171,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_duplicate_relationships_are_reconciled_concurrently",
+      "integration": true,
+      "seconds": 0.172,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_duplicate_events_are_not_duplicated_even_concurrently",
+      "integration": true,
+      "seconds": 0.19,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_half_open_history_and_idempotent_closure",
+      "integration": true,
+      "seconds": 0.179,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_adjacent_versions_do_not_overlap_at_boundary",
+      "integration": true,
+      "seconds": 0.182,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_records_recover_after_reconnect_and_new_manager",
+      "integration": true,
+      "seconds": 0.269,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_tenant_isolation_covers_reads_writes_history_and_source_events",
+      "integration": true,
+      "seconds": 0.175,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_parameter_values_cannot_inject_cypher",
+      "integration": true,
+      "seconds": 0.152,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_two_accounts_can_use_identical_source_identifiers",
+      "integration": true,
+      "seconds": 0.17,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_schema_reinitialization_and_unique_constraint_rollback",
+      "integration": true,
+      "seconds": 0.216,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_graph_repository_integration.py::test_schema_initializer_rejects_invalid_existing_data",
+      "integration": true,
+      "seconds": 0.138,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_health.py::test_liveness_does_not_query_database",
+      "integration": false,
+      "seconds": 0.034,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_health.py::test_readiness_checks_graph",
+      "integration": false,
+      "seconds": 0.013,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_health.py::test_outage_is_503_and_health_stays_alive",
+      "integration": false,
+      "seconds": 0.019,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_health.py::test_initial_outage_does_not_prevent_process_start",
+      "integration": false,
+      "seconds": 0.017,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_health.py::test_request_id_accepts_uuid_and_replaces_untrusted_text",
+      "integration": false,
+      "seconds": 0.015,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_health.py::test_cors_allows_configured_origin_and_denies_others",
+      "integration": false,
+      "seconds": 0.012,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_health.py::test_not_found_has_central_error_envelope",
+      "integration": false,
+      "seconds": 0.178,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_health.py::test_unexpected_exception_does_not_leak_details",
+      "integration": false,
+      "seconds": 0.017,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_health.py::test_database_pool_closed_on_shutdown",
+      "integration": false,
+      "seconds": 0.011,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_health.py::test_production_disables_openapi",
+      "integration": false,
+      "seconds": 0.352,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_health.py::test_validation_errors_do_not_echo_sensitive_inputs",
+      "integration": false,
+      "seconds": 0.162,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_integration.py::test_live_health_and_graph_readiness",
+      "integration": true,
+      "seconds": 0.177,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_integration.py::test_foundation_is_idempotent_and_recovers_with_new_client",
+      "integration": true,
+      "seconds": 0.063,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_integration.py::test_wrong_password_is_not_ready",
+      "integration": true,
+      "seconds": 0.059,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_api.py::test_soc_payloads_and_cross_backend_session_recovery",
+      "integration": true,
+      "seconds": 9.815,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_api.py::test_case_routes_are_disabled_outside_local_demo[override0]",
+      "integration": true,
+      "seconds": 0.326,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_api.py::test_case_routes_are_disabled_outside_local_demo[override1]",
+      "integration": true,
+      "seconds": 0.331,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_integration.py::test_risk_oracle_automatically_creates_complete_case",
+      "integration": true,
+      "seconds": 7.248,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_integration.py::test_historical_reconstruction_is_graph_grounded_and_procedures_are_validated",
+      "integration": true,
+      "seconds": 8.191,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_integration.py::test_lifecycle_invalid_stale_and_duplicate_transitions",
+      "integration": true,
+      "seconds": 3.055,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_integration.py::test_case_resolution_and_closure_preserve_audit_and_do_not_modify_aws",
+      "integration": true,
+      "seconds": 7.666,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_integration.py::test_current_path_updates_existing_case_and_new_detection_after_closure_creates_episode",
+      "integration": true,
+      "seconds": 7.609,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_integration.py::test_concurrent_detections_do_not_duplicate_cases",
+      "integration": true,
+      "seconds": 3.077,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_integration.py::test_cross_session_case_handoff_keeps_completed_tasks_and_decisions",
+      "integration": true,
+      "seconds": 6.85,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_integration.py::test_unauthorized_tenant_agent_and_revoked_membership_are_denied",
+      "integration": true,
+      "seconds": 6.284,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_integration.py::test_contradictory_evidence_requires_explicit_case_review",
+      "integration": true,
+      "seconds": 6.542,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_integration.py::test_revocation_between_validation_and_commit_blocks_transition",
+      "integration": true,
+      "seconds": 2.895,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_integration.py::test_repeated_handoffs_preserve_completed_work_and_close_prior_assignments",
+      "integration": true,
+      "seconds": 5.151,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_integration.py::test_synthetic_case_proof_is_idempotent",
+      "integration": true,
+      "seconds": 10.909,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_integration.py::test_additional_workflow_for_same_analysis_links_to_existing_case",
+      "integration": true,
+      "seconds": 11.948,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_integration.py::test_reopened_review_cycle_does_not_repeat_checks",
+      "integration": true,
+      "seconds": 7.676,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_models.py::test_lifecycle_is_closed_and_has_no_self_transitions[NEW]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_models.py::test_lifecycle_is_closed_and_has_no_self_transitions[TRIAGING]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_models.py::test_lifecycle_is_closed_and_has_no_self_transitions[INVESTIGATING]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_models.py::test_lifecycle_is_closed_and_has_no_self_transitions[AWAITING_REVIEW]",
+      "integration": false,
+      "seconds": 0.0,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_models.py::test_lifecycle_is_closed_and_has_no_self_transitions[RESOLVED]",
+      "integration": false,
+      "seconds": 0.0,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_models.py::test_lifecycle_is_closed_and_has_no_self_transitions[CLOSED]",
+      "integration": false,
+      "seconds": 0.0,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_models.py::test_case_requests_reject_authority_execution_and_unmodeled_states[extra0]",
+      "integration": false,
+      "seconds": 0.0,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_models.py::test_case_requests_reject_authority_execution_and_unmodeled_states[extra1]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_models.py::test_case_requests_reject_authority_execution_and_unmodeled_states[extra2]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_models.py::test_case_requests_reject_authority_execution_and_unmodeled_states[extra3]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_models.py::test_case_requests_reject_authority_execution_and_unmodeled_states[extra4]",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_models.py::test_case_requests_reject_authority_execution_and_unmodeled_states[extra5]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_models.py::test_case_requests_reject_authority_execution_and_unmodeled_states[extra6]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_models.py::test_case_requests_reject_authority_execution_and_unmodeled_states[extra7]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_investigation_models.py::test_evidence_review_cannot_assert_arbitrary_verification_scope",
+      "integration": false,
+      "seconds": 0.0,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_live_integration.py::test_websocket_rejects_invalid_authentication_and_scope_override[frame0]",
+      "integration": false,
+      "seconds": 0.163,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_live_integration.py::test_websocket_rejects_invalid_authentication_and_scope_override[frame1]",
+      "integration": false,
+      "seconds": 0.161,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_live_integration.py::test_websocket_rejects_invalid_authentication_and_scope_override[frame2]",
+      "integration": false,
+      "seconds": 0.167,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_live_integration.py::test_websocket_rejects_invalid_authentication_and_scope_override[frame3]",
+      "integration": false,
+      "seconds": 0.261,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_live_integration.py::test_ws_url_credentials_and_unapproved_origins_are_rejected[/api/v1/ws/live?token=PRIVATE-headers0]",
+      "integration": false,
+      "seconds": 0.149,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_live_integration.py::test_ws_url_credentials_and_unapproved_origins_are_rejected[/api/v1/ws/live-headers1]",
+      "integration": false,
+      "seconds": 0.16,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_live_integration.py::test_websocket_persisted_order_replay_and_process_restart",
+      "integration": true,
+      "seconds": 1.711,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_live_integration.py::test_invalid_future_cursor_is_explicit",
+      "integration": true,
+      "seconds": 0.34,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_live_integration.py::test_journal_atomic_rollback_and_retried_statement",
+      "integration": true,
+      "seconds": 0.152,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_live_integration.py::test_concurrent_events_have_contiguous_tenant_sequences_and_bounded_frames",
+      "integration": true,
+      "seconds": 0.173,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_live_integration.py::test_stream_and_core_reads_fail_closed_during_database_outage",
+      "integration": true,
+      "seconds": 0.313,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_api.py::test_memory_proof_is_repeatable_without_losing_audit_history",
+      "integration": true,
+      "seconds": 3.477,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_api.py::test_memories_survive_complete_backend_lifecycle",
+      "integration": true,
+      "seconds": 1.759,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_integration.py::test_authorized_peer_retrieves_shared_evidence_through_graph",
+      "integration": true,
+      "seconds": 0.298,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_integration.py::test_conflicting_claims_remain_traceable_and_supersession_preserves_history",
+      "integration": true,
+      "seconds": 0.49,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_integration.py::test_private_memories_and_revoked_membership_do_not_leak",
+      "integration": true,
+      "seconds": 0.288,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_integration.py::test_evidence_access_revocation_hides_dependent_memory",
+      "integration": true,
+      "seconds": 0.327,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_integration.py::test_untrusted_text_cannot_create_privileged_actions_or_self_validate",
+      "integration": true,
+      "seconds": 0.332,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_integration.py::test_handoff_uses_only_shared_context_and_survives_new_service",
+      "integration": true,
+      "seconds": 0.466,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_integration.py::test_writes_are_idempotent_and_concurrent",
+      "integration": true,
+      "seconds": 0.353,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_integration.py::test_unrelated_tenant_cannot_use_an_agent_id_or_evidence",
+      "integration": true,
+      "seconds": 0.295,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_integration.py::test_same_tenant_different_spaces_cannot_read_or_copy_evidence",
+      "integration": true,
+      "seconds": 0.343,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_integration.py::test_private_conflicting_claim_does_not_leak_to_team_members",
+      "integration": true,
+      "seconds": 0.436,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_integration.py::test_nonoverlapping_claim_intervals_are_not_conflicts",
+      "integration": true,
+      "seconds": 0.357,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_integration.py::test_failed_approach_and_security_concept_remain_data",
+      "integration": true,
+      "seconds": 0.44,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_integration.py::test_bounded_graph_retrieval_follows_investigation_evidence_and_identity",
+      "integration": true,
+      "seconds": 0.372,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_integration.py::test_reader_cannot_write_or_create_handoffs_and_stale_corrections_fail",
+      "integration": true,
+      "seconds": 0.376,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_integration.py::test_lost_write_ack_reconciles_committed_memory",
+      "integration": true,
+      "seconds": 0.312,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_integration.py::test_source_deletion_cannot_bypass_access_checks",
+      "integration": true,
+      "seconds": 0.326,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_integration.py::test_handoff_preview_does_not_disclose_recipient_private_conflict",
+      "integration": true,
+      "seconds": 0.496,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_integration.py::test_concurrent_agents_persist_their_conflict_atomically",
+      "integration": true,
+      "seconds": 0.395,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_integration.py::test_revocation_between_validation_and_commit_prevents_write",
+      "integration": true,
+      "seconds": 0.361,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_memory_requests_cannot_supply_privilege_or_invalid_evidence[extra0]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_memory_requests_cannot_supply_privilege_or_invalid_evidence[extra1]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_memory_requests_cannot_supply_privilege_or_invalid_evidence[extra2]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_memory_requests_cannot_supply_privilege_or_invalid_evidence[extra3]",
+      "integration": false,
+      "seconds": 0.0,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_memory_requests_cannot_supply_privilege_or_invalid_evidence[extra4]",
+      "integration": false,
+      "seconds": 0.0,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_memory_requests_cannot_supply_privilege_or_invalid_evidence[extra5]",
+      "integration": false,
+      "seconds": 0.0,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_memory_requests_cannot_supply_privilege_or_invalid_evidence[extra6]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_memory_requests_cannot_supply_privilege_or_invalid_evidence[extra7]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_memory_requests_cannot_supply_privilege_or_invalid_evidence[extra8]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_memory_requests_cannot_supply_privilege_or_invalid_evidence[extra9]",
+      "integration": false,
+      "seconds": 0.0,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_procedure_steps_cannot_encode_privileged_actions[delete_bucket]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_procedure_steps_cannot_encode_privileged_actions[grant_admin]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_procedure_steps_cannot_encode_privileged_actions[exec]",
+      "integration": false,
+      "seconds": 0.0,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_procedure_steps_cannot_encode_privileged_actions[shell]",
+      "integration": false,
+      "seconds": 0.0,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_procedure_steps_cannot_encode_privileged_actions[os.system('whoami')]",
+      "integration": false,
+      "seconds": 0.0,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_memory_queries_are_bounded_and_closed[values0]",
+      "integration": false,
+      "seconds": 0.0,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_memory_queries_are_bounded_and_closed[values1]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_memory_queries_are_bounded_and_closed[values2]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_memory_queries_are_bounded_and_closed[values3]",
+      "integration": false,
+      "seconds": 0.0,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_agent_context_cannot_contain_privileged_actions",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_memory_database_outage_fails_clearly",
+      "integration": false,
+      "seconds": 2.017,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_memory_routes_disabled_outside_local_demo[overrides0]",
+      "integration": false,
+      "seconds": 0.126,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_memory_routes_disabled_outside_local_demo[overrides1]",
+      "integration": false,
+      "seconds": 0.123,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_memory_models.py::test_http_requests_cannot_select_an_agent_or_tenant",
+      "integration": false,
+      "seconds": 0.115,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_mock_is_deterministic_and_needs_no_key",
+      "integration": false,
+      "seconds": 0.003,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_gemini_wire_request_is_structured_and_contains_no_raw_sources",
+      "integration": false,
+      "seconds": 0.004,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_invalid_or_privileged_output_fails_after_bounded_attempts[values0]",
+      "integration": false,
+      "seconds": 0.103,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_invalid_or_privileged_output_fails_after_bounded_attempts[values1]",
+      "integration": false,
+      "seconds": 0.104,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_invalid_or_privileged_output_fails_after_bounded_attempts[values2]",
+      "integration": false,
+      "seconds": 0.103,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_invalid_or_privileged_output_fails_after_bounded_attempts[values3]",
+      "integration": false,
+      "seconds": 0.104,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_invalid_or_privileged_output_fails_after_bounded_attempts[values4]",
+      "integration": false,
+      "seconds": 0.107,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_invalid_or_privileged_output_fails_after_bounded_attempts[values5]",
+      "integration": false,
+      "seconds": 0.103,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_http_errors_have_bounded_retry_policy[401-1]",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_http_errors_have_bounded_retry_policy[400-1]",
+      "integration": false,
+      "seconds": 0.003,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_http_errors_have_bounded_retry_policy[429-2]",
+      "integration": false,
+      "seconds": 0.104,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_http_errors_have_bounded_retry_policy[503-2]",
+      "integration": false,
+      "seconds": 0.104,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_tool_call_output_cannot_cross_the_text_boundary",
+      "integration": false,
+      "seconds": 0.103,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_provider_and_workflow_bounds_are_configuration_validated[override0]",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_provider_and_workflow_bounds_are_configuration_validated[override1]",
+      "integration": false,
+      "seconds": 0.003,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_provider_and_workflow_bounds_are_configuration_validated[override2]",
+      "integration": false,
+      "seconds": 0.003,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_provider_and_workflow_bounds_are_configuration_validated[override3]",
+      "integration": false,
+      "seconds": 0.005,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_provider_and_workflow_bounds_are_configuration_validated[override4]",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_gemini_requires_explicit_environment_key",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_request_cannot_select_authority_or_executor[extra0]",
+      "integration": false,
+      "seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_request_cannot_select_authority_or_executor[extra1]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_request_cannot_select_authority_or_executor[extra2]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_request_cannot_select_authority_or_executor[extra3]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_model_provider.py::test_proposal_cannot_authorize_execution",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_api.py::test_interactive_remediation_api_and_explicit_reviews",
+      "integration": true,
+      "seconds": 3.309,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_api.py::test_remediation_api_is_local_demo_only[override0]",
+      "integration": true,
+      "seconds": 0.392,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_api.py::test_remediation_api_is_local_demo_only[override1]",
+      "integration": true,
+      "seconds": 0.278,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_integration.py::test_alternate_paths_collateral_access_and_original_graph_are_preserved",
+      "integration": true,
+      "seconds": 0.984,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_integration.py::test_repeat_simulation_concurrency_and_reconnect",
+      "integration": true,
+      "seconds": 0.694,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_integration.py::test_explicit_approval_is_only_a_review_and_no_aws_api_is_called",
+      "integration": true,
+      "seconds": 0.969,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_integration.py::test_rejected_and_unprivileged_review_are_blocked",
+      "integration": true,
+      "seconds": 0.677,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_integration.py::test_recommendations_have_qualified_evidence_and_are_idempotent",
+      "integration": true,
+      "seconds": 0.953,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_integration.py::test_demo_expired_access_and_role_trust_candidates",
+      "integration": true,
+      "seconds": 1.94,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_integration.py::test_tenant_membership_and_stale_source_fail_closed",
+      "integration": true,
+      "seconds": 0.841,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_integration.py::test_deny_and_control_removal_rejected",
+      "integration": true,
+      "seconds": 0.503,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_integration.py::test_revoked_between_validation_and_commit_cannot_create_proposal",
+      "integration": true,
+      "seconds": 0.513,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_integration.py::test_corrupt_simulation_payload_fails_integrity_validation",
+      "integration": true,
+      "seconds": 0.641,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_integration.py::test_prior_source_evidence_survives_cloud_change",
+      "integration": true,
+      "seconds": 0.612,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_integration.py::test_mixed_allow_deny_attachment_is_not_recommended",
+      "integration": true,
+      "seconds": 0.719,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_models.py::test_authority_execution_and_query_fields_are_rejected[extra0]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_models.py::test_authority_execution_and_query_fields_are_rejected[extra1]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_models.py::test_authority_execution_and_query_fields_are_rejected[extra2]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_models.py::test_authority_execution_and_query_fields_are_rejected[extra3]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_models.py::test_authority_execution_and_query_fields_are_rejected[extra4]",
+      "integration": false,
+      "seconds": 0.0,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_models.py::test_only_recommendation_review_states_exist[EXECUTED]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_models.py::test_only_recommendation_review_states_exist[DEPLOYED]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_models.py::test_only_recommendation_review_states_exist[AUTO_APPROVED]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_models.py::test_only_recommendation_review_states_exist[approved]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_models.py::test_credential_like_review_text_is_rejected[password=unsafe]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_models.py::test_credential_like_review_text_is_rejected[-----BEGIN PRIVATE KEY-----]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_models.py::test_invalid_edge_identifiers_cannot_enter_cypher[x' DELETE n //]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_models.py::test_invalid_edge_identifiers_cannot_enter_cypher[NOT-A-UUID]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_models.py::test_invalid_edge_identifiers_cannot_enter_cypher[]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_remediation_models.py::test_overlay_is_bounded_and_unique",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_api.py::test_risk_endpoints_discovery_history_timeline_evidence_difference_and_simulation",
+      "integration": true,
+      "seconds": 2.164,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_api.py::test_risk_api_rejects_unsafe_and_out_of_scope_requests[paths/discover-payload0]",
+      "integration": false,
+      "seconds": 0.084,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_api.py::test_risk_api_rejects_unsafe_and_out_of_scope_requests[paths/discover-payload1]",
+      "integration": false,
+      "seconds": 0.075,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_api.py::test_risk_api_rejects_unsafe_and_out_of_scope_requests[paths/discover-payload2]",
+      "integration": false,
+      "seconds": 0.069,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_api.py::test_risk_api_rejects_unsafe_and_out_of_scope_requests[differences-payload3]",
+      "integration": false,
+      "seconds": 0.067,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_api.py::test_risk_api_rejects_unsafe_and_out_of_scope_requests[what-if-payload4]",
+      "integration": false,
+      "seconds": 0.07,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_action_patterns_use_iam_wildcards[s3:Get*-s3:GetObject-True]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_action_patterns_use_iam_wildcards[S3:GETOBJECT-s3:GetObject-True]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_action_patterns_use_iam_wildcards[s3:GetObjec?-s3:GetObject-True]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_action_patterns_use_iam_wildcards[s3:Get[O]bject-s3:GetObject-False]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_action_patterns_use_iam_wildcards[s3:Put*-s3:GetObject-False]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_supported_conditions_and_unknowns[conditions0-context0-True]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_supported_conditions_and_unknowns[conditions1-context1-False]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_supported_conditions_and_unknowns[conditions2-context2-None]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_supported_conditions_and_unknowns[conditions3-context3-True]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_supported_conditions_and_unknowns[conditions4-context4-False]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_supported_conditions_and_unknowns[conditions5-context5-True]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_supported_conditions_and_unknowns[conditions6-context6-False]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_supported_conditions_and_unknowns[conditions7-context7-True]",
+      "integration": false,
+      "seconds": 0.0,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_supported_conditions_and_unknowns[conditions8-context8-True]",
+      "integration": false,
+      "seconds": 0.0,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_supported_conditions_and_unknowns[conditions9-context9-False]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_supported_conditions_and_unknowns[conditions10-context10-None]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_supported_conditions_and_unknowns[conditions11-context11-None]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_supported_conditions_and_unknowns[conditions12-context12-None]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_hashed_and_malformed_conditions_remain_unknown",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_traversal_depth_cannot_inject_cypher[-1]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_traversal_depth_cannot_inject_cypher[5]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_traversal_depth_cannot_inject_cypher[True]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_traversal_depth_cannot_inject_cypher[4]->() DELETE n //]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_risk_request_validation[payload0]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_risk_request_validation[payload1]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_risk_request_validation[payload2]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_risk_request_validation[payload3]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_risk_request_validation[payload4]",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_utc_normalization_and_aware_comparison",
+      "integration": false,
+      "seconds": 0.001,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_database_outage_is_not_reported_as_an_empty_safe_graph",
+      "integration": false,
+      "seconds": 2.017,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_risk_http_scope_is_disabled_outside_local_demo[overrides0]",
+      "integration": false,
+      "seconds": 0.099,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_authorization.py::test_risk_http_scope_is_disabled_outside_local_demo[overrides1]",
+      "integration": false,
+      "seconds": 0.195,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_integration.py::test_scenario_a_historical_paths_changes_simulation_and_reconnection",
+      "integration": true,
+      "seconds": 2.343,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_integration.py::test_timeline_has_four_historical_states",
+      "integration": true,
+      "seconds": 1.559,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_integration.py::test_tenant_isolation_in_paths_saved_findings_and_simulation",
+      "integration": true,
+      "seconds": 1.407,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_integration.py::test_bounded_depth_and_policy_grant_removal",
+      "integration": true,
+      "seconds": 1.702,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_integration.py::test_same_analysis_is_idempotent_under_concurrency",
+      "integration": true,
+      "seconds": 1.511,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_integration.py::test_findings_and_evidence_survive_synthetic_reset",
+      "integration": true,
+      "seconds": 1.331,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_integration.py::test_historical_revocation_and_removed_path_difference",
+      "integration": true,
+      "seconds": 1.617,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_integration.py::test_scenario_b_temporary_violation_increases_score",
+      "integration": true,
+      "seconds": 1.368,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_integration.py::test_concurrent_event_arrival_refreshes_timeline_sampling",
+      "integration": true,
+      "seconds": 2.429,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_direct_generic_path_and_half_open_grant_expiry",
+      "integration": true,
+      "seconds": 0.416,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_explicit_deny_overrides_connected_allow[IdentityPolicy]",
+      "integration": true,
+      "seconds": 0.346,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_explicit_deny_overrides_connected_allow[ResourcePolicy]",
+      "integration": true,
+      "seconds": 0.321,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_explicit_deny_overrides_connected_allow[PermissionsBoundary]",
+      "integration": true,
+      "seconds": 0.388,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_explicit_deny_overrides_connected_allow[SessionPolicy]",
+      "integration": true,
+      "seconds": 0.32,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_attached_empty_constraint_is_not_ignored[PermissionsBoundary]",
+      "integration": true,
+      "seconds": 0.329,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_attached_empty_constraint_is_not_ignored[SessionPolicy]",
+      "integration": true,
+      "seconds": 0.28,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_constraint_allow_intersection_and_read_only_removal",
+      "integration": true,
+      "seconds": 0.454,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_mfa_and_network_conditions_require_explicit_context",
+      "integration": true,
+      "seconds": 0.516,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_unknown_conditional_deny_is_unresolved_not_ignored",
+      "integration": true,
+      "seconds": 0.312,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_unverified_deny_is_unresolved",
+      "integration": true,
+      "seconds": 0.328,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_cross_account_resource_allow_and_principal_selector",
+      "integration": true,
+      "seconds": 0.584,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_account_control_policies_are_traversed_and_intersected[ServiceControlPolicy-identity]",
+      "integration": true,
+      "seconds": 0.436,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_account_control_policies_are_traversed_and_intersected[ResourceControlPolicy-resource]",
+      "integration": true,
+      "seconds": 0.44,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_internet_exposure_and_controls_require_structured_verified_evidence",
+      "integration": true,
+      "seconds": 0.549,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_connected_can_assume_without_caller_and_trust_does_not_authorize",
+      "integration": true,
+      "seconds": 0.599,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_deny_removal_has_specific_closing_event_provenance",
+      "integration": true,
+      "seconds": 0.511,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_simulating_deny_removal_can_increase_risk",
+      "integration": true,
+      "seconds": 0.453,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_multiple_boundaries_are_unresolved_instead_of_unioned",
+      "integration": true,
+      "seconds": 0.312,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_incomplete_organization_hierarchy_is_unresolved",
+      "integration": true,
+      "seconds": 0.366,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_missing_marked_boundary_is_unresolved",
+      "integration": true,
+      "seconds": 0.325,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_risk_policy_integration.py::test_uncertain_organization_membership_is_not_ignored",
+      "integration": true,
+      "seconds": 0.341,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_api.py::test_startup_recovers_persisted_partial_run_and_exposes_audit",
+      "integration": true,
+      "seconds": 7.386,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_api.py::test_http_trigger_and_authority_boundary",
+      "integration": true,
+      "seconds": 6.828,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_api.py::test_agent_http_is_gated[disabled0]",
+      "integration": true,
+      "seconds": 0.313,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_api.py::test_agent_http_is_gated[disabled1]",
+      "integration": true,
+      "seconds": 0.357,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_integration.py::test_six_agents_complete_with_graph_findings_memories_and_simulation",
+      "integration": true,
+      "seconds": 6.9,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_integration.py::test_duplicate_trigger_resume_and_tasks_are_idempotent",
+      "integration": true,
+      "seconds": 6.346,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_integration.py::test_prepared_output_recovers_without_duplicate_memory_or_handoff",
+      "integration": true,
+      "seconds": 7.106,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_integration.py::test_fenced_leases_block_concurrent_and_stale_workers",
+      "integration": true,
+      "seconds": 1.126,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_integration.py::test_coordinator_concurrent_creation_does_not_duplicate_tasks",
+      "integration": true,
+      "seconds": 1.122,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_integration.py::test_bounded_provider_failure_is_durable_and_cannot_loop",
+      "integration": true,
+      "seconds": 1.034,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_integration.py::test_workflow_tenant_isolation",
+      "integration": true,
+      "seconds": 0.855,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_integration.py::test_other_synthetic_scenarios_complete[B]",
+      "integration": true,
+      "seconds": 5.318,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_integration.py::test_other_synthetic_scenarios_complete[C]",
+      "integration": true,
+      "seconds": 3.129,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_integration.py::test_expired_crash_lease_recovers_and_exhaustion_becomes_blocked",
+      "integration": true,
+      "seconds": 6.773,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_integration.py::test_stale_worker_cannot_prepare_output",
+      "integration": true,
+      "seconds": 1.153,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_integration.py::test_untrusted_model_prose_cannot_mutate_permissions",
+      "integration": true,
+      "seconds": 6.446,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_integration.py::test_memory_keeper_detects_authorized_conflicting_agent_claims",
+      "integration": true,
+      "seconds": 3.374,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_integration.py::test_source_deletion_fails_clearly_without_fabricating_results",
+      "integration": true,
+      "seconds": 0.909,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_integration.py::test_lost_completion_ack_resumes_at_next_step",
+      "integration": true,
+      "seconds": 6.412,
+      "result": "passed"
+    },
+    {
+      "nodeid": "tests/test_workflow_integration.py::test_agent_proof_is_repeatable",
+      "integration": true,
+      "seconds": 7.941,
+      "result": "passed"
+    }
+  ]
+}

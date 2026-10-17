@@ -1,0 +1,19 @@
+{
+  "checked_at": "2026-10-17T06:33:31.014835+00:00",
+  "publishable_files": 231,
+  "python_files_parsed": 147,
+  "source_changes_since_previous_audit_manifest": [],
+  "syntax_errors": [],
+  "actual_local_secret_matches": [],
+  "provider_key_or_private_key_matches": [],
+  "broken_required_guide_links": [],
+  "tracked_files": 0,
+  "history_available": false,
+  "secret_scan_limitations": "No dedicated history scanner; no committed history exists. Incomplete private-key-header rejection-test markers are not complete keys.",
+  "final_scan": {
+    "checked_at": "2026-10-17T06:39:21.936757+00:00",
+    "publishable_files": 235,
+    "actual_local_secret_provider_key_or_private_key_matches": [],
+    "broken_required_guide_links": []
+  }
+}

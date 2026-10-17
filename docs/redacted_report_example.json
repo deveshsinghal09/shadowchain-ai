@@ -1,0 +1,294 @@
+{
+  "classification": "POTENTIAL ATTACK PATHS; not proven AWS effective authorization",
+  "created_at": "2026-10-16T20:31:06.995179+00:00",
+  "evidence_counts": {
+    "contradictory": 1,
+    "verified": 76
+  },
+  "execution_allowed": false,
+  "format": "shadowchain-redacted-summary-v1",
+  "identities": [
+    "identity-1089d787d7e3416d71b1",
+    "identity-8d87929ef4f3c4115cd3",
+    "identity-cbc1550a523e86b3aeca"
+  ],
+  "investigation_ref": "case-dade4fa2a422d091746b",
+  "recommendation_count": 1,
+  "redaction": "Account IDs, ARNs, names, source identifiers, IPs, raw evidence, free text and credentials omitted",
+  "report_id": "671f6380-b5a0-5a1d-b91e-18b4d12a15fe",
+  "resources": [
+    "resource-059c7314960306985555"
+  ],
+  "severity": "medium",
+  "status": "CLOSED",
+  "task_counts": {
+    "completed": 11,
+    "pending": 0
+  },
+  "timeline": [
+    {
+      "category": "memory_observation",
+      "timestamp": "2026-10-15T16:00:00+00:00"
+    },
+    {
+      "category": "memory_observation",
+      "timestamp": "2026-10-15T16:00:00+00:00"
+    },
+    {
+      "category": "memory_observation",
+      "timestamp": "2026-10-15T16:00:00+00:00"
+    },
+    {
+      "category": "memory_observation",
+      "timestamp": "2026-10-15T16:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "security_event",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T09:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T10:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T10:00:00+00:00"
+    },
+    {
+      "category": "security_event",
+      "timestamp": "2026-10-16T10:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T10:00:00+00:00"
+    },
+    {
+      "category": "security_event",
+      "timestamp": "2026-10-16T11:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T11:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T11:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T11:00:00+00:00"
+    },
+    {
+      "category": "security_event",
+      "timestamp": "2026-10-16T12:00:00+00:00"
+    },
+    {
+      "category": "relationship_change",
+      "timestamp": "2026-10-16T12:00:00+00:00"
+    },
+    {
+      "category": "memory_observation",
+      "timestamp": "2026-10-16T20:31:06.038922+00:00"
+    },
+    {
+      "category": "memory_observation",
+      "timestamp": "2026-10-16T20:31:06.038922+00:00"
+    },
+    {
+      "category": "memory_observation",
+      "timestamp": "2026-10-16T20:31:06.038922+00:00"
+    },
+    {
+      "category": "memory_observation",
+      "timestamp": "2026-10-16T20:31:06.038922+00:00"
+    },
+    {
+      "category": "memory_observation",
+      "timestamp": "2026-10-16T20:31:06.038922+00:00"
+    },
+    {
+      "category": "memory_observation",
+      "timestamp": "2026-10-16T20:31:06.038922+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:06.995179+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:07.196823+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:07.548615+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:07.774412+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:07.810964+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:07.839963+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:07.948044+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:08.095170+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:08.470395+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:08.741638+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:08.803412+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:09.271981+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:09.830627+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:09.952223+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:10.047267+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:10.106317+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:10.459651+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:10.696007+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:10.905594+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:11.226631+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:11.778540+00:00"
+    },
+    {
+      "category": "audit",
+      "timestamp": "2026-10-16T20:31:11.814070+00:00"
+    }
+  ]
+}
