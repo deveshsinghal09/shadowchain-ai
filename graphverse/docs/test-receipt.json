@@ -1,0 +1,28 @@
+{
+  "verified_at": "2026-10-17T11:34:26.204052+00:00",
+  "server_integration": {
+    "passed": 12,
+    "failed": 0,
+    "skipped": 0,
+    "actual_falkordb": true,
+    "separate_process_recovery": true
+  },
+  "browser": {
+    "startTime": "2026-10-17T11:33:01.364Z",
+    "duration": 70529.033,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "typescript_build": "passed",
+  "formatter": "passed",
+  "dependency_advisories": 0,
+  "docker_config": "passed",
+  "docker_build": "blocked: Docker Desktop Linux engine unavailable",
+  "screenshots": {
+    "universe-desktop.png": "e54b915411005f145886ff4c90e46e18c0a81f1c74e62f16e1eb0a8d14ab0716",
+    "universe-mobile.png": "958e572383529e502745b1d811f825b7c6f97958587db7dd0953e6b243914e10",
+    "universe-path.png": "9c6a182b7fff28cc740e14ce75ea93a85429dee868e23f8f9c60eb4518063b7f"
+  }
+}
