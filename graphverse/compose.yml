@@ -1,0 +1,43 @@
+name: graphverse
+services:
+  graphverse:
+    build: .
+    ports: ["127.0.0.1:3100:3100"]
+    environment:
+      FALKORDB_HOST: falkordb
+      FALKORDB_PORT: "6379"
+      FALKORDB_PASSWORD: ${FALKORDB_PASSWORD:?Set a strong local database password}
+      GRAPHVERSE_TOKEN_FILE: /run/secrets/operator_token
+      GRAPHVERSE_ORIGINS: http://127.0.0.1:3100,http://localhost:3100
+    secrets: [operator_token]
+    depends_on:
+      falkordb: {condition: service_healthy}
+    networks: [graph_private]
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+  falkordb:
+    image: falkordb/falkordb-server:v4.22.1@sha256:2e99eb1cfa3309ce338beebe24b5e9f44f9eb8ead6d6ef63dcaca436afbbaeec
+    environment:
+      FALKORDB_PASSWORD: ${FALKORDB_PASSWORD:?Set a strong local database password}
+      REDISCLI_AUTH: ${FALKORDB_PASSWORD}
+    entrypoint: ["/bin/sh", "-ec"]
+    command:
+      - exec redis-server --bind 0.0.0.0 --protected-mode yes --dir /data --appendonly yes --appendfsync everysec --save '60 1' --requirepass "$$FALKORDB_PASSWORD" --loadmodule "$$FALKORDB_BIN_PATH/falkordb.so" THREAD_COUNT 2 TIMEOUT_DEFAULT 2000 TIMEOUT_MAX 30000
+    volumes: ["graph_data:/data"]
+    networks: [graph_private]
+    healthcheck:
+      test: ["CMD-SHELL", "test \"$$(redis-cli --raw ping)\" = PONG"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    security_opt: [no-new-privileges:true]
+secrets:
+  operator_token:
+    file: ${GRAPHVERSE_TOKEN_FILE:?Set the private operator token file path}
+volumes:
+  graph_data:
+networks:
+  graph_private:
+    internal: true
