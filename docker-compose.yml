@@ -1,0 +1,195 @@
+name: shadowchain-ai
+
+x-falkordb-image: &falkordb-image falkordb/falkordb-server:v4.22.1@sha256:2e99eb1cfa3309ce338beebe24b5e9f44f9eb8ead6d6ef63dcaca436afbbaeec
+
+x-backend-environment: &backend-environment
+  APP_ENV: ${APP_ENV:-development}
+  DEMO_MODE: ${DEMO_MODE:-true}
+  LOG_LEVEL: ${LOG_LEVEL:-INFO}
+  CORS_ORIGINS: ${CORS_ORIGINS:-[]}
+  CORS_ALLOW_CREDENTIALS: ${CORS_ALLOW_CREDENTIALS:-false}
+  API_CLIENTS: ${API_CLIENTS:-[]}
+  API_QUERY_LIMIT_PER_MINUTE: ${API_QUERY_LIMIT_PER_MINUTE:-30}
+  API_REQUEST_MAX_BYTES: ${API_REQUEST_MAX_BYTES:-131072}
+  WS_POLL_SECONDS: ${WS_POLL_SECONDS:-1}
+  WS_SEND_TIMEOUT_SECONDS: ${WS_SEND_TIMEOUT_SECONDS:-5}
+  FALKORDB_HOST: falkordb
+  FALKORDB_PORT: "6379"
+  FALKORDB_USERNAME: ${FALKORDB_USERNAME:-default}
+  FALKORDB_PASSWORD: ${FALKORDB_PASSWORD:?Run scripts/setup.ps1 to create a local password}
+  FALKORDB_GRAPH: ${FALKORDB_GRAPH:-shadowchain}
+  FALKORDB_TLS: "false"
+  FALKORDB_CONNECT_TIMEOUT_SECONDS: ${FALKORDB_CONNECT_TIMEOUT_SECONDS:-2}
+  FALKORDB_SOCKET_TIMEOUT_SECONDS: ${FALKORDB_SOCKET_TIMEOUT_SECONDS:-3}
+  FALKORDB_QUERY_TIMEOUT_MS: ${FALKORDB_QUERY_TIMEOUT_MS:-2000}
+  FALKORDB_MAX_CONNECTIONS: ${FALKORDB_MAX_CONNECTIONS:-20}
+  FALKORDB_RETRY_ATTEMPTS: ${FALKORDB_RETRY_ATTEMPTS:-3}
+  FALKORDB_RETRY_BACKOFF_SECONDS: ${FALKORDB_RETRY_BACKOFF_SECONDS:-0.05}
+  FALKORDB_SCHEMA_TIMEOUT_SECONDS: ${FALKORDB_SCHEMA_TIMEOUT_SECONDS:-30}
+  AWS_REGION: ${AWS_REGION:-us-east-1}
+  AWS_PROFILE: ${AWS_PROFILE:-}
+  AWS_ENABLED: ${AWS_ENABLED:-false}
+  AWS_ACCOUNT_ID: ${AWS_ACCOUNT_ID:-}
+  AWS_TENANT_ID: ${AWS_TENANT_ID:-shadowchain-aws-import}
+  CLOUDTRAIL_ENABLED: ${CLOUDTRAIL_ENABLED:-false}
+  AWS_MAX_RECORDS: ${AWS_MAX_RECORDS:-300}
+  AWS_MAX_PAGES: ${AWS_MAX_PAGES:-20}
+  EXPORT_MODE: ${EXPORT_MODE:-local}
+  S3_EXPORT_BUCKET: ${S3_EXPORT_BUCKET:-}
+  EXPORT_LOCAL_DIR: /app/artifacts/reports
+  GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+  AGENT_PROVIDER: ${AGENT_PROVIDER:-mock}
+  GEMINI_MODEL: ${GEMINI_MODEL:-gemini-3.8-flash}
+  AGENT_MODEL_TIMEOUT_SECONDS: ${AGENT_MODEL_TIMEOUT_SECONDS:-5}
+  AGENT_MODEL_ATTEMPTS: ${AGENT_MODEL_ATTEMPTS:-2}
+  WORKFLOW_LEASE_SECONDS: ${WORKFLOW_LEASE_SECONDS:-120}
+  WORKFLOW_MAX_ATTEMPTS: ${WORKFLOW_MAX_ATTEMPTS:-3}
+  WORKFLOW_RECOVERY_ENABLED: ${WORKFLOW_RECOVERY_ENABLED:-true}
+  WORKFLOW_RECOVERY_INTERVAL_SECONDS: ${WORKFLOW_RECOVERY_INTERVAL_SECONDS:-2}
+  WORKFLOW_RECOVERY_LIMIT: ${WORKFLOW_RECOVERY_LIMIT:-10}
+
+services:
+  evaluation:
+    profiles: [evaluation]
+    image: shadowchain-ai-backend:local
+    build:
+      context: ./backend
+      target: runtime
+    init: true
+    environment:
+      <<: *backend-environment
+      AWS_ENABLED: "false"
+      CLOUDTRAIL_ENABLED: "false"
+      EXPORT_MODE: local
+      AGENT_PROVIDER: mock
+      GEMINI_API_KEY: ""
+    command: ["python", "-u", "-m", "app.demo.hackathon"]
+    depends_on:
+      falkordb:
+        condition: service_healthy
+    networks: [graph_private]
+    read_only: true
+    volumes:
+      - report_exports:/app/artifacts/reports
+    tmpfs: [/tmp]
+    security_opt: [no-new-privileges:true]
+
+  falkordb:
+    image: *falkordb-image
+    restart: unless-stopped
+    environment:
+      FALKORDB_PASSWORD: ${FALKORDB_PASSWORD:?Run scripts/setup.ps1}
+      REDISCLI_AUTH: ${FALKORDB_PASSWORD:?Run scripts/setup.ps1}
+    # Exec redis-server directly: explicitly load the image's graph module and pass the
+    # password as one quoted argument, without REDIS_ARGS shell token splitting.
+    entrypoint: ["/bin/sh", "-ec"]
+    command:
+      - exec redis-server --bind 0.0.0.0 --protected-mode yes --dir /data --appendonly yes --appendfsync everysec --save '60 1' --maxmemory-policy noeviction --requirepass "$$FALKORDB_PASSWORD" --loadmodule "$$FALKORDB_BIN_PATH/falkordb.so" THREAD_COUNT 2 TIMEOUT_DEFAULT 2000 TIMEOUT_MAX 30000
+    volumes:
+      - falkordb_data:/data
+    networks:
+      - graph_private
+    # No published ports; authentication alone does not make a public DB safe.
+    healthcheck:
+      test: ["CMD-SHELL", "test \"$$(redis-cli --raw ping)\" = PONG"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 15s
+    stop_grace_period: 30s
+    security_opt:
+      - no-new-privileges:true
+    logging:
+      driver: json-file
+      options: {max-size: 10m, max-file: "3"}
+
+  backend:
+    image: shadowchain-ai-backend:local
+    build:
+      context: ./backend
+      target: runtime
+    init: true
+    restart: unless-stopped
+    environment: *backend-environment
+    ports:
+      - "127.0.0.1:${BACKEND_PORT:-8000}:8000"
+    networks:
+      - graph_private
+      - backend_egress
+    depends_on:
+      falkordb:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/ready', timeout=8).close()"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    read_only: true
+    volumes:
+      - report_exports:/app/artifacts/reports
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    logging:
+      driver: json-file
+      options: {max-size: 10m, max-file: "3"}
+
+  falkordb-test:
+    profiles: [test]
+    image: *falkordb-image
+    environment:
+      FALKORDB_PASSWORD: ${FALKORDB_PASSWORD:?Run scripts/setup.ps1}
+      REDISCLI_AUTH: ${FALKORDB_PASSWORD:?Run scripts/setup.ps1}
+    entrypoint: ["/bin/sh", "-ec"]
+    # Negative tests deliberately create invalid schema states. Their database is
+    # isolated from the persistent demo server and has no recovery log to replay.
+    command:
+      - exec redis-server --bind 0.0.0.0 --protected-mode yes --dir /data --appendonly no --save '' --maxmemory-policy noeviction --requirepass "$$FALKORDB_PASSWORD" --loadmodule "$$FALKORDB_BIN_PATH/falkordb.so" THREAD_COUNT 2 TIMEOUT_DEFAULT 2000 TIMEOUT_MAX 30000
+    tmpfs:
+      - /data:size=256m,mode=1777
+    networks:
+      - graph_private
+    healthcheck:
+      test: ["CMD-SHELL", "test \"$$(redis-cli --raw ping)\" = PONG"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 15s
+    security_opt:
+      - no-new-privileges:true
+
+  tests:
+    profiles: [test]
+    image: shadowchain-ai-tests:local
+    build:
+      context: ./backend
+      target: test
+    environment:
+      <<: *backend-environment
+      APP_ENV: test
+      AWS_ENABLED: "false"
+      CLOUDTRAIL_ENABLED: "false"
+      EXPORT_MODE: local
+      AGENT_PROVIDER: mock
+      FALKORDB_HOST: falkordb-test
+      RUN_INTEGRATION_TESTS: "true"
+    networks:
+      - graph_private
+    depends_on:
+      falkordb-test:
+        condition: service_healthy
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  falkordb_data:
+  report_exports:
+
+networks:
+  graph_private:
+    internal: true
+  backend_egress:
