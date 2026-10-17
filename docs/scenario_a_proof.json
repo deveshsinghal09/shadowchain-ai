@@ -1,0 +1,103 @@
+{
+  "synthetic": true,
+  "dataset_version": "synthetic-2026.1",
+  "scenario": "A",
+  "verified": true,
+  "timeline": [
+    {
+      "at": "2026-10-16T09:00:00+00:00",
+      "semantic_sha256": "7f6772f852658e04de4a770f4dc2a6fce4c7cad2496ce634806cc721aeb5a0e7",
+      "alice_reachable_roles": [],
+      "active_can_assume_edges": 3,
+      "potential_sensitive_paths": []
+    },
+    {
+      "at": "2026-10-16T10:00:00+00:00",
+      "semantic_sha256": "64f1e4b0b510daa525d21cd2268d1da45004d6637c6e429782892f4a80155d7c",
+      "alice_reachable_roles": [
+        "role/temp-analyst"
+      ],
+      "active_can_assume_edges": 4,
+      "potential_sensitive_paths": []
+    },
+    {
+      "at": "2026-10-16T11:00:00+00:00",
+      "semantic_sha256": "238cb4296c345e3f8aa925907dd187bebeb197027f36efefc83acbb9e0754f9a",
+      "alice_reachable_roles": [
+        "role/ec2-backup",
+        "role/temp-analyst"
+      ],
+      "active_can_assume_edges": 5,
+      "potential_sensitive_paths": []
+    },
+    {
+      "at": "2026-10-16T12:00:00+00:00",
+      "semantic_sha256": "3fd74d7a20420b07b0115bf0cc76e815e15c2887fbc975e08ff8ce36e0ea9600",
+      "alice_reachable_roles": [
+        "role/ec2-backup",
+        "role/temp-analyst"
+      ],
+      "active_can_assume_edges": 5,
+      "potential_sensitive_paths": [
+        {
+          "identity_key": "identity/alice",
+          "resource_key": "resource/hr-data",
+          "principal_chain": [
+            "identity/alice",
+            "role/temp-analyst",
+            "role/ec2-backup"
+          ],
+          "relationship_ids": [
+            "18a0a89c-0fda-5932-a507-0e74e78bb12c",
+            "bf59c084-be32-51f3-acee-8a96636e1536"
+          ],
+          "permission_id": "11dad8fe-b4fc-5607-8ce3-905af12f51cb",
+          "path_type": "potential"
+        }
+      ]
+    }
+  ],
+  "comparison": {
+    "scenario": "A",
+    "before": "2026-10-16T09:00:00Z",
+    "after": "2026-10-16T12:00:00Z",
+    "before_sha256": "7f6772f852658e04de4a770f4dc2a6fce4c7cad2496ce634806cc721aeb5a0e7",
+    "after_sha256": "3fd74d7a20420b07b0115bf0cc76e815e15c2887fbc975e08ff8ce36e0ea9600",
+    "nodes_added": [
+      "0b67db57-e101-5418-8a94-7b7c49f09529",
+      "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4",
+      "a3615b96-eb89-5f05-a564-ba165508348a"
+    ],
+    "nodes_removed": [],
+    "nodes_changed": [],
+    "relationships_added": [
+      "18a0a89c-0fda-5932-a507-0e74e78bb12c",
+      "433f01b2-c0ea-5493-8219-a7f4b11ef072",
+      "9d7f9c9e-70db-56e2-a193-c4396b3ba2a9",
+      "bf59c084-be32-51f3-acee-8a96636e1536",
+      "cc6873cc-eb6d-5b0e-b6b7-a9e1973e174c",
+      "e4f4f565-566b-5dce-a589-48de6d57bfd1",
+      "ee435e9f-62a7-54b4-9fe1-fd24f44d3e5e"
+    ],
+    "relationships_removed": [],
+    "relationships_changed": [],
+    "potential_paths_added": [
+      {
+        "identity_key": "identity/alice",
+        "resource_key": "resource/hr-data",
+        "principal_chain": [
+          "identity/alice",
+          "role/temp-analyst",
+          "role/ec2-backup"
+        ],
+        "relationship_ids": [
+          "18a0a89c-0fda-5932-a507-0e74e78bb12c",
+          "bf59c084-be32-51f3-acee-8a96636e1536"
+        ],
+        "permission_id": "11dad8fe-b4fc-5607-8ce3-905af12f51cb",
+        "path_type": "potential"
+      }
+    ],
+    "potential_paths_removed": []
+  }
+}

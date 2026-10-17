@@ -1,0 +1,57 @@
+{
+  "synthetic": true,
+  "verified": true,
+  "extension_version": "remediation-2026.1",
+  "proposal_id": "be03680a-cb3e-5228-95d8-13dc3d60882c",
+  "alternate_proposal_id": "8ab93c1f-24e6-5eec-89c2-759cbe72845d",
+  "review_status": "APPROVED",
+  "approval_scope": "recommendation_only",
+  "single_simulation_id": "158dc7cb-015a-5681-97a7-ee5499b16e96",
+  "combined_simulation_id": "d7578200-1641-5282-bfd9-74efa9fe4e51",
+  "before_potential_paths": 2,
+  "after_single_removal_paths": 1,
+  "alternate_path_ids": [
+    "240fed45-48be-5907-ac69-33800b5a004e"
+  ],
+  "after_combined_removal_paths": 0,
+  "potential_collateral_access": [
+    {
+      "identity_id": "4e0d4c7d-6003-57bb-8491-3dc47988a5bf",
+      "resource_id": "cfc7ce35-25fb-5fa0-91eb-08fa3184a300",
+      "action": "s3:GetObject",
+      "resource_sensitive": true,
+      "removed_path_ids": [
+        "38ce82be-da67-5169-b878-a791f3518b59"
+      ],
+      "remaining_path_ids": [
+        "240fed45-48be-5907-ac69-33800b5a004e"
+      ],
+      "potential_access_lost": false,
+      "legitimacy": "unknown_requires_workload_owner_review"
+    }
+  ],
+  "risk_difference": {
+    "before_path_count": 2,
+    "after_path_count": 1,
+    "before_maximum_score": 51,
+    "after_maximum_score": 51,
+    "before_total_score": 102,
+    "after_total_score": 51,
+    "path_count_change": -1,
+    "maximum_score_change": 0,
+    "total_score_change": -51,
+    "model": "heuristic_path_scores_not_probability"
+  },
+  "historical_evidence_ids": [
+    "044905e3-a851-5f3c-8f2c-6ebc5b7cb9a7",
+    "3d28e162-cb74-57a6-88c8-f7e8ba4654d0",
+    "67aa088a-c043-5a57-a95b-385c46065f55",
+    "6ac30120-94d3-5914-b744-6e0e93c5b32c"
+  ],
+  "source_projection_sha256": "8e68d8636cc8a0e4fafe2a9001975129148c536796aa94eef7e1b42c06c7c5ca",
+  "source_permissions_unchanged": true,
+  "repeatable": true,
+  "reconnect_preserved_simulations": true,
+  "aws_write_api_calls": 0,
+  "execution_allowed": false
+}

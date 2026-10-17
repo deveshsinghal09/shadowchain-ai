@@ -1,0 +1,13 @@
+{
+  "synthetic": true,
+  "database_restarted": true,
+  "backend_started_fresh": true,
+  "graph_name": "shadowchain_phase8_verified",
+  "proposal_id": "be03680a-cb3e-5228-95d8-13dc3d60882c",
+  "simulation_id": "158dc7cb-015a-5681-97a7-ee5499b16e96",
+  "proposal_equal_after_restart": true,
+  "simulation_equal_after_restart": true,
+  "review_history_entries_preserved": 2,
+  "ready_status": "ready",
+  "source_graph_mutated_by_simulation": false
+}
