@@ -1,0 +1,363 @@
+{
+  "synthetic": true,
+  "verified": true,
+  "engine_version": "risk-2026.1",
+  "timeline": [
+    {
+      "at": "2026-10-16T09:00:00+00:00",
+      "analysis_id": "4b40d88b-8b64-549b-8b9e-eed509c1bb1a",
+      "path_count": 0,
+      "maximum_score": 0
+    },
+    {
+      "at": "2026-10-16T10:00:00+00:00",
+      "analysis_id": "eaeeae19-c97e-53da-a8cd-2a7b5b91eb9a",
+      "path_count": 0,
+      "maximum_score": 0
+    },
+    {
+      "at": "2026-10-16T11:00:00+00:00",
+      "analysis_id": "d391e8cd-efae-5e7c-b247-48371c14c1de",
+      "path_count": 0,
+      "maximum_score": 0
+    },
+    {
+      "at": "2026-10-16T12:00:00+00:00",
+      "analysis_id": "dc76df7f-4a7e-5c46-a1f0-56aabe4f78ad",
+      "path_count": 1,
+      "maximum_score": 51
+    }
+  ],
+  "finding": {
+    "finding_id": "284f727d-8923-5255-90d4-0602e4c6ad51",
+    "path_id": "38ce82be-da67-5169-b878-a791f3518b59",
+    "classification": "POTENTIAL ATTACK PATH",
+    "identity": {
+      "account_id": "000000000001",
+      "arn": "arn:aws:iam::000000000001:user/shadowchain-synthetic-alice",
+      "collector": "synthetic-event-engine",
+      "created_at": 1792132558677248,
+      "dataset_version": "synthetic-2026.1",
+      "display_name": "SYNTHETIC alice",
+      "entity_key": "identity/alice",
+      "fingerprint": "2ce7b1394ab028e0dd00618ae790d3e853685472cf730b9d176d49a5bac4d67d",
+      "id": "4e0d4c7d-6003-57bb-8491-3dc47988a5bf",
+      "identity_type": "IAMUser",
+      "kind": "Identity",
+      "logical_key": "identity/alice",
+      "observed_at": 1792141200000000,
+      "scenario_id": "baseline",
+      "source": "shadowchain.synthetic.synthetic-2026.1",
+      "source_id": "identity/alice",
+      "source_time": 1792141200000000,
+      "source_uri": "urn:shadowchain:identity/alice",
+      "synthetic": true,
+      "tenant_id": "shadowchain-synthetic-demo",
+      "updated_at": 1792132558677248,
+      "valid_from": 1792141200000000
+    },
+    "roles": [
+      {
+        "account_id": "000000000001",
+        "arn": "arn:aws:iam::000000000001:role/shadowchain-synthetic-temp-analyst",
+        "collector": "synthetic-event-engine",
+        "created_at": 1792132558677248,
+        "dataset_version": "synthetic-2026.1",
+        "description": "Synthetic IAM role; never deployed to AWS",
+        "display_name": "SYNTHETIC temp-analyst",
+        "entity_key": "role/temp-analyst",
+        "fingerprint": "91b18bdf5ef784057d4408eb3f04c6025146929d34ba085a2721ff548d5728f3",
+        "id": "99487a74-9354-54a4-ba1f-965da817971e",
+        "kind": "Role",
+        "logical_key": "role/temp-analyst",
+        "observed_at": 1792141200000000,
+        "scenario_id": "baseline",
+        "source": "shadowchain.synthetic.synthetic-2026.1",
+        "source_id": "role/temp-analyst",
+        "source_time": 1792141200000000,
+        "source_uri": "urn:shadowchain:role/temp-analyst",
+        "synthetic": true,
+        "tenant_id": "shadowchain-synthetic-demo",
+        "updated_at": 1792132558677248,
+        "valid_from": 1792141200000000
+      },
+      {
+        "account_id": "000000000002",
+        "arn": "arn:aws:iam::000000000002:role/shadowchain-synthetic-ec2-backup",
+        "collector": "synthetic-event-engine",
+        "created_at": 1792132558677248,
+        "dataset_version": "synthetic-2026.1",
+        "description": "Synthetic IAM role; never deployed to AWS",
+        "display_name": "SYNTHETIC ec2-backup",
+        "entity_key": "role/ec2-backup",
+        "fingerprint": "2f4433761c8f443f438f0c15edb7dbff743793197ea72148af992b5f3ce8d48a",
+        "id": "02f6f4e2-ddb2-52b7-a256-8b3e0d6f624b",
+        "instance_profile": "shadowchain-synthetic-ec2-backup-profile",
+        "kind": "Role",
+        "logical_key": "role/ec2-backup",
+        "observed_at": 1792141200000000,
+        "scenario_id": "baseline",
+        "service_principal": "ec2.amazonaws.com",
+        "source": "shadowchain.synthetic.synthetic-2026.1",
+        "source_id": "role/ec2-backup",
+        "source_time": 1792141200000000,
+        "source_uri": "urn:shadowchain:role/ec2-backup",
+        "synthetic": true,
+        "tenant_id": "shadowchain-synthetic-demo",
+        "updated_at": 1792132558677248,
+        "valid_from": 1792141200000000
+      }
+    ],
+    "resource": {
+      "account_id": "000000000002",
+      "arn": "arn:aws:s3:::shadowchain-synthetic-hr-data",
+      "collector": "synthetic-event-engine",
+      "created_at": 1792132558677248,
+      "dataset_version": "synthetic-2026.1",
+      "display_name": "SYNTHETIC S3 hr-data",
+      "entity_key": "resource/hr-data",
+      "fingerprint": "0e8baadbc0ec0bfe5e2a8f6047a709297954abaeb61caf12a62b22f12b65c2bf",
+      "id": "cfc7ce35-25fb-5fa0-91eb-08fa3184a300",
+      "kind": "Resource",
+      "logical_key": "resource/hr-data",
+      "object_arn": "arn:aws:s3:::shadowchain-synthetic-hr-data/*",
+      "observed_at": 1792141200000000,
+      "region": "us-east-1",
+      "resource_type": "s3:bucket",
+      "scenario_id": "baseline",
+      "sensitive": true,
+      "source": "shadowchain.synthetic.synthetic-2026.1",
+      "source_id": "resource/hr-data",
+      "source_time": 1792141200000000,
+      "source_uri": "urn:shadowchain:resource/hr-data",
+      "synthetic": true,
+      "tenant_id": "shadowchain-synthetic-demo",
+      "updated_at": 1792132558677248,
+      "valid_from": 1792141200000000
+    },
+    "action": "s3:GetObject",
+    "permission_id": "11dad8fe-b4fc-5607-8ce3-905af12f51cb",
+    "relationship_ids": [
+      "18a0a89c-0fda-5932-a507-0e74e78bb12c",
+      "bf59c084-be32-51f3-acee-8a96636e1536",
+      "9d7f9c9e-70db-56e2-a193-c4396b3ba2a9",
+      "721aeb18-aeb6-5b2c-9483-8fe3fe4c05a3",
+      "e4023007-8248-596f-ac80-5f8901afa295"
+    ],
+    "supporting_relationship_ids": [
+      "0e0827b2-31de-5ee7-a955-1a6dd43ddd61",
+      "18a0a89c-0fda-5932-a507-0e74e78bb12c",
+      "433f01b2-c0ea-5493-8219-a7f4b11ef072",
+      "721aeb18-aeb6-5b2c-9483-8fe3fe4c05a3",
+      "8d6f5dfa-8bcc-587a-9d1f-fb20345ced28",
+      "8e6d1b29-a954-51ef-b3a1-28c3150171ec",
+      "9a0f18e8-3172-538a-984a-c0f05521de4f",
+      "9d362d7f-9939-5cb6-9ecb-4ac16013e7fa",
+      "9d7f9c9e-70db-56e2-a193-c4396b3ba2a9",
+      "a36ae882-df0b-52da-9cfe-5601754e82ff",
+      "a967b49f-50a0-5be9-9f48-aee5f302d983",
+      "bae677c8-a637-5712-a340-de86cf79332c",
+      "bf59c084-be32-51f3-acee-8a96636e1536",
+      "cc6873cc-eb6d-5b0e-b6b7-a9e1973e174c",
+      "e4023007-8248-596f-ac80-5f8901afa295",
+      "e4f4f565-566b-5dce-a589-48de6d57bfd1",
+      "ee435e9f-62a7-54b4-9fe1-fd24f44d3e5e"
+    ],
+    "contributing_events": [
+      {
+        "id": "652743da-ae41-5b7a-a7f2-73ce1d07282f",
+        "source_id": "baseline/event",
+        "event_type": "SyntheticBaselineImported",
+        "occurred_at": "2026-10-16T09:00:00Z",
+        "relationship_ids": [
+          "0e0827b2-31de-5ee7-a955-1a6dd43ddd61",
+          "721aeb18-aeb6-5b2c-9483-8fe3fe4c05a3",
+          "8d6f5dfa-8bcc-587a-9d1f-fb20345ced28",
+          "8e6d1b29-a954-51ef-b3a1-28c3150171ec",
+          "9a0f18e8-3172-538a-984a-c0f05521de4f",
+          "9d362d7f-9939-5cb6-9ecb-4ac16013e7fa",
+          "a36ae882-df0b-52da-9cfe-5601754e82ff",
+          "a967b49f-50a0-5be9-9f48-aee5f302d983",
+          "bae677c8-a637-5712-a340-de86cf79332c",
+          "e4023007-8248-596f-ac80-5f8901afa295"
+        ],
+        "closed_relationship_ids": []
+      },
+      {
+        "id": "a3615b96-eb89-5f05-a564-ba165508348a",
+        "source_id": "event/31d48baf-837f-562a-9f36-add7840b25c8",
+        "event_type": "SyntheticTemporaryRoleAccessGranted",
+        "occurred_at": "2026-10-16T10:00:00Z",
+        "relationship_ids": [
+          "18a0a89c-0fda-5932-a507-0e74e78bb12c",
+          "433f01b2-c0ea-5493-8219-a7f4b11ef072",
+          "ee435e9f-62a7-54b4-9fe1-fd24f44d3e5e"
+        ],
+        "closed_relationship_ids": []
+      },
+      {
+        "id": "0b67db57-e101-5418-8a94-7b7c49f09529",
+        "source_id": "event/15b9ab74-729a-51f7-b4bf-0c13e6b27708",
+        "event_type": "SyntheticBackupRoleTrustChanged",
+        "occurred_at": "2026-10-16T11:00:00Z",
+        "relationship_ids": [
+          "bf59c084-be32-51f3-acee-8a96636e1536",
+          "cc6873cc-eb6d-5b0e-b6b7-a9e1973e174c",
+          "e4f4f565-566b-5dce-a589-48de6d57bfd1"
+        ],
+        "closed_relationship_ids": []
+      },
+      {
+        "id": "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4",
+        "source_id": "event/199de1aa-8744-5dc5-9f05-110e2cf7f378",
+        "event_type": "SyntheticSensitiveReadPolicyAttached",
+        "occurred_at": "2026-10-16T12:00:00Z",
+        "relationship_ids": [
+          "9d7f9c9e-70db-56e2-a193-c4396b3ba2a9"
+        ],
+        "closed_relationship_ids": []
+      }
+    ],
+    "score": {
+      "value": 51,
+      "severity": "medium",
+      "factors": [
+        {
+          "name": "resource_sensitivity",
+          "points": 30,
+          "explanation": "Sensitive resource; restricted classification adds 10",
+          "record_ids": [
+            "cfc7ce35-25fb-5fa0-91eb-08fa3184a300"
+          ]
+        },
+        {
+          "name": "privilege",
+          "points": 10,
+          "explanation": "Modeled data-read or other scoped action",
+          "record_ids": [
+            "11dad8fe-b4fc-5607-8ce3-905af12f51cb"
+          ]
+        },
+        {
+          "name": "trust_relationships",
+          "points": 11,
+          "explanation": "3 per assumption hop (cap 12), 5 per cross-account hop (cap 10)",
+          "record_ids": [
+            "18a0a89c-0fda-5932-a507-0e74e78bb12c",
+            "bf59c084-be32-51f3-acee-8a96636e1536"
+          ]
+        },
+        {
+          "name": "internet_exposure",
+          "points": 0,
+          "explanation": "No verified structured internet-exposure evidence; no exposure assumed",
+          "record_ids": []
+        },
+        {
+          "name": "temporary_access_violation",
+          "points": 0,
+          "explanation": "No evidenced temporary-access violation on this path",
+          "record_ids": []
+        },
+        {
+          "name": "compensating_controls",
+          "points": 0,
+          "explanation": "Monitoring -5, private endpoint -10, required matched MFA -10; reduction capped at 20. Controls do not themselves authorize access.",
+          "record_ids": []
+        }
+      ],
+      "model": "deterministic-heuristic-v1"
+    },
+    "explanation": "SYNTHETIC alice can potentially reach SYNTHETIC S3 hr-data for s3:GetObject through 2 modeled role assumption(s). Caller grants, role trust and modeled constraints were checked; this is not proof of exploitable AWS access.",
+    "assumptions": [
+      "Unmodeled AWS constraints may prevent access"
+    ]
+  },
+  "introductions": [
+    {
+      "path_id": "38ce82be-da67-5169-b878-a791f3518b59",
+      "first_reachable_at": "2026-10-16T12:00:00Z",
+      "transition_events": [
+        {
+          "id": "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4",
+          "source_id": "event/199de1aa-8744-5dc5-9f05-110e2cf7f378",
+          "event_type": "SyntheticSensitiveReadPolicyAttached",
+          "occurred_at": "2026-10-16T12:00:00Z",
+          "relationship_ids": [
+            "9d7f9c9e-70db-56e2-a193-c4396b3ba2a9"
+          ],
+          "closed_relationship_ids": []
+        }
+      ],
+      "contributing_events": [
+        {
+          "id": "652743da-ae41-5b7a-a7f2-73ce1d07282f",
+          "source_id": "baseline/event",
+          "event_type": "SyntheticBaselineImported",
+          "occurred_at": "2026-10-16T09:00:00Z",
+          "relationship_ids": [
+            "0e0827b2-31de-5ee7-a955-1a6dd43ddd61",
+            "721aeb18-aeb6-5b2c-9483-8fe3fe4c05a3",
+            "8d6f5dfa-8bcc-587a-9d1f-fb20345ced28",
+            "8e6d1b29-a954-51ef-b3a1-28c3150171ec",
+            "9a0f18e8-3172-538a-984a-c0f05521de4f",
+            "9d362d7f-9939-5cb6-9ecb-4ac16013e7fa",
+            "a36ae882-df0b-52da-9cfe-5601754e82ff",
+            "a967b49f-50a0-5be9-9f48-aee5f302d983",
+            "bae677c8-a637-5712-a340-de86cf79332c",
+            "e4023007-8248-596f-ac80-5f8901afa295"
+          ],
+          "closed_relationship_ids": []
+        },
+        {
+          "id": "a3615b96-eb89-5f05-a564-ba165508348a",
+          "source_id": "event/31d48baf-837f-562a-9f36-add7840b25c8",
+          "event_type": "SyntheticTemporaryRoleAccessGranted",
+          "occurred_at": "2026-10-16T10:00:00Z",
+          "relationship_ids": [
+            "18a0a89c-0fda-5932-a507-0e74e78bb12c",
+            "433f01b2-c0ea-5493-8219-a7f4b11ef072",
+            "ee435e9f-62a7-54b4-9fe1-fd24f44d3e5e"
+          ],
+          "closed_relationship_ids": []
+        },
+        {
+          "id": "0b67db57-e101-5418-8a94-7b7c49f09529",
+          "source_id": "event/15b9ab74-729a-51f7-b4bf-0c13e6b27708",
+          "event_type": "SyntheticBackupRoleTrustChanged",
+          "occurred_at": "2026-10-16T11:00:00Z",
+          "relationship_ids": [
+            "bf59c084-be32-51f3-acee-8a96636e1536",
+            "cc6873cc-eb6d-5b0e-b6b7-a9e1973e174c",
+            "e4f4f565-566b-5dce-a589-48de6d57bfd1"
+          ],
+          "closed_relationship_ids": []
+        },
+        {
+          "id": "2400a2bf-5fc3-5392-b4f4-cf30eed1dab4",
+          "source_id": "event/199de1aa-8744-5dc5-9f05-110e2cf7f378",
+          "event_type": "SyntheticSensitiveReadPolicyAttached",
+          "occurred_at": "2026-10-16T12:00:00Z",
+          "relationship_ids": [
+            "9d7f9c9e-70db-56e2-a193-c4396b3ba2a9"
+          ],
+          "closed_relationship_ids": []
+        }
+      ],
+      "attribution": "modeled-change-provenance",
+      "sampling": "event-boundaries-and-endpoints",
+      "explanation": "The graph model is first observed potentially reachable at this sampled source time. Event provenance identifies modeled changes; temporal correlation does not prove real-world causality or exploitable AWS authorization. Simultaneous events are grouped."
+    }
+  ],
+  "simulation": {
+    "excluded_relationship_ids": [
+      "9d7f9c9e-70db-56e2-a193-c4396b3ba2a9"
+    ],
+    "removed_path_ids": [
+      "38ce82be-da67-5169-b878-a791f3518b59"
+    ],
+    "paths_after_removal": 0,
+    "graph_mutated": false
+  },
+  "reconnection_preserved_findings": true
+}
