@@ -1,0 +1,9 @@
+# Direct runtime dependencies. requirements.txt locks the complete dependency tree.
+fastapi==0.143.2
+uvicorn==0.54.0
+pydantic==2.14.1
+pydantic-settings==2.16.0
+FalkorDB==1.8.0
+langgraph==1.2.15
+boto3==1.43.114
+websockets==16.1.1
