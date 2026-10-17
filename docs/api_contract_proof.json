@@ -1,0 +1,22 @@
+{
+  "synthetic": true,
+  "schema_version": "1",
+  "authenticated": true,
+  "aws_calls": 0,
+  "graph_edge_counts": {
+    "09:00": 123,
+    "10:00": 126,
+    "11:00": 129,
+    "12:00": 130
+  },
+  "workflow_completed": true,
+  "agents": 6,
+  "replay_page_events": 50,
+  "replay_cursor": 51,
+  "reconnected_events_equal": true,
+  "live_high_watermark": 79,
+  "what_if_breaks_path": true,
+  "source_permissions_unchanged": true,
+  "source_projection_sha256_before": "828a02ce26f4099cea1ba86058a8105db31ccd685b7285582c3ec918c7709b24",
+  "source_projection_sha256_after": "828a02ce26f4099cea1ba86058a8105db31ccd685b7285582c3ec918c7709b24"
+}

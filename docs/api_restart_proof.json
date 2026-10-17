@@ -1,0 +1,13 @@
+{
+  "synthetic": true,
+  "backend_restarted": true,
+  "falkordb_restarted": true,
+  "events_equal_after_restart": true,
+  "websocket_replay_equal_after_restart": true,
+  "cursor_before": 79,
+  "cursor_after": 79,
+  "event_count": 79,
+  "event_payload_sha256": "e29682725990f3407b8dd224930009b9d27cc85ce2b45a06616c0f2228d291e2",
+  "readiness": "ready",
+  "aws_calls": 0
+}
