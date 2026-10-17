@@ -1,0 +1,9 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {"Sid": "ListRoles", "Effect": "Allow", "Action": "iam:ListRoles", "Resource": "*"},
+    {"Sid": "ReadRoleInventory", "Effect": "Allow", "Action": ["iam:GetRole", "iam:ListAttachedRolePolicies", "iam:ListRolePolicies", "iam:GetRolePolicy"], "Resource": "arn:aws:iam::<ACCOUNT_ID>:role/*"},
+    {"Sid": "ReadPolicyVersions", "Effect": "Allow", "Action": ["iam:GetPolicy", "iam:ListPolicyVersions", "iam:GetPolicyVersion"], "Resource": ["arn:aws:iam::<ACCOUNT_ID>:policy/*", "arn:aws:iam::aws:policy/*"]},
+    {"Sid": "OptionalRegionalEventHistory", "Effect": "Allow", "Action": "cloudtrail:LookupEvents", "Resource": "*", "Condition": {"StringEquals": {"aws:RequestedRegion": "<AWS_REGION>"}}}
+  ]
+}

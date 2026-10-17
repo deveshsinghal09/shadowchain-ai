@@ -1,0 +1,14 @@
+{
+  "synthetic": true,
+  "aws_enabled": false,
+  "cloudtrail_enabled": false,
+  "export_mode": "local",
+  "report_id": "671f6380-b5a0-5a1d-b91e-18b4d12a15fe",
+  "status": "PUBLISHED",
+  "byte_count": 7385,
+  "content_sha256": "6578977b46c079dc8d5858b128ebf34222f786994b11bc45ed7fe5767a6088e8",
+  "repeatable": true,
+  "report_file_exists": true,
+  "sensitive_identifiers_omitted": true,
+  "live_aws_checks_performed": false
+}
