@@ -1,0 +1,56 @@
+{
+  "name": "graphverse",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "concurrently -k \"tsx watch server/index.ts\" \"vite --host 127.0.0.1\"",
+    "build": "tsc --noEmit && vite build",
+    "start": "tsx server/index.ts",
+    "seed": "tsx server/seed-cli.ts",
+    "test": "tsx --test server/*.test.ts",
+    "test:e2e": "playwright test",
+    "check": "tsc --noEmit",
+    "format:check": "prettier --check src server shared tests *.ts *.json *.html *.md docs scripts",
+    "format": "prettier --write src server shared tests *.ts *.json *.html *.md docs"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-mono": "5.3.0",
+    "@fontsource/instrument-sans": "5.3.0",
+    "@fontsource/michroma": "5.3.0",
+    "@react-three/drei": "10.7.9",
+    "@react-three/fiber": "9.8.2",
+    "dotenv": "18.0.8",
+    "express": "5.3.0",
+    "express-rate-limit": "8.7.1",
+    "falkordb": "6.8.0",
+    "gsap": "3.15.0",
+    "helmet": "8.3.0",
+    "lucide-react": "1.59.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-force-graph-3d": "1.29.2",
+    "three": "0.186.1",
+    "zod": "4.6.7",
+    "zustand": "5.0.15"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@tailwindcss/vite": "4.3.3",
+    "@types/express": "5.0.6",
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/three": "0.186.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "concurrently": "10.0.6",
+    "prettier": "3.9.10",
+    "tailwindcss": "4.3.3",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2",
+    "vite": "8.3.4"
+  }
+}
