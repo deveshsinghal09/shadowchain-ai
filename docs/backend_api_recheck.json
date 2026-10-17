@@ -1,0 +1,26 @@
+{
+  "synthetic": true,
+  "schema_version": "1",
+  "authenticated": true,
+  "aws_calls": 0,
+  "graph_edge_counts": {
+    "09:00": 123,
+    "10:00": 126,
+    "11:00": 129,
+    "12:00": 130
+  },
+  "workflow_completed": true,
+  "agents": 6,
+  "replay_page_events": 50,
+  "replay_cursor": 51,
+  "reconnected_events_equal": true,
+  "live_high_watermark": 76,
+  "what_if_breaks_path": true,
+  "source_permissions_unchanged": true,
+  "source_projection_sha256_before": "c9c5912f6233f8a7f0699085694143b874f8c3171582e93e2452467c9f161020",
+  "source_projection_sha256_after": "c9c5912f6233f8a7f0699085694143b874f8c3171582e93e2452467c9f161020",
+  "checked_at": "2026-10-17T06:34:05.365507+00:00",
+  "graph": "shadowchain_audit_api_14a6e4040b00462691c70cc2a93bafe7",
+  "owned_backend_stopped": true,
+  "current_openapi_matches_documentation": true
+}
