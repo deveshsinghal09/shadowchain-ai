@@ -1,0 +1,23 @@
+[project]
+name = "shadowchain-ai-backend"
+version = "0.1.0"
+description = "FalkorDB-backed cybersecurity agent coordination foundation"
+requires-python = ">=3.12,<3.13"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = ["integration: requires a real authenticated FalkorDB server"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "S"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/*.py" = ["S101", "S106"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app", "tests"]
