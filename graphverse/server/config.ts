@@ -19,12 +19,15 @@ const parsed = z
     GRAPHVERSE_TOKEN_FILE: z.string().default(''),
     GRAPHVERSE_OPERATOR_TOKEN: z.string().default(''),
     GRAPHVERSE_SECURE_COOKIE: z.enum(['true', 'false']).default('false'),
+    GRAPHVERSE_PUBLIC_READ: z.enum(['true', 'false']).default('false'),
     GRAPHVERSE_DATASET: z.string().min(1).max(100).default('graphverse-synthetic-1.0'),
+    GRAPHVERSE_GITHUB_REPOSITORIES: z.string().default(''),
+    GITHUB_READ_TOKEN: z.string().default(''),
     GEMINI_API_KEY: z.string().default(''),
     GEMINI_MODEL: z
       .string()
       .regex(/^[a-zA-Z0-9.-]{1,80}$/)
-      .default('gemini-3.8-flash'),
+      .default('gemini-3.1-flash-lite'),
     GRAPHVERSE_AI_PROVIDER: z.enum(['deterministic', 'gemini']).default('deterministic'),
     FALKORDB_HOST: z.string().default('127.0.0.1'),
     FALKORDB_PORT: z.coerce.number().int().min(1).max(65535).default(16379),

@@ -1,6 +1,10 @@
 # GraphVerse API, version 1
 
-Express serves the requested `/api` paths. This contract is separate from the Python backend's `/api/v1` contract. JSON is required for writes, with an 8 KB limit and strict Zod validation. Identifiers match `[a-zA-Z0-9_-]{1,100}`. Browser requests use the HttpOnly session cookie; tenant scope is always server-configured.
+Express serves the requested `/api` paths. This contract is separate from the Python backend's `/api/v1` contract. JSON is required for writes, with an 8 KB limit and strict Zod validation. Identifiers match `[a-zA-Z0-9_-]{1,100}`. Operator requests use the HttpOnly session cookie; tenant scope is always server-configured.
+
+With `GRAPHVERSE_PUBLIC_READ=true`, anonymous visitors can read `/api/session`, `/api/ready`, `/api/graph`, `/api/clusters`, and the node/neighbor endpoints, and POST to `/api/paths/shortest` or `/api/ai/ask` for read-only queries. Public questions always use deterministic graph results; they never invoke the configured model provider. `/api/session` reports `authenticated: false`, `access: "public"`, `can_write: false`, and `can_use_model: false` for a visitor. No anonymous session cookie is issued.
+
+Saved investigations (including their lists and preserved paths), writes, and model calls require a signed-in operator. This flag exposes the configured tenant's graph contents to visitors; it does not accept a caller-selected tenant. Its default is `false`, preserving the private local configuration. Python `/api/v1` authentication is unchanged. Existing request limits, query bounds and origin validation apply in both modes.
 
 | Method       | Route                          | Purpose                                                                                     |
 | ------------ | ------------------------------ | ------------------------------------------------------------------------------------------- |
@@ -18,7 +22,7 @@ Express serves the requested `/api` paths. This contract is separate from the Py
 | POST         | `/api/investigations`          | `{ "id":"<UUID>", "title":"Review access", "source":"alice", "target":"vault" }`            |
 | GET          | `/api/investigations/:id/path` | Preserved path snapshot and evidence                                                        |
 
-All routes except liveness and session creation require authentication. POST investigation retries with the same ID and same inputs are idempotent; mismatched reuse returns 409. Only this route writes domain data. Graph seed runs from an explicit CLI command.
+In the default private configuration, all routes except liveness and session creation require authentication. Public mode opens only the explicit read/query allowlist above. POST investigation retries with the same ID and same inputs are idempotent; mismatched reuse returns 409. Only this route writes domain data. Graph seed runs from an explicit CLI command.
 
 Entity shape: `id`, `label`, `type`, `cluster`, `description`, `severity`, `source`, `created_at`, `synthetic`, optional `degree`. The graph response includes `nodes`, `edges`, `snapshot_at`, `dataset`, `truncated`. Edge shape:
 
@@ -66,3 +70,7 @@ RETURN i.path_json AS path
 Errors use `{ "error": { "code": "...", "message": "..." } }`: 400 invalid input, 401 invalid session, 403 origin rejected, 404 missing entity/route, 409 idempotency conflict, 413 size/view limit, 415 wrong media type, 422 no path to save, 429 rate limit, 503 database unavailable/query failure. Exceptions never expose connection credentials or Cypher parameters.
 
 No raw-Cypher endpoint, AWS write API, document execution, autonomous tool execution, or LLM-generated graph path exists.
+
+## Live public GitHub source
+
+The hosted explorer now imports the approved public repository with operator-triggered synchronization. Source coverage, persistent agent stages, historical snapshots, graph differences, non-destructive proposals, and review endpoints are documented in [GitHub integration](../../docs/GITHUB_INTEGRATION.md). All source mutations and proposal reviews require an operator. Optional Gemini failures return the deterministic graph result with a provider-unavailable note.

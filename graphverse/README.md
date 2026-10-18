@@ -1,9 +1,9 @@
 # GraphVerse
 
 Hosted frontend: https://shadowchain-ai.vercel.app. The hosted deployment uses an
-empty live graph; the synthetic local walkthrough below is separate. See the
+empty live graph with public browsing; the synthetic local walkthrough below is separate. See the
 [Railway/Vercel guide](../docs/RAILWAY_VERCEL_DEPLOYMENT.md) for the hosted operator
-login, server-side Gemini key setup, verification and remaining integration work.
+access for private investigations/writes, server-side Gemini key setup, verification and remaining integration work.
 
 A browser observatory for connected security intelligence. Ask how **Alice Chen** connects to **Research vault**, inspect the path returned by FalkorDB, travel along it, and save its evidence for another session.
 

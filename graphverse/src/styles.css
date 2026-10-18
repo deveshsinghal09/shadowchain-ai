@@ -1392,3 +1392,73 @@ input[type='checkbox'] {
     scroll-behavior: auto !important;
   }
 }
+.live-panel h2 {
+  margin-bottom: 12px;
+}
+.live-panel h3 {
+  margin-top: 28px;
+}
+.live-panel p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+.live-panel .source-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cyan);
+  margin-top: 20px;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.live-panel dl dd {
+  overflow-wrap: anywhere;
+}
+.source-tasks {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+.source-tasks li {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+.source-tasks strong,
+.source-tasks span {
+  display: block;
+}
+.source-tasks span,
+.source-tasks small {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.source-tasks p {
+  margin: 8px 0;
+}
+.live-panel details,
+.simulation-panel {
+  margin-top: 20px;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.live-panel summary,
+.simulation-panel summary {
+  cursor: pointer;
+  color: var(--cyan);
+}
+.live-panel li {
+  margin-bottom: 8px;
+}
+.live-panel .source-message {
+  color: #76e2bf;
+  margin-top: 14px;
+}
+.live-panel .source-error {
+  color: #f3aa91;
+  margin-top: 14px;
+}
+.simulation-panel [role='status'] {
+  padding: 12px 0;
+}

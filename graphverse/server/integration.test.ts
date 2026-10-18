@@ -50,6 +50,124 @@ test('authentication fails closed and creates an HttpOnly session', async () => 
   cookie = res.headers.get('set-cookie')!.split(';')[0];
   assert.equal((await http('/api/ready')).status, 200);
 });
+test('public browsing needs no token while writes, memories and model calls stay operator-only', async () => {
+  let modelCalls = 0;
+  const publicServer = createApp(
+    repo,
+    token,
+    ['http://localhost'],
+    false,
+    async (answer) => {
+      modelCalls++;
+      return answer;
+    },
+    true,
+  ).listen(0, '127.0.0.1');
+  await once(publicServer, 'listening');
+  const publicBase = `http://127.0.0.1:${(publicServer.address() as AddressInfo).port}`;
+  const anonymous = (path: string, body?: unknown, extra: Record<string, string> = {}) =>
+    fetch(publicBase + path, {
+      method: body ? 'POST' : 'GET',
+      headers: { ...(body ? { 'Content-Type': 'application/json' } : {}), ...extra },
+      body: body ? JSON.stringify(body) : undefined,
+    });
+  try {
+    const before = await repo.investigations();
+    const session = await anonymous('/api/session');
+    assert.equal(session.status, 200);
+    assert.deepEqual(await session.json(), {
+      authenticated: false,
+      access: 'public',
+      can_write: false,
+      can_use_model: false,
+      tenant: 'test-one',
+    });
+    assert.equal(session.headers.get('set-cookie'), null);
+    for (const path of [
+      '/api/graph',
+      '/api/ready',
+      '/api/clusters',
+      '/api/nodes/alice',
+      '/api/nodes/alice/neighbors',
+    ])
+      assert.equal((await anonymous(path)).status, 200, path);
+    const path = await anonymous('/api/paths/shortest', { source: 'alice', target: 'vault' });
+    assert.equal(path.status, 200);
+    assert.equal((await path.json()).found, true);
+    const question = await anonymous('/api/ai/ask', { question: 'Alice Chen to Research vault' });
+    assert.equal(question.status, 200);
+    assert.equal((await question.json()).mode, 'deterministic');
+    assert.equal(modelCalls, 0);
+    assert.equal((await anonymous('/api/investigations')).status, 401);
+    assert.equal((await anonymous('/api/investigations/private/path')).status, 401);
+    assert.equal(
+      (
+        await anonymous('/api/investigations', {
+          id: randomUUID(),
+          title: 'Anonymous attempt',
+          source: 'alice',
+          target: 'vault',
+        })
+      ).status,
+      401,
+    );
+    assert.equal(
+      (
+        await anonymous(
+          '/api/investigations',
+          { id: randomUUID(), title: 'Forged attempt', source: 'alice', target: 'vault' },
+          { cookie: 'graphverse_session=9999999999999.invalid' },
+        )
+      ).status,
+      401,
+    );
+    assert.equal(
+      (
+        await anonymous(
+          '/api/paths/shortest',
+          { source: 'alice', target: 'vault' },
+          { Origin: 'https://foreign.invalid' },
+        )
+      ).status,
+      403,
+    );
+    assert.equal(
+      (
+        await anonymous('/api/paths/shortest', {
+          source: 'alice',
+          target: 'vault',
+          tenant: 'test-two',
+        })
+      ).status,
+      400,
+    );
+    assert.deepEqual(await repo.investigations(), before);
+    const auth = await anonymous('/api/session', { token });
+    assert.equal(auth.status, 200);
+    const operatorCookie = auth.headers.get('set-cookie')!.split(';')[0];
+    const signedSession = await anonymous('/api/session', undefined, { cookie: operatorCookie });
+    assert.equal((await signedSession.json()).access, 'operator');
+    assert.equal(
+      (await anonymous('/api/investigations', undefined, { cookie: operatorCookie })).status,
+      200,
+    );
+    assert.equal(
+      (
+        await anonymous(
+          '/api/ai/ask',
+          { question: 'Alice Chen to Research vault' },
+          { cookie: operatorCookie },
+        )
+      ).status,
+      200,
+    );
+    assert.equal(modelCalls, 1);
+  } finally {
+    publicServer.closeAllConnections();
+    await new Promise<void>((resolve) => publicServer.close(() => resolve()));
+  }
+});
+
 test('seed is idempotent and graph has coherent real endpoints', async () => {
   const first = await repo.graph();
   await seed(db, 'test-one');

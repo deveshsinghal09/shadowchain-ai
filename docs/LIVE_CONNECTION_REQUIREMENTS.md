@@ -1,40 +1,26 @@
-# Live website connection requirements
+# Live website connections
 
-Reviewed against the implementation on 2026-10-17.
+The hosted explorer is connected to the public `deveshsinghal09/shadowchain-ai`
+repository. It uses read-only public GitHub requests and the private Railway
+FalkorDB instance. AWS, CloudTrail, and Amazon Bedrock are disabled and are not
+required for this deployment.
 
-GraphVerse currently reads a separate synthetic FalkorDB graph. The Python backend has bounded, explicitly triggered AWS IAM and CloudTrail readers, but GraphVerse does not yet consume those imports. Its browser assistant is deterministic; the optional Python Gemini provider is not yet connected to the GraphVerse question interface. Configuring credentials alone does not complete those integrations.
+For configuration, coverage, endpoint contracts, and actual verification, see
+[GitHub integration](GITHUB_INTEGRATION.md) and
+[Railway/Vercel deployment](RAILWAY_VERCEL_DEPLOYMENT.md).
 
-Amazon Bedrock is not a dependency and is not required.
+Public browsing requires no credentials. Operator-only synchronization, saved
+investigations, proposal review, and optional Gemini explanations use the hosted
+operator token. An optional GitHub read token can increase upstream request limits;
+it is not required for the current public source. Gemini needs a valid server-side
+key, supported model, and usable account quota. Never place these keys in browser
+settings or commit them.
 
-## What the operator must supply
+The live repository workflow is implemented in the explorer API. The Python
+IAM/LangGraph workflows are a separate supported local capability; the original
+schema adapter and production workflow restrictions remain explicit. Do not
+switch production to development mode to bypass them.
 
-| Capability | Configuration required | Where it belongs |
-| --- | --- | --- |
-| Real AWS inventory | An authorized read-only AWS CLI profile, expected AWS account ID, region | Existing AWS credential provider chain; profile/account/region settings in the server environment |
-| Real CloudTrail events | The same authorized profile with `cloudtrail:LookupEvents`, plus an explicitly selected region | Server environment; separately enabled and user-triggered |
-| Existing non-AWS graph | FalkorDB connection details, graph name and the graph's schema/tenant model | Server-only configuration; schema adapter must match the actual graph |
-| Local FalkorDB | Existing local password and persistent server | Already configured; no new cloud account is required for local operation |
-| Optional Gemini explanations | A Gemini API key for an authorized Google AI project | Server-only `GEMINI_API_KEY`; never a `VITE_*` variable or browser request |
-| Public website | A chosen hosting environment and a stable HTTPS address; optional custom domain | Hosting configuration; authentication and deployment work are still required |
-
-Do not send AWS secrets, session tokens, Gemini keys, or database passwords in chat. AWS profile name and region are enough to discuss the setup. Account scope is configured locally and explicitly confirmed before any live synchronization.
-
-For an existing IAM Identity Center setup, AWS CLI SSO can supply credentials without placing long-lived access keys into the application. The application needs only the read operations listed in `AWS_SETUP.md`; administrative or IAM write access is not required.
-
-## Implementation work still needed for a live GraphVerse website
-
-1. Select the real source and implement the correct schema adapter rather than copying the synthetic node format over it.
-2. Connect live inventory, provenance, refresh status and actual evidence to the explorer. Show honest empty/error states when no source is configured; do not seed sample records as a fallback.
-3. Connect optional Gemini explanations to bounded graph results with validated citations. Graph traversal remains authoritative in FalkorDB.
-4. Replace the local shared operator-token experience with the intended user authentication and tenant access model for public use.
-5. Configure and verify HTTPS hosting, persistent database operation, backups, resource limits and an end-to-end live read-only import.
-
-Real AWS IAM inventory does not automatically establish effective access. Unsupported conditions, trust requirements, boundaries and organizational constraints must remain explicit limitations. Existing AWS controls are development-only; enabling public production routes requires a reviewed service authorization design, not simply removing their environment checks.
-
-## References
-
-- Repository-specific permissions and settings: [AWS_SETUP.md](AWS_SETUP.md), [aws-readonly-policy.json](aws-readonly-policy.json).
-- [AWS CLI IAM Identity Center setup](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html).
-- [Gemini API key setup](https://ai.google.dev/gemini-api/docs/api-key).
-
-No live AWS request, new provider credential configuration, infrastructure provisioning or public deployment was performed during this requirements review.
+There is no scheduled GitHub synchronization, webhook, automatic remediation,
+cloud monitoring, or complete effective-permission evaluation. Source refresh is
+operator-triggered and its coverage limits are visible in the website.

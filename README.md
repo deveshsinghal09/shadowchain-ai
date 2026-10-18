@@ -23,12 +23,12 @@ preserves evidence, and helps agents pick up where an investigation left off.
 
 </div>
 
-> [!IMPORTANT]
-> The website is deployed, but its live graph has no imported inventory yet.
-> GitHub synchronization is not connected. The investigation workflows have been
-> tested with labeled synthetic fixtures; the hosted site is not yet a live
-> security monitoring service. Findings describe **potential attack paths**, not
-> proof of exploitable access.
+> [!NOTE]
+> The hosted explorer is connected to the public
+> [ShadowChain AI repository](https://github.com/deveshsinghal09/shadowchain-ai).
+> Its inventory, evidence, agent observations, and handoffs are stored in FalkorDB.
+> Operators refresh the source from the GitHub panel. Findings are review signals,
+> not proof of exploitable access. AWS is disabled and is not required.
 
 ## Why we built it
 
@@ -55,9 +55,9 @@ depends on the organizer's rules and the actual development timeline.
 | Continue unfinished work      | Reconstruct agent progress, task ownership, and handoffs from FalkorDB after a restart.      |
 | Compare possible remediations | Simulate a modeled relationship removal without changing live permissions.                   |
 
-The Python workflows and the explorer have separate graph schemas. Their live
-adapter is still pending; the table describes repository capabilities, not a claim
-that every workflow is available through the deployed frontend.
+The Python workflows and the explorer have separate graph schemas. The live GitHub pipeline runs six deterministic repository-investigation stages
+in the explorer API. The Python IAM/LangGraph workflows remain a separate,
+locally tested capability; they are not used to invent AWS findings from GitHub data.
 
 ## Architecture
 
@@ -74,6 +74,8 @@ flowchart TB
 
     Web -->|"/api/*"| Explorer
     Web -->|"/api/v1/*"| Python
+    Explorer --> RepoAgents
+    RepoAgents -->|"Evidence, memories and handoffs"| DB
     Python --> Agents
     Explorer -->|"Parameterized Cypher · explorer schema"| DB
     Python -->|"Parameterized Cypher · security schema"| DB
@@ -130,9 +132,11 @@ Open **[shadowchain-ai.vercel.app](https://shadowchain-ai.vercel.app/)**. Public
 browsing needs no token. Private investigation history, saving, and configured
 Gemini explanations require an operator session.
 
-The graph is currently marked `live-unconfigured`. An API key alone will not import
-data. GitHub is the planned source integration; its importer has not been built.
-AWS and CloudTrail are disabled in the hosted environment. Bedrock is not required.
+The GitHub source panel shows the imported commit, the last check time, evidence
+coverage, and completed agent tasks. Operators can select **Sync GitHub now** to
+refresh the allowlisted public repository. No GitHub token is needed for public
+reads within GitHub's anonymous rate limit. AWS, CloudTrail, and Bedrock are not
+required; AWS integrations remain disabled.
 
 Operators configure credentials in Railway, never browser code. For token access,
 Gemini settings, and service URLs, follow the
@@ -187,12 +191,13 @@ the environments and what each check actually exercised.
 | Recorded check                        | Result                                                                                                     | Details                                                |
 | ------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
 | Python backend audit                  | 457 passed, including 202 real FalkorDB integration tests                                                  | [Completion report](docs/BACKEND_COMPLETION_REPORT.md) |
-| Explorer server, public-access update | 17 passed, including isolated real-graph and mocked Gemini tests                                           | [Deployment record](docs/RAILWAY_VERCEL_DEPLOYMENT.md) |
-| Local browser suite                   | 4 passed: graph paths, saved evidence, controls, mobile, and reduced motion                                | [Deployment record](docs/RAILWAY_VERCEL_DEPLOYMENT.md) |
+| Explorer server, public-access update | 30 passed, including real-graph live-pipeline, recovery, simulation, and mocked-provider tests             | [Deployment record](docs/RAILWAY_VERCEL_DEPLOYMENT.md) |
+| Local browser suite                   | 6 passed: graph paths, saved evidence, source activity, review, mobile, and reduced motion                 | [Deployment record](docs/RAILWAY_VERCEL_DEPLOYMENT.md) |
 | Hosted smoke                          | Health, database readiness, public access, operator login, origin checks, and desktop/mobile checks passed | [Deployment record](docs/RAILWAY_VERCEL_DEPLOYMENT.md) |
 
-Live GitHub imports, live Gemini generation, production backup restoration, and
-failover have not been verified. The shared operator session is not a replacement
+A real public GitHub import, graph-backed handoffs, duplicate prevention,
+read-only simulation, and reconnect retrieval have been verified. A live Gemini explanation was also validated against graph-derived facts.
+Production backup restoration and failover have not been verified. The shared operator session is not a replacement
 for individual user accounts. Multiple replicas need shared session configuration.
 The hosted Python workflow restrictions must not be bypassed by changing the app
 to development mode.
@@ -208,6 +213,7 @@ FalkorDB instance; browser tests use explicitly labeled local fixtures.
 | ----------------------------- | -------------------------------------------------------------------------------------------------- |
 | Understand the data model     | [Graph schema](docs/graph_schema.md)                                                               |
 | Connect to the Python backend | [API contract](docs/API_CONTRACT.md)                                                               |
+| Connect a public repository   | [GitHub integration](docs/GITHUB_INTEGRATION.md)                                                   |
 | Use the explorer endpoints    | [GraphVerse API](graphverse/docs/API.md)                                                           |
 | Extend the frontend           | [Frontend integration guide](docs/FRONTEND_INTEGRATION_GUIDE.md)                                   |
 | Understand risk and memory    | [Risk engine](docs/risk_engine.md) · [Persistent memory](docs/memory.md)                           |

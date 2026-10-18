@@ -17,7 +17,7 @@ export interface ExplorerState {
   answer: Answer | null;
   activeCluster: string | null;
   hiddenClusters: string[];
-  panel: 'entity' | 'path' | 'answer' | 'clusters' | 'memory' | 'help' | null;
+  panel: 'entity' | 'path' | 'answer' | 'clusters' | 'memory' | 'help' | 'source' | null;
   quality: Quality;
   bloom: boolean;
   direction: boolean;

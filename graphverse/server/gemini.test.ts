@@ -74,6 +74,35 @@ test('Empty graph facts make no Gemini requests', async () => {
     empty,
   );
 });
+test('Gemini 3 text signatures are accepted as metadata and never returned as instructions', async () => {
+  const fake: typeof fetch = async () =>
+    new Response(
+      JSON.stringify({
+        candidates: [
+          {
+            finishReason: 'STOP',
+            content: {
+              parts: [
+                {
+                  text: JSON.stringify({
+                    summary: 'One observed relationship; authorization is unverified.',
+                    evidence_ids: ['evidence-1'],
+                  }),
+                  thoughtSignature: 'opaque-provider-metadata',
+                },
+              ],
+            },
+          },
+        ],
+      }),
+    );
+  const result = await new GeminiExplainer('test-key', 'gemini-3.1-flash-lite', fake).explain(
+    input,
+  );
+  assert.equal(result.mode, 'gemini');
+  assert.ok(!JSON.stringify(result).includes('opaque-provider-metadata'));
+  assert.deepEqual(result.evidence, input.evidence);
+});
 
 test('Authentication failure is not retried and never leaks provider error text', async () => {
   let calls = 0;

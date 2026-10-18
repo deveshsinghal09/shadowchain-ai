@@ -31,7 +31,8 @@ import {
 } from 'lucide-react';
 import { api, ApiError } from './api';
 import { useExplorer, colors, type Quality } from './store';
-import type { Entity, PathData } from '../shared/types';
+import type { Entity, PathData, Simulation } from '../shared/types';
+import LivePanel from './LivePanel';
 const Universe = lazy(() => import('./Universe'));
 class SceneBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
@@ -82,6 +83,7 @@ function IconButton({
 export default function App() {
   const s = useExplorer(),
     [connected, setConnected] = useState(false),
+    [operator, setOperator] = useState(false),
     [login, setLogin] = useState(false),
     [token, setToken] = useState(''),
     [busy, setBusy] = useState(false),
@@ -97,6 +99,8 @@ export default function App() {
     [saving, setSaving] = useState(false),
     [journeySaveKey, setJourneySaveKey] = useState(crypto.randomUUID()),
     [queryTime, setQueryTime] = useState<number | null>(null);
+  const [simulation, setSimulation] = useState<Simulation | null>(null);
+  const [reviewReason, setReviewReason] = useState('');
   const searchRef = useRef<HTMLInputElement>(null);
   async function run<T>(operation: () => Promise<T>): Promise<T | undefined> {
     setBusy(true);
@@ -113,17 +117,22 @@ export default function App() {
   }
   async function load() {
     const start = performance.now();
+    const session = await api.session();
+    setOperator(session.authenticated);
     const [graph, clusters, investigations] = await Promise.all([
       api.graph(),
       api.clusters(),
-      api.investigations(),
+      session.authenticated ? api.investigations() : Promise.resolve([]),
     ]);
     s.set({ graph, clusters, investigations });
     const selectable = graph.nodes.filter((node) => node.type !== 'Cluster');
+    const liveOrigin = graph.edges.find((edge) => edge.type === 'OWNS')?.source;
+    const liveTarget = graph.edges.find((edge) => edge.type === 'DECLARES_DEPENDENCY')?.target;
     setFrom((value) =>
       selectable.some((node) => node.id === value)
         ? value
         : (selectable.find((node) => node.id === 'alice' && node.synthetic)?.id ??
+          liveOrigin ??
           selectable[0]?.id ??
           ''),
     );
@@ -131,6 +140,7 @@ export default function App() {
       selectable.some((node) => node.id === value)
         ? value
         : (selectable.find((node) => node.id === 'vault' && node.synthetic)?.id ??
+          liveTarget ??
           selectable.at(-1)?.id ??
           ''),
     );
@@ -143,10 +153,7 @@ export default function App() {
     }
   }
   useEffect(() => {
-    void api
-      .session()
-      .then(() => run(load))
-      .catch(() => setLogin(true));
+    void run(load);
     const keyboard = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
@@ -186,6 +193,7 @@ export default function App() {
     setQuery('');
   };
   const showPath = (path: PathData) => {
+    setSimulation(null);
     s.set({
       path,
       panel: 'path',
@@ -346,6 +354,13 @@ export default function App() {
       </section>
       <nav className="dock glass" aria-label="Explorer views">
         <IconButton
+          label="GitHub source and agent activity"
+          active={s.panel === 'source'}
+          onClick={() => s.set({ panel: s.panel === 'source' ? null : 'source' })}
+        >
+          <Radio />
+        </IconButton>
+        <IconButton
           label="Universe overview"
           active={!s.panel}
           onClick={() => {
@@ -442,12 +457,24 @@ export default function App() {
                       ? 'CLUSTER GALAXIES'
                       : s.panel === 'memory'
                         ? 'MEMORY ORBIT'
-                        : 'FLIGHT MANUAL'}
+                        : s.panel === 'source'
+                          ? 'LIVE SOURCE & AGENTS'
+                          : 'FLIGHT MANUAL'}
             </div>
             <IconButton label="Close inspector" onClick={() => s.set({ panel: null })}>
               <X size={16} />
             </IconButton>
           </div>
+          {s.panel === 'source' && (
+            <LivePanel
+              operator={operator}
+              onLogin={() => setLogin(true)}
+              onRefresh={async () => {
+                await load();
+                s.set({ panel: 'source' });
+              }}
+            />
+          )}
           {s.panel === 'entity' && s.selected && (
             <>
               <div
@@ -650,6 +677,100 @@ export default function App() {
                     <Play size={15} />
                     {s.motion ? 'Begin hyperdrive' : 'Show destination'}
                   </button>
+                  {s.path.edges.length > 0 && (
+                    <details className="simulation-panel">
+                      <summary>What if a relationship is removed?</summary>
+                      <p className="fineprint">
+                        Recompute the path without one modeled connection. GitHub and stored
+                        inventory stay unchanged.
+                      </p>
+                      {s.path.edges.map((edge) => (
+                        <button
+                          className="quiet wide"
+                          key={edge.id}
+                          disabled={busy}
+                          onClick={() => {
+                            if (!operator) {
+                              setLogin(true);
+                              return;
+                            }
+                            const path = s.path!;
+                            void run(async () =>
+                              setSimulation(
+                                await api.simulate(
+                                  path.ordered_node_ids[0],
+                                  path.ordered_node_ids.at(-1)!,
+                                  edge.id,
+                                ),
+                              ),
+                            );
+                          }}
+                        >
+                          Simulate removal: {edge.type.replaceAll('_', ' ')}
+                        </button>
+                      ))}
+                      {simulation && (
+                        <>
+                          <div role="status">
+                            <strong>
+                              {simulation.path_broken
+                                ? 'This modeled path is broken.'
+                                : 'An alternate modeled path remains.'}
+                            </strong>
+                            <p>{simulation.explanation}</p>
+                            <small>
+                              Before: {simulation.before.edges.length} edges · After:{' '}
+                              {simulation.after.edges.length} edges · No permissions changed
+                            </small>
+                            <p>Proposal: {simulation.status.replaceAll('_', ' ')}</p>
+                          </div>
+                          {!['APPROVED', 'REJECTED'].includes(simulation.status) && (
+                            <>
+                              <label className="field-label">
+                                Review note
+                                <input
+                                  aria-label="Simulation review note"
+                                  value={reviewReason}
+                                  maxLength={500}
+                                  onChange={(e) => setReviewReason(e.target.value)}
+                                  placeholder="Why should this recommendation be reviewed?"
+                                />
+                              </label>
+                              {(simulation.status === 'PROPOSED'
+                                ? (['UNDER_REVIEW'] as const)
+                                : (['APPROVED', 'REJECTED'] as const)
+                              ).map((status) => (
+                                <button
+                                  className="quiet wide"
+                                  key={status}
+                                  disabled={busy || !reviewReason.trim()}
+                                  onClick={() =>
+                                    void run(async () => {
+                                      const result = await api.reviewSimulation(
+                                        simulation.id,
+                                        status,
+                                        reviewReason,
+                                      );
+                                      setSimulation({ ...simulation, status: result.status });
+                                      setNotice(
+                                        'Review saved. No permission changes were executed.',
+                                      );
+                                    })
+                                  }
+                                >
+                                  {status === 'UNDER_REVIEW'
+                                    ? 'Start human review'
+                                    : status === 'APPROVED'
+                                      ? 'Approve recommendation only'
+                                      : 'Reject recommendation'}
+                                </button>
+                              ))}
+                            </>
+                          )}
+                        </>
+                      )}
+                    </details>
+                  )}
                   <label className="field-label save-label">
                     SAVE THIS INVESTIGATION
                     <input
@@ -662,8 +783,12 @@ export default function App() {
                   </label>
                   <button
                     className="quiet wide"
-                    disabled={saving || !saveTitle.trim()}
+                    disabled={saving || (operator && !saveTitle.trim())}
                     onClick={() => {
+                      if (!operator) {
+                        setLogin(true);
+                        return;
+                      }
                       setSaving(true);
                       void run(async () => {
                         const p = s.path!;
@@ -679,7 +804,8 @@ export default function App() {
                       }).finally(() => setSaving(false));
                     }}
                   >
-                    <BookOpen size={14} /> Save to memory
+                    <BookOpen size={14} />{' '}
+                    {operator ? 'Save to memory' : 'Operator sign in to save'}
                   </button>
                 </>
               )}
@@ -729,7 +855,19 @@ export default function App() {
             <>
               <h2>Discoveries remembered.</h2>
               <p>Your investigations and their exact evidence paths, persisted in FalkorDB.</p>
-              {s.investigations.length ? (
+              {!operator ? (
+                <div className="empty-state">
+                  <Orbit size={30} />
+                  <h3>Saved investigations are private.</h3>
+                  <p>
+                    Everyone can explore the graph. Operator access is required to view and save
+                    investigation history.
+                  </p>
+                  <button className="quiet wide" onClick={() => setLogin(true)}>
+                    Operator sign in
+                  </button>
+                </div>
+              ) : s.investigations.length ? (
                 s.investigations.map((i) => (
                   <button
                     className="memory-card"
@@ -1051,7 +1189,7 @@ export default function App() {
             }}
           >
             <div className="panel-heading">
-              <span className="eyebrow">YOUR PRIVATE OBSERVATORY</span>
+              <span className="eyebrow">OPERATOR ACCESS</span>
               <IconButton label="Close connection dialog" onClick={() => setLogin(false)}>
                 <X size={16} />
               </IconButton>
@@ -1059,10 +1197,10 @@ export default function App() {
             <div className="connect-orbit">
               <Orbit size={40} />
             </div>
-            <h2 id="connect-title">Connect your universe.</h2>
+            <h2 id="connect-title">Operator sign in.</h2>
             <p>
-              Enter your operator token to explore your FalkorDB graph. Credentials stay out of
-              graph data and browser storage.
+              Operator access lets you save investigations and use configured AI explanations.
+              Public graph browsing does not require a token when enabled.
             </p>
             <label className="field-label">
               OPERATOR TOKEN
@@ -1083,10 +1221,9 @@ export default function App() {
               to FalkorDB
             </button>
             <p className="fineprint">
-              Use the token created by the local setup script. No AWS account or AI API key
-              required.
+              Use your hosted operator token for this website. Never share it with visitors.
             </p>
-            {connected && (
+            {operator && (
               <button
                 type="button"
                 className="quiet wide"
@@ -1107,7 +1244,10 @@ export default function App() {
                       journey: 'idle',
                     });
                     setConnected(false);
+                    setOperator(false);
                     setToken('');
+                    setLogin(false);
+                    await load();
                   })
                 }
               >

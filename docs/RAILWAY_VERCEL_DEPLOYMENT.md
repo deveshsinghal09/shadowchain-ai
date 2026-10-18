@@ -1,5 +1,9 @@
 # Railway and Vercel deployment
 
+> Current status (2026-10-18): the website now reads real public GitHub inventory
+> from `deveshsinghal09/shadowchain-ai`. AWS remains disabled. See the latest
+> GitHub verification section below; older empty-graph receipts are historical.
+
 Deployment date: 2026-10-17. These are operator deployments from the local checkout, not Git autodeployments. No Git remote is configured.
 
 ## Addresses and ownership
@@ -36,7 +40,7 @@ Production tokens are stored outside the repository under `%LOCALAPPDATA%\Shadow
 2. Select **graphverse-api**, then **Variables**.
 3. Add `GEMINI_API_KEY` and paste your Google AI Studio API key as its value.
 4. Set `GRAPHVERSE_AI_PROVIDER=gemini`.
-5. Set `GEMINI_MODEL` to a supported model available to your Google project. The configured default is `gemini-3.8-flash`; account access and quotas have not been verified.
+5. Set `GEMINI_MODEL` to a supported model available to your Google project. The current explorer default is `gemini-3.1-flash-lite`, confirmed in the key's model listing. Generation and account quota are checked separately.
 6. Apply the staged variable changes and deploy/redeploy that service.
 
 The hosted explorer provider has been configured as `gemini`; public questions still use deterministic graph answers, while only signed-in operators can invoke the configured provider. Gemini adds prose over bounded graph-derived counts with validated citations. It cannot supply graph paths, execute commands or change AWS. With no graph evidence, it makes no model request. The current graph is empty, so adding a key alone will not produce an evidence-based explanation.
@@ -125,3 +129,91 @@ The hosted browser smoke passed at `2026-10-17T13:52:17.919Z` with `public_brows
 - **Gemini error:** verify the key, model access and quota in the server service. Provider error bodies are intentionally not exposed. Graph browsing remains available.
 - **403/404 from workflow or AWS controls:** the current production route restrictions are intentional and require a production authorization adapter, not a configuration bypass.
 - **Updates not appearing:** these are CLI deployments, not Git autodeployments; repeat the relevant upload/deploy command after checks pass.
+
+## Live GitHub integration verification � 2026-10-18
+
+The GitHub repository was made public at the user's request after a targeted
+scan of 291 reachable committed blobs. Matches were dummy private-key header
+strings in validation tests and recorded test names, without key bodies. This was
+not a claim of exhaustive secret detection. The default branch is now `main`;
+GitHub history remains at 100 commits before any further approved publication.
+
+Railway explorer deployment `f1fdf3a6-6527-49ff-9219-29eecd472421` imported real
+anonymous GitHub data. The hosted receipt at `2026-10-18T06:04:43.909Z` records
+91 entities, 209 relationships, zero synthetic entities, six completed stages,
+six persisted handoffs, cross-agent memory retrieval, actual graph traversal,
+simulation breaking a path while preserving the original, saved investigation
+retrieval, and duplicate import prevention.
+
+The hosted browser check at `2026-10-18T06:06:26.200Z` passed public browsing,
+private-route protection, secure operator login, imported WebGL graph rendering,
+source task display, origin rejection, and mobile layout without JavaScript
+exceptions. The recovery check at `2026-10-18T06:11:26.230Z` confirmed inventory,
+completed task IDs/timestamps, and a saved investigation persisted after a real
+Railway backend redeploy (`c23fd0b0-1a35-4071-bd3d-cd28f73a3c49`).
+
+Vercel deployment `dpl_YqYvRhte4ckuNq3NQTv1g1CYQFig` is READY at the existing
+production alias. The original Python health/readiness endpoints still pass,
+and production settings were checked as `AWS_ENABLED=false`,
+`CLOUDTRAIL_ENABLED=false`, and `EXPORT_MODE=local`.
+
+Local verification completed:
+
+- `npm run build`: TypeScript and Vite passed.
+- `npm test`: 30 passed, zero failed/skipped; real isolated FalkorDB, mocked
+  upstream failure cases, fresh-process task recovery, source reverts, temporal
+  evidence, proposal decisions, tenant boundaries, and model-failure fallback.
+- `npm run test:e2e`: six passed (2.4 minutes); four existing explorer tests plus
+  public source activity and operator simulation/review/save/reload browser tests.
+- `npm run format:check`: passed after formatting the new browser test.
+- `npm audit --omit=dev --audit-level=high`: zero known vulnerabilities reported.
+- `npx tsx scripts/verify-live-github.ts deveshsinghal09/shadowchain-ai`: real
+  GitHub HTTP and real isolated FalkorDB passed; test graph removed afterward.
+- `npx tsx scripts/connect-hosted-github.ts`: hosted import, graph evidence,
+  saved investigation, simulation, and idempotent refresh passed.
+- `npx tsx scripts/verify-deployment.ts`: hosted desktop/mobile browser smoke passed.
+- `npx tsx scripts/verify-hosted-recovery.ts`: redeploy persistence passed.
+
+The optional Gemini key can list models from Railway. Its previous configured
+model (`gemini-3.8-flash`) was absent from that listing. It was changed to the
+available stable `gemini-2.5-flash`. A usable model listing does not prove generation
+quota. Optional model failure returns the deterministic graph answer with a clear
+note rather than blocking evidence retrieval. No provider error body or key is
+returned to the browser.
+
+The mechanical UI detector reported two font-style warnings in the existing
+Instrument Sans declarations. The established typography was retained; this was a
+source/operation feature, not a visual redesign. These are not functional failures.
+
+See [GitHub integration](GITHUB_INTEGRATION.md) for exact endpoints and coverage.
+This is an operator-refreshed repository evidence system; automatic GitHub
+monitoring, webhooks, complete dependency scanning, and effective permission
+analysis are not implemented. The live TypeScript stages and separate Python
+IAM/LangGraph workflows remain explicitly distinguished. Backups, failover,
+individual user federation, and Railway config-format migration remain operating
+work; no success is claimed for them.
+
+### Final Gemini and persistence result
+
+At `2026-10-18T06:20:37.061Z`, the hosted recovery script verified a real Gemini
+explanation using `gemini-3.1-flash-lite` and graph-derived facts. The same check
+confirmed all 91 entities, 209 relationships, completed task IDs/timestamps, and
+the saved investigation remained available after the backend redeploys.
+
+The initial `gemini-3.8-flash` configuration did not produce a verified response.
+Although `gemini-2.5-flash` appeared in the model list, its generation request
+returned HTTP 404. `gemini-3.1-flash-lite` generated a response, but the original
+adapter rejected its documented `thoughtSignature` metadata. The adapter now
+accepts that bounded opaque field on a text part, discards it, and still rejects
+function calls, executable fields, ungrounded citations, and invalid summaries.
+A regression test covers this response format. Provider metadata checks alone
+still do not claim to verify generation; the actual question response did.
+
+Latest verified server suite: 30 tests passed. The configured default and hosted
+model are now `gemini-3.1-flash-lite`. The current explicit key is unchanged and
+was never printed. An exact-value scan of four client files against four configured
+secret values found zero matches; this is not an exhaustive secret audit.
+
+Final backend code upload for the generic authorization wording:
+`6a5681ef-e689-405e-b192-d4bd7d804bed`. Vercel remains at
+`dpl_YqYvRhte4ckuNq3NQTv1g1CYQFig`; the later changes are server-only.
